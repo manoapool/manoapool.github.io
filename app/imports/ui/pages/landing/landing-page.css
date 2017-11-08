@@ -1,25 +1,25 @@
 .landing-section-1 {
   padding: 10px 10px 30px 10px;
-  background-color: #00B5AD;
-  color: #E5F9E7;
+  background-color: white;
+  color: #024731;
 }
 
 .landing-section-2 {
   padding: 20px 10px 20px 10px;
-  background-color: #E5F9E7;
-  color:  #00B5AD;
+  background-color: #024731;
+  color:  white;
 }
 
 .landing-section-3 {
   padding: 20px 10px 30px 30px;
-  background-color: #00B5AD;
-  color: #E5F9E7;
+  background-color: white;
+  color: #024731;
 }
 
-.landing-section-5 {
+.landing-section-4 {
   padding: 20px 10px 20px 10px;
-  background-color: #00B5AD;
-  color: #E5F9E7;
+  background-color: #024731;
+  color: white;
 }
 
 
@@ -30,7 +30,27 @@
 }
 
 .landing-section-header {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 600;
   font-size: 36px;
+  position: relative;
+  clear: both;
+  text-align: center;
+  display: block;
 }
+
+.landing-section-header1 {
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  position: relative;
+  clear: both;
+  text-align: center;
+  display: block;
+
+}
+
+.ui.medium.centered.rounded.image{
+  float: left;
+}
+

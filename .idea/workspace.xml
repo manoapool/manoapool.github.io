@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20dad44c-13a6-4dea-bf7d-2a8a14653461" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/public/images/landing-page(1).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/public/images/landing-page(2).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/public/images/landing-page.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/public/images/landing-section-1-back.jpg" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/public/images/landing-page(1).jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/public/images/landing-page.jpg" afterPath="$PROJECT_DIR$/app/public/images/landing-page.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/imports/ui/pages/landing/landing-page.css" afterPath="$PROJECT_DIR$/app/imports/ui/pages/landing/landing-page.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/imports/ui/pages/landing/landing-page.html" afterPath="$PROJECT_DIR$/app/imports/ui/pages/landing/landing-page.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,17 +26,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="landing-page.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="landing-page.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/imports/ui/pages/landing/landing-page.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+            <state relative-caret-position="210">
+              <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="landing-page.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="landing-page.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/imports/ui/pages/landing/landing-page.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="317">
@@ -74,8 +66,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/imports/ui/pages/landing/landing-page.css" />
         <option value="$PROJECT_DIR$/app/imports/ui/pages/landing/landing-page.html" />
+        <option value="$PROJECT_DIR$/app/imports/ui/pages/landing/landing-page.css" />
       </list>
     </option>
   </component>
@@ -93,8 +85,8 @@
     <handled-path value="$PROJECT_DIR$/app/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-27" />
-    <option name="y" value="202" />
+    <option name="x" value="22" />
+    <option name="y" value="150" />
     <option name="width" value="1280" />
     <option name="height" value="674" />
   </component>
@@ -295,7 +287,7 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-27" y="202" width="1280" height="674" extended-state="0" />
+    <frame x="22" y="150" width="1280" height="674" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -404,18 +396,18 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/imports/ui/pages/landing/landing-page.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/imports/ui/pages/landing/landing-page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
           <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/imports/ui/pages/landing/landing-page.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding />
         </state>
       </provider>

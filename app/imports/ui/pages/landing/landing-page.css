@@ -8,20 +8,20 @@
 
 .landing-section-2 {
   padding: 20px 10px 20px 10px;
-  background-color: #76A5BD;
-  color: white;
-}
-
-.landing-section-3 {
-  padding: 20px 10px 30px 30px;
   background-color: white;
   color: black;
 }
 
+.landing-section-3 {
+  padding: 20px 10px 30px 30px;
+  background-color: #76A5BD;
+  color: white;
+}
+
 .landing-section-4 {
   padding: 20px 10px 20px 10px;
-  background-color:#76A5BD;
-  color: white;
+  background-color:white;
+  color: #76A5BD;
 }
 
 

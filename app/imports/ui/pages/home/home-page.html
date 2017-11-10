@@ -1,47 +1,44 @@
 <template name="Home_Page">
+  <link rel="stylesheet" href="home-page.css">
+  <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
 
 {{#if Template.subscriptionsReady}}
-
-  <div class="ui text container segment">
-    <div class="ui dividing header">
-      Profile
+  <div class="ui container">
+    <h1 style="color: black; font-family: 'Josefin Sans', Georgia, serif">Welcome,  <u>person</u>!</h1>
+    <div class="ui centered grid">
+      <div class="four wide column">
+        <button class="massive blue ui button" style="border-radius: 50px">
+          Give a RIDE!
+        </button>
+      </div>
+      <div class="four wide column">
+        <button class="massive blue ui button" style="border-radius: 50px">
+          Find a RIDE!
+        </button>
+      </div>
     </div>
-    <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
-
-      <div class="fields">
-        {{> Text_Form_Control label="First" placeholder="Philip" value=profile.firstName errorMessage=(fieldError "firstName")}}
-        {{> Text_Form_Control label="Last" placeholder="Johnson" value=profile.lastName errorMessage=(fieldError "lastName")}}
-
-      </div>
-
-      <div class="field">
-        {{> Text_Form_Control label="Title" placeholder="Student" value=profile.title errorMessage=(fieldError "title")}}
-        {{> Text_Form_Control label="Location" placeholder="Location" value=profile.location errorMessage=(fieldError "location")}}
-        {{> Text_Form_Control label="Picture" placeholder="http://foo.com/shot.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
-      </div>
-
-      <div class="field">
-        {{> Select_Form_Control label="Interests" options=interests errorMessage=(fieldError "interests") multiple=true }}
-      </div>
-
-      <div class="fields">
-
-        {{> Social_Network_Form_Control label="Github" icon="github" placeholder="pmjohnson" value=profile.github errorMessage=(fieldError "github")}}
-        {{> Social_Network_Form_Control label="Facebook" icon="facebook" placeholder="pmjohnson" value=profile.facebook errorMessage=(fieldError "facebook")}}
-        {{> Social_Network_Form_Control label="Instagram" icon="instagram" placeholder="pmjohnson" value=profile.instagram errorMessage=(fieldError "instagram")}}
-
-      </div>
-
-      {{> TextArea_Form_Control label="Bio" value=profile.bio placeholder="Short bio statement here" errorMessage=(fieldError "bio")}}
-
-
-      <button class="ui primary button" type="submit">Submit</button>
-      {{#if displaySuccessMessage}}
-        <div class="ui success message">
-          <p>Profile data successfully updated.</p>
+    <div class="ui grid" style="margin-top: 60px">
+      <div class="centered six wide column">
+        <h1 style="font-size: 50px; font-family: 'Josefin Sans', Georgia, serif">Scheduled Car Pools</h1>
+        <div class="ui bulleted list">
+          <div class="item">Daquavius Bryant</div>
+          <div class="item">Novemeber 12, 2017</div>
+          <div class="item">
+            <div>8:00 am</div>
+          </div>
         </div>
-      {{/if}}
-    </form>
+      </div>
+      <div class="centered six wide column">
+        <h2 style="font-size: 50px; font-family: 'Josefin Sans', Georgia, serif">Carpool History</h2>
+        <div class="ui bulleted list">
+          <div class="item">Daquavius Bryant</div>
+          <div class="item">Novemeber 12, 2017</div>
+          <div class="item">
+            <div>5-stars</div>
+      </div>
+    </div>
+  </div>
+    </div>
   </div>
 
   {{/if}}

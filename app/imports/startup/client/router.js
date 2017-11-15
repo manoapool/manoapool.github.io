@@ -68,6 +68,14 @@ userRoutes.route('/filter', {
   },
 });
 
+export const ratingsPageRouteName = 'Ratings_Page';
+userRoutes.route('/ratings', {
+  name: ratingsPageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: ratingsPageRouteName });
+  },
+});
+
 export const homePageRouteName = 'Home_Page';
 userRoutes.route('/home', {
   name: homePageRouteName,

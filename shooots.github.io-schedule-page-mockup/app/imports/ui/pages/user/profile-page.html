@@ -1,0 +1,72 @@
+<template name="Profile_Page">
+
+{{#if Template.subscriptionsReady}}
+
+  <div class="ui text container segment">
+    <div class="ui dividing header">
+      Update Profile
+    </div>
+    <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
+
+      <div class="field">
+        <div class="profile-image" style="border: 1px solid black; max-width: 300px; height: 300px; overflow: hidden;">
+          <img src="/images/default-profile-pic.jpg" style="max-width: 300px; height: 300px;">
+        </div>
+        <input type="file" name="image">
+      </div>
+
+      <div class="fields">
+        {{> Text_Form_Control label="First" placeholder="Philip" value=profile.firstName errorMessage=(fieldError "firstName")}}
+        {{> Text_Form_Control label="Last" placeholder="Johnson" value=profile.lastName errorMessage=(fieldError "lastName")}}
+      </div>
+
+      <div class="field">
+        {{> Checkbox_Form_Control label="Status" value=profile.status errorMessage=(fieldError "status")}}
+      </div>
+
+      <div class="fields">
+        <div class="field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="Driver" id="Driver" value="profile.driver" checked=true>
+            <label>Driver</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="Rider" id="Rider" value="profile.rider" checked=true>
+            <label>Rider</label>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="field">
+          {{> Text_Form_Control label="Address" placeholder="Address" value=profile.address errorMessage=(fieldError "address")}}
+      </div>
+
+      <div class="fields">
+        {{> Text_Form_Control label="City" placeholder="Honolulu" value=profile.city errorMessage=(fieldError "city")}}
+        {{> Text_Form_Control label="Zipcode" placeholder="96822" value=profile.zipcode errorMessage=(fieldError "zipcode")}}
+      </div>
+
+      <div class="field">
+        {{> Text_Form_Control label="UH Email" placeholder="username@hawaii.edu" value=profile.email errorMessage=(fieldError "email")}}
+      </div>
+
+      {{> Text_Form_Control label="Phone Number" value=profile.phoneNumber placeholder="(808) 000-0000" errorMessage=(fieldError "phoneNumber")}}
+
+
+      <button class="ui fluid primary button" type="submit">Submit</button>
+      {{#if displaySuccessMessage}}
+        <div class="ui success message">
+          <p>Profile data successfully updated.</p>
+        </div>
+      {{/if}}
+
+    </form>
+
+  </div>
+
+  {{/if}}
+
+</template>

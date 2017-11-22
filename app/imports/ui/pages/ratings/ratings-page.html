@@ -2,77 +2,10 @@
   {{#if Template.subscriptionsReady}}
   <div style="margin-top: 10px" class="ui container">
 
-    <div class="ui grid">
-      <div class="ui four row column">hello </div>
-      <div class="ui four row column">hello</div>
-      <div class="ui four row column">hello</div>
-      <div class="ui four row column">hello</div>
-    </div>
-
-    <div class="ui three column grid">
-      <div class="column">
-        <div class="ui fluid card">
-          <div class="image">
-            <img src="/images/default-profile-pic.jpg">
-          </div>
-          <div class="content">
-            <a class="header">Daniel Louise</a>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui fluid card">
-          <div class="image">
-            <img src="/images/default-profile-pic.jpg">
-          </div>
-          <div class="content">
-            <a class="header">Helen Troy</a>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui fluid card">
-          <div class="image">
-            <img src="/images/default-profile-pic.jpg" class="hoverZoomLink">
-          </div>
-          <div class="content">
-            <a class="header">Elliot Fu</a>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui fluid card">
-          <div class="image">
-            <img src="/images/default-profile-pic.jpg" class="hoverZoomLink">
-          </div>
-          <div class="content">
-            <a class="header">Elliot Fu</a>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui fluid card">
-          <div class="image">
-            <img src="/images/default-profile-pic.jpg" class="hoverZoomLink">
-          </div>
-          <div class="content">
-            <a class="header">Elliot Fu</a>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui fluid card">
-          <div class="image">
-            <img src="/images/default-profile-pic.jpg" class="hoverZoomLink">
-          </div>
-          <div class="content">
-            <a class="header">Elliot Fu</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <h1 class="ui dividing header">
+      Drivers of the Month
+    </h1>
+    {{> Ratings_Page_Directory profiles=profiles }}
   </div>
-
   {{/if}}
 </template>

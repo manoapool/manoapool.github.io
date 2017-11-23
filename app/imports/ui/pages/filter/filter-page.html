@@ -2,24 +2,15 @@
   {{#if Template.subscriptionsReady}}
     <div style="margin-top: 10px" class="ui container">
 
-      <div class="ui grid">
-
-        <div class="ui six wide column">
-          <h1 class="ui small header">Schedule a Ride</h1>
-          <form class="ui equal width form filter-data-form">
-            <div class="field">
-              {{> Select_Form_Control label="Interests" options=interests multiple=true }}
-              {{> Select_Form_Control label="City" options=cities multiple=false }}
-              {{> Text_Form_Control label="Zipcode" placeholder="Enter" }}
-
-            </div>
-            <button class="ui teal button" type="submit">Filter</button>
-          </form>
+      <form class="ui equal width form filter-data-form">
+        <div class="field">
+          {{> Select_Form_Control label="Interests" options=interests multiple=true }}
         </div>
-      <div class="ui ten wide column">
+        <button class="ui teal button" type="submit">Filter</button>
+      </form>
+
       {{> Filter_Page_Directory profiles=profiles }}
-      </div>
-    </div>
+
     </div>
   {{/if}}
 </template>

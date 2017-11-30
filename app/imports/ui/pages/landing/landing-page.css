@@ -6,13 +6,18 @@
 }
 
 
-.landing-section-3 {
-  padding-bottom: 100px;
+.landing-section-2 {
+  padding-bottom: 0px;
   list-style: none;
   text-decoration: none;
   margin-bottom: 0px;
 }
 
+.landing-section-3 {
+  padding: 20px 10px 0px 10px;
+  background-color: #8eb9ff;
+  color: #E5F9E7;
+}
 
 .slider{
   overflow: hidden;
@@ -38,60 +43,57 @@
 }
 
 @keyframes slide{
-  0%{
-    left: 0%;
+  0% {
+    left: 0;
   }
 
-  10%{
-    left: 0%;
+  10% {
+    left: 0;
   }
 
-  12%{
+  15% {
     left: -100%;
   }
-  22%{
+
+  35% {
     left: -100%;
+
   }
-  24%{
+
+  40% {
+    left: -200%;
+
+  }
+
+  60% {
     left: -200%;
   }
-  34%{
-    left: -200%;
-  }
-  36%{
+
+  65% {
     left: -300%;
   }
-  46%{
+
+  75% {
     left: -300%;
   }
-  48%{
+
+  80%{
     left: -400%;
   }
-  58%{
-    left: -400%;
+
+  90%{
+    left: -400%
   }
-  60%{
-    left: -300%;
+
+  100% {
+    left: 0;
+
   }
-  70%{
-    left: -300%;
-  }
-  72%{
-    left: -200%;
-  }
-  82%{
-    left: -200%;
-  }
-  84%{
-    left: -100%;
-  }
-  94%{
-    left: -100%;
-  }
-  96%{
-    left: 0%;
-  }
+
 }
+
+
+
 
 .landing-section-1-welcome {
   font-family: 'Baloo', Georgia, serif;

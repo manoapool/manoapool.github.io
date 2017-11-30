@@ -13,4 +13,11 @@ settings.production.json
 # Build node_modules locally, ignore errors.
 node_modules/
 npm-debug.log
+.idea/inspectionProfiles/Project_Default.xml
+.idea/jsLinters/eslint.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
 .idea/workspace.xml
+app/.DS_Store
+app/public/images/.DS_Store

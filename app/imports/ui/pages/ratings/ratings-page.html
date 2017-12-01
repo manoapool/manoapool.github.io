@@ -1,0 +1,11 @@
+<template name="Ratings_Page">
+  {{#if Template.subscriptionsReady}}
+  <div style="margin-top: 10px" class="ui container">
+
+    <h1 class="ui dividing header">
+      Drivers of the Month
+    </h1>
+    {{> Ratings_Page_Directory profiles=profiles }}
+  </div>
+  {{/if}}
+</template>

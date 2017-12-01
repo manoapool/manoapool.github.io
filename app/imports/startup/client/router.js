@@ -68,6 +68,14 @@ userRoutes.route('/schedule', {
   },
 });
 
+export const ratingsPageRouteName = 'Ratings_Page';
+userRoutes.route('/ratings', {
+  name: ratingsPageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: ratingsPageRouteName });
+  },
+});
+
 export const filterPageRouteName = 'Filter_Page';
 userRoutes.route('/filter', {
   name: filterPageRouteName,

@@ -14,6 +14,7 @@ settings.production.json
 node_modules/
 npm-debug.log
 .idea/inspectionProfiles/Project_Default.xml
+<<<<<<< HEAD
 .idea/inspectionProfiles/Project_Default.xml
 .idea/inspectionProfiles/Project_Default.xml
 .idea/inspectionProfiles/Project_Default.xml
@@ -51,3 +52,5 @@ app/.meteor/packages
 app/.meteor/release
 app/.meteor/versions
 .idea/workspace.xml
+app/.DS_Store
+app/public/images/.DS_Store

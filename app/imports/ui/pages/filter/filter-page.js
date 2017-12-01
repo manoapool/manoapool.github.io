@@ -16,6 +16,7 @@ Template.Filter_Page.onCreated(function onCreated() {
 Template.Filter_Page.helpers({
   profiles() {
     // Initialize selectedInterests to all of them if messageFlags is undefined.
+
     if (!Template.instance().messageFlags.get(selectedInterestsKey)) {
       Template.instance().messageFlags.set(selectedInterestsKey, _.map(Interests.findAll(), interest => interest.name));
     }
@@ -34,6 +35,19 @@ Template.Filter_Page.helpers({
           };
         });
   },
+  cities() {
+    return [
+      { label: 'Honolulu' },
+      { label: 'Kailua' },
+      { label: 'Kaneohe' },
+      { label: 'Kapolei' },
+      { label: 'Waipahu' },
+      { label: 'Mililani' },
+      { label: 'Pearl City' },
+      { label: 'Aiea' },
+      { label: 'Ewa Beach' },
+    ];
+  },
 });
 
 Template.Filter_Page.events({
@@ -43,4 +57,3 @@ Template.Filter_Page.events({
     instance.messageFlags.set(selectedInterestsKey, _.map(selectedOptions, (option) => option.value));
   },
 });
-

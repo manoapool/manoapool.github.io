@@ -1,6 +1,6 @@
 <template name="Schedule_Page">
 
-{{#if Template.subscriptionsReady}}
+  {{#if Template.subscriptionsReady}}
 
   <div class="ui text container segment">
     <div class="ui dividing header">
@@ -53,9 +53,9 @@
 
       <button class="ui fluid primary button" type="submit">Schedule</button>
       {{#if displaySuccessMessage}}
-        <div class="ui success message">
-          <p>Carpool appointment successfully created.</p>
-        </div>
+      <div class="ui success message">
+        <p>Carpool appointment successfully created.</p>
+      </div>
       {{/if}}
 
     </form>

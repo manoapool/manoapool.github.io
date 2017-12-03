@@ -21,6 +21,7 @@ class CommuterCollection extends BaseCollection {
       username: { type: String },
       driver: { type: Boolean },
       city: { type: String },
+      zipcode: { type: String },
       email: { type: String },
       phone: { type: String },
       // Remainder are optional
@@ -51,16 +52,16 @@ class CommuterCollection extends BaseCollection {
    * if one or more interests are not defined.
    * @returns The newly created docID.
    */
-  define({ firstName = '', lastName = '', username, driver, city = '', address = '', email = '', phone = '', picture = '' }) {
+  define({ firstName = '', lastName = '', username, driver, city = '', zipcode = '', address = '', email = '', phone = '', picture = '' }) {
     // make sure required fields are OK.
-    const checkPattern = { firstName: String, lastName: String, username: String, driver: Boolean, city: String, address: String, email: String, phone: String, picture: String };
-    check({ firstName, lastName, username, driver, city, address, email, phone, picture}, checkPattern);
+    const checkPattern = { firstName: String, lastName: String, username: String, driver: Boolean, city: String, zipcode: String, address: String, email: String, phone: String, picture: String };
+    check({ firstName, lastName, username, driver, city, zipcode, address, email, phone, picture}, checkPattern);
 
     if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
     }
 
-    return this._collection.insert({ firstName, lastName, username, driver, city, address, email, phone, picture });
+    return this._collection.insert({ firstName, lastName, username, driver, city, zipcode, address, email, phone, picture });
   }
 
   /**
@@ -75,11 +76,12 @@ class CommuterCollection extends BaseCollection {
     const username = doc.username;
     const driver = doc.driver;
     const city = doc.city;
+    const zipcode = doc.zipcode;
     const address = doc.address;
     const email = doc.email;
     const phone = doc.phone;
     const picture = doc.picture;
-    return { firstName, lastName, username, driver, city, address, email, phone, picture };
+    return { firstName, lastName, username, driver, city, zipcode, address, email, phone, picture };
   }
 }
 

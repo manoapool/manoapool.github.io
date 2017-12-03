@@ -86,7 +86,7 @@
       "name": "ProfileCollection",
       "contents": [
         {
-          "firstName": "Lee",
+          "firstName": "Richard",
           "lastName": "Altenberg",
           "username": "altenber",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
@@ -145,6 +145,71 @@
           ],
           "title": "Professor, Information and Computer Sciences",
           "picture": "/images/casanova.jpg"
+        }
+      ]
+    },
+    {
+      "name": "CommuterCollection",
+      "contents": [
+        {
+          "firstName": "Arnold",
+          "lastName": "Altenberg",
+          "username": "altenber",
+          "driver": false,
+          "city": "Honolulu",
+          "zipcode": "96821",
+          "address": "420 Smoke Ave",
+          "email": "altenber@hawaii.edu",
+          "phone": "808-388-2144",
+          "picture": "/images/default-profile-pic.jpg"
+        },
+        {
+          "firstName": "Mary",
+          "lastName": "Baek",
+          "username": "baek",
+          "driver": true,
+          "city": "Mililani",
+          "zipcode": "94621",
+          "address": "999 Cherrybomb Ave",
+          "email": "baek@hawaii.edu",
+          "phone": "808-234-5784",
+          "picture": "/images/default-profile-pic.jpg"
+        },
+        {
+          "firstName": "Edo",
+          "lastName": "Biagioni",
+          "username": "esb",
+          "driver": true,
+          "city": "Pearl City",
+          "zipcode": "97421",
+          "address": "2910 Kapiolani Blvd.",
+          "email": "esb@hawaii.edu",
+          "phone": "808-113-7554",
+          "picture": "/images/default-profile-pic.jpg"
+        },
+        {
+          "firstName": "David",
+          "lastName": "Binsted",
+          "username": "binsted",
+          "driver": false,
+          "city": "Aiea",
+          "zipcode": "92841",
+          "address": "1234 Rainbow St.",
+          "email": "binsted@hawaii.edu",
+          "phone": "808-949-2482",
+          "picture": "/images/default-profile-pic.jpg"
+        },
+        {
+          "firstName": "Luxembourg",
+          "lastName": "Casanova",
+          "username": "henric",
+          "driver": true,
+          "city": "Honolulu",
+          "zipcode": "93834",
+          "address": "420 Smoke Ave",
+          "email": "henric@hawaii.edu",
+          "phone": "808-485-2144",
+          "picture": "/images/default-profile-pic.jpg"
         }
       ]
     }

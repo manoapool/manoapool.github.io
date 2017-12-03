@@ -3,17 +3,22 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
+import { Commuters } from '/imports/api/commuter/CommuterCollection';
 
 const selectedInterestsKey = 'selectedInterests';
 
 Template.Filter_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
+  this.subscribe(Commuters.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(selectedInterestsKey, undefined);
 });
 
 Template.Filter_Page.helpers({
+  commuters() {
+    return Profiles.find({}, { sort: { lastName: 1 } });
+  },
   profiles() {
     // Initialize selectedInterests to all of them if messageFlags is undefined.
 

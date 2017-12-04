@@ -161,7 +161,10 @@
           "address": "420 Smoke Ave",
           "email": "altenber@hawaii.edu",
           "phone": "808-388-2144",
-          "picture": "/images/default-profile-pic.jpg"
+          "picture": "/images/default-profile-pic.jpg",
+          "seats": 0,
+          "timeOfDay": "",
+          "timeSlot": ""
         },
         {
           "firstName": "Mary",
@@ -173,7 +176,10 @@
           "address": "999 Cherrybomb Ave",
           "email": "baek@hawaii.edu",
           "phone": "808-234-5784",
-          "picture": "/images/default-profile-pic.jpg"
+          "picture": "/images/default-profile-pic.jpg",
+          "seats": 2,
+          "timeOfDay": "morning",
+          "timeSlot": "10:30am"
         },
         {
           "firstName": "Edo",
@@ -185,7 +191,10 @@
           "address": "2910 Kapiolani Blvd.",
           "email": "esb@hawaii.edu",
           "phone": "808-113-7554",
-          "picture": "/images/default-profile-pic.jpg"
+          "picture": "/images/default-profile-pic.jpg",
+          "seats": 5,
+          "timeOfDay": "noon",
+          "timeSlot": "2:00pm"
         },
         {
           "firstName": "David",
@@ -197,7 +206,10 @@
           "address": "1234 Rainbow St.",
           "email": "binsted@hawaii.edu",
           "phone": "808-949-2482",
-          "picture": "/images/default-profile-pic.jpg"
+          "picture": "/images/default-profile-pic.jpg",
+          "seats": 0,
+          "timeOfDay": "",
+          "timeSlot": ""
         },
         {
           "firstName": "Luxembourg",
@@ -209,7 +221,10 @@
           "address": "420 Smoke Ave",
           "email": "henric@hawaii.edu",
           "phone": "808-485-2144",
-          "picture": "/images/default-profile-pic.jpg"
+          "picture": "/images/default-profile-pic.jpg",
+          "seats": 4,
+          "timeOfDay": "noon",
+          "timeSlot": "3:30pm"
         }
       ]
     }

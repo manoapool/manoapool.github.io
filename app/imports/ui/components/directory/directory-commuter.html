@@ -20,12 +20,16 @@
       <div class="meta">
         {{ commuter.city}}, {{ commuter.zipcode}}
       </div>
+      {{#if commuter.driver}}
       <div class="meta">
-        Departing At: 7:00am
+        Departing At: {{commuter.timeSlot}}
       </div>
+      {{/if}}
+      {{#if commuter.driver}}
       <div class="meta">
-        Seats Available: 3
+        Seats Available: {{commuter.seats}}
       </div>
+      {{/if}}
 
       <div style="margin-top: 10px">
 

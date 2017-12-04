@@ -20,10 +20,10 @@ class CommuterCollection extends BaseCollection {
     super('Commuter', new SimpleSchema({
       username: { type: String },
       driver: { type: Boolean },
-      city: { type: String },
-      zipcode: { type: String },
-      email: { type: String },
-      phone: { type: String },
+      city: { type: String, optional: true },
+      zipcode: { type: String, optional: true },
+      email: { type: String, optional: true },
+      phone: { type: String, optional: true },
       // Remainder are optional
       firstName: { type: String, optional: true },
       lastName: { type: String, optional: true },
@@ -52,7 +52,7 @@ class CommuterCollection extends BaseCollection {
    * if one or more interests are not defined.
    * @returns The newly created docID.
    */
-  define({ firstName = '', lastName = '', username, driver, city = '', zipcode = '', address = '', email = '', phone = '', picture = '' }) {
+  define({ firstName = '', lastName = '', username, driver=false, city = '', zipcode = '', address = '', email = '', phone = '', picture = '' }) {
     // make sure required fields are OK.
     const checkPattern = { firstName: String, lastName: String, username: String, driver: Boolean, city: String, zipcode: String, address: String, email: String, phone: String, picture: String };
     check({ firstName, lastName, username, driver, city, zipcode, address, email, phone, picture}, checkPattern);

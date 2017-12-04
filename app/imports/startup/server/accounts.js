@@ -8,17 +8,6 @@ import { Commuters } from '/imports/api/commuter/CommuterCollection';
 Accounts.validateNewUser(function validate(user) {
   if (user) {
     const username = user.services.cas.id;
-    if (!Profiles.isDefined(username)) {
-      Profiles.define({ username });
-    }
-  }
-  // All UH users are valid for BowFolios.
-  return true;
-});
-
-Accounts.validateNewUser(function validate(user) {
-  if (user) {
-    const username = user.services.cas.id;
     if (!Commuters.isDefined(username)) {
       Commuters.define({ username });
     }

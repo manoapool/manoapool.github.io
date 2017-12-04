@@ -17,7 +17,7 @@ Template.Filter_Page.onCreated(function onCreated() {
 
 Template.Filter_Page.helpers({
   commuters() {
-    return Profiles.find({}, { sort: { lastName: 1 } });
+    return Commuters.find({}, { sort: { lastName: 1 } });
   },
   profiles() {
     // Initialize selectedInterests to all of them if messageFlags is undefined.

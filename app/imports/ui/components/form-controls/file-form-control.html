@@ -15,6 +15,9 @@
     }}
   <div class="{{#if required}}required{{/if}} field">
     <div class="field">
+      <div class="profile-image" style="align: center; border: 1px solid black; max-width: 300px; height: 300px; overflow: hidden;">
+        <img src="{{#if validFileList}}{{createObjectURL}}{{else}}{{defaultPic}}{{/if}}">
+      </div>
       <input type="file"
              id="{{id}}"
              name="{{#if name}}{{name}}{{else}}{{id}}{{/if}}"

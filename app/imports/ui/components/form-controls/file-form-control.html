@@ -1,0 +1,26 @@
+<template name="File_Form_Control">
+  {{!
+    Implements a file upload input.
+
+    Parameters: name, id, required, value, errorMessage.
+      name are optional and default to id.
+      required is optional.
+      id, value, and accept are required.
+
+    Here's an example:
+
+    <div class="field">
+        <input type="file" id="profile_pic" name="profile_pic" value="profile_pic" accept=".jpg, .jpeg, .png">
+      </div>
+    }}
+  <div class="{{#if required}}required{{/if}} field">
+    <div class="field">
+      <input type="file"
+             id="{{id}}"
+             name="{{#if name}}{{name}}{{else}}{{id}}{{/if}}"
+             value="{{value}}"
+             accept="{{accept}}">
+    </div>
+    {{> Form_Error_Message errorMessage=errorMessage}}
+  </div>
+</template>

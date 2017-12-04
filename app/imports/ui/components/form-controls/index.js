@@ -1,6 +1,8 @@
 import './checkbox-field.html';
 import './checkbox-field';
 import './checkbox-form-control.html';
+import './file-form-control.html';
+import './file-form-control.js';
 import './form-control-utilities';
 import './form-error-message.html';
 import './radio-field.html';

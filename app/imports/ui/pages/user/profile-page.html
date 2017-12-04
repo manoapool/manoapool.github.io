@@ -12,7 +12,7 @@
         <div class="profile-image" style="border: 1px solid black; max-width: 300px; height: 300px; overflow: hidden;">
           <img src="/images/default-profile-pic.jpg" style="max-width: 300px; height: 300px;">
         </div>
-        <input type="file" name="image">
+        {{> File_Form_Control id="Picture" value=profile.picture accept=".jpg, .jpeg, .png" required=true}}
       </div>
 
       <div class="fields">

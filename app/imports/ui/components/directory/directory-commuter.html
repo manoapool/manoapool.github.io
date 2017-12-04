@@ -1,0 +1,44 @@
+<template name="Directory_Commuter">
+
+  <div class="card">
+    <div class="content">
+      <img class="right floated small ui image" src="/images/default-profile-pic.jpg"
+           style="max-width: 100px; height: 100px;">
+      <div class="header">
+        {{ commuter.firstName }} {{ commuter.lastName }}
+      </div>
+      <div class="meta">
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+        <i class="star icon"></i>
+      </div>
+      <div class="meta">
+        Driver? {{#if commuter.driver}}YES{{else}}NOPE{{/if}}
+      </div>
+      <div class="meta">
+        {{ commuter.city}}, {{ commuter.zipcode}}
+      </div>
+      {{#if commuter.driver}}
+      <div class="meta">
+        Departing At: {{commuter.timeSlot}}
+      </div>
+      {{/if}}
+      {{#if commuter.driver}}
+      <div class="meta">
+        Seats Available: {{commuter.seats}}
+      </div>
+      {{/if}}
+
+      <div style="margin-top: 10px">
+
+      </div>
+
+    </div>
+    <div class="extra content">
+        <button class="tiny ui blue button">schedule</button>
+    </div>
+  </div>
+
+</template>

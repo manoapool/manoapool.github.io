@@ -38,6 +38,11 @@ Template.Profile_Page.helpers({
               return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
             });
   },
+  status() {
+    return [
+        {label: "Driver", name: "Driver", checked: true},
+      {label: "Rider", name: "Rider", checked: false}];
+  },
 });
 
 

@@ -21,24 +21,8 @@
       </div>
 
       <div class="field">
-        {{> Checkbox_Form_Control label="Status" value=profile.status errorMessage=(fieldError "status")}}
+        {{> Radio_Form_Control label="Status" name="Status" radios=status required=true}}
       </div>
-
-      <div class="fields">
-        <div class="field">
-          <div class="ui checkbox">
-            <input type="checkbox" name="Driver" id="Driver" value="profile.driver" checked=true>
-            <label>Driver</label>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui checkbox">
-            <input type="checkbox" name="Rider" id="Rider" value="profile.rider" checked=true>
-            <label>Rider</label>
-          </div>
-        </div>
-      </div>
-
 
       <div class="field">
         {{> Text_Form_Control label="Address" placeholder="Address" value=profile.address errorMessage=(fieldError "address")}}

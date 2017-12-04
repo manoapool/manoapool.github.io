@@ -35,6 +35,13 @@ Template.Filter_Page.helpers({
     const allDrivers = _.filter(allCommuters, function (commuter) { return commuter.driver === true; });
     const allRiders = _.filter(allCommuters, function (commuter) { return commuter.driver === false; });
 
+    // Filter by morning drivers
+    const morningDrivers = _.filter(allDrivers, function (commuter) { return commuter.timeOfDay === 'morning'});
+    // Filter by afternoon drivers
+    const afternoonDrivers = _.filter(allDrivers, function (commuter) { return commuter.timeOfDay === 'noon'});
+    // Filter by evening drivers
+    const eveningDrivers = _.filter(allDrivers, function (commuter) { return commuter.timeOfDay === 'evening'});
+
     const selectedTime = Template.instance().timeDay.get(selectedTimeKey);
 
     // Shows all drivers if the user hasn't selected anyone
@@ -44,12 +51,12 @@ Template.Filter_Page.helpers({
 
     // For now it will show different things because the timeDay variable hasn't been defined yet in Commuter
     if(selectedTime === 'morning') {
-
+      return morningDrivers;
     } else if (selectedTime === 'noon') {
       //return Commuters.find({}, { sort: { lastName: 1 } });
-      return allCommuters;
+      return afternoonDrivers;
     } else {
-      return allRiders;
+      return eveningDrivers;
     }
   },
   profiles() {

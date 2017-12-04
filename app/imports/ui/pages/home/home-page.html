@@ -3,54 +3,23 @@
   <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
 
 {{#if Template.subscriptionsReady}}
-  <div class="ui container">
-    <h1 style="color: black; font-family: 'Josefin Sans', Georgia, serif">Welcome,  <u>person</u>!</h1>
-    <div class="ui centered grid">
+  <div class="ui fluid image" style=" background: url('https://static1.squarespace.com/static/597b4b35be65945fb1b980a9/t/59a14a7e2994ca357268d245/1503742599039/twin-flame-mentor-elvirah-lucia-my-story-luisa-azevedo-unsplash.jpg?format=1500w')no-repeat center center fixed; padding-bottom: 300px; padding-right: 10px; width: 7000px">
+  <div class="ui container" >
+    <h1 style="color: grey; font-size: 50px; font-family: 'Josefin Sans', Georgia, serif">
+      Welcome, {{ displayUser }}!</h1>
+    <div class="ui centered grid" style="margin-top: 100px">
       <div class="four wide column">
-        <button onclick="location.href='schedule'" class="massive blue ui button" style="border-radius: 50px">
+        <button onclick="location.href='schedule'" class="massive green ui button" style="border-radius: 50px">
           Give a RIDE!
         </button>
       </div>
       <div class="four wide column">
-        <button onclick="location.href='filter'" class="massive blue ui button" style="border-radius: 50px">
+        <button onclick="location.href='filter'" class="massive green ui button" style="border-radius: 50px">
           Find a RIDE!
         </button>
       </div>
     </div>
-    <div class="ui grid" style="margin-top: 60px">
-      <div class="centered six wide column">
-      <h2 style="font-size: 50px; font-family: 'Joesfin Sans', Georgia, serif">Schdeuled Car Pools</h2>
-      <div class="ui cards">
-        <div class="card">
-          <div class="content">
-            <div class="header">Elliot Fu</div>
-            <div class="meta">Milliani</div>
-            <div class="meta">November 12, 2017 </div>
-            <div class="meta">8:00 am</div>
-            <div class="description">
-              <h4>Riders: Dequavious Johnson, Patty Krabby</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-      <div class="centered six wide column">
-        <h2 style="font-size: 50px; padding-right: 0px; font-family: 'Joesfin Sans', Georgia, serif">Car Pool History</h2>
-        <div class="ui cards">
-          <div class="card">
-            <div class="content">
-              <div class="header">Elliot Fu</div>
-              <div class="meta">Milliani</div>
-              <div class="meta">November 12, 2017 </div>
-              <div class="meta">8:00 am</div>
-              <div class="description">
-                <h4>Riders: Dequavious Johnson, Patty Krabby</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
   </div>
 
   {{/if}}

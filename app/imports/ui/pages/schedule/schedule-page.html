@@ -19,14 +19,12 @@
         <i class="star icon"></i>
       </div>
 
+      <div class="field">
+        {{> Select_Form_Control label="TimeSlot" options=times multiple=false }}
+      </div>
       <div class="fields">
         {{> Select_Form_Control label="Time" options=ridetimes multiple=false }}
-        {{> Select_Form_Control label="Seats Available" options=availableseats multiple=false}}
-      </div>
-
-      <div class="fields">
-        {{> Text_Form_Control label="City" placeholder="Honolulu" value=commuter.city errorMessage=(fieldError "city")}}
-        {{> Text_Form_Control label="Zipcode" placeholder="96822" value=commuter.zipcode errorMessage=(fieldError "zipcode")}}
+        {{> Select_Form_Control label="Seats" options=availableseats multiple=false}}
       </div>
 
       <div class="fields">

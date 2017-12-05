@@ -45,6 +45,13 @@ Template.Schedule_Page.helpers({
           return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
         });
   },
+  times() {
+    return [
+      { label: 'Morning: 7:00am - 11:00am', value: 'morning' },
+      { label: 'Noon: 11:30am - 3:00pm', value: 'noon' },
+      { label: 'Evening: 3:30pm - 7:00pm', value: 'evening' },
+    ];
+  },
   ridetimes() {
     return [
       { label: '6:00am', value: '6:00am', selected: true },
@@ -155,6 +162,7 @@ Template.Schedule_Page.events({
   'submit .profile-data-form'(event, instance) {
     event.preventDefault();
 
+    /*
     const firstName = event.target.First.value;
     const lastName = event.target.Last.value;
     const title = event.target.Title.value;
@@ -170,20 +178,49 @@ Template.Schedule_Page.events({
 
     const updatedProfileData = { firstName, lastName, title, picture, github, facebook, instagram, bio, interests,
       username, location };
+    */
 
     // Get the values of the form
-    const timeSlot = _.filter(event.target.Time.selectionOptions, (option) => option.selected);
+    const timeOfDaySelector = _.filter(event.target.TimeSlot.selectionOptions, (option) => option.selected);
+    const timeOfDay = timeOfDaySelector[0].value;
 
+    const timeSlotSelector = _.filter(event.target.Time.selectionOptions, (option) => option.selected);
+    const timeSlot = timeSlotSelector[0].value;
+
+    const seatsSelector = _.filter(event.target.Seats.selectionOptions, (option) => option.selected);
+    const seats = seatsSelector[0].value;
+
+    // Get date
+    let month = _.filter(event.target.Month.selectionOptions, (option) => option.selected);
+    let day = _.filter(event.target.Day.selectionOptions, (option) => option.selected);
+    let year = _.filter(event.target.Year.selectionOptions, (option) => option.selected);
+    const date = month[0].value + ' ' + day[0].value + ', ' + year[0].value;
+
+    const comments = event.target.Comments.value;
+
+    const updatedCommuterData = { timeOfDay, timeSlot, seats, date, comments };
     // Clear out any old validation errors.
     instance.context.reset();
     // Invoke clean so that updatedProfileData reflects what will be inserted.
-    const cleanData = Profiles.getSchema().clean(updatedProfileData);
+    //const cleanData = Profiles.getSchema().clean(updatedProfileData);
+    const cleanData = Commuters.getSchema().clean(updatedCommuterData);
+
     // Determine validity.
     instance.context.validate(cleanData);
-
+    /*
     if (instance.context.isValid()) {
       const docID = Profiles.findDoc(FlowRouter.getParam('username'))._id;
       const id = Profiles.update(docID, { $set: cleanData });
+      instance.messageFlags.set(displaySuccessMessage, id);
+      instance.messageFlags.set(displayErrorMessages, false);
+    } else {
+      instance.messageFlags.set(displaySuccessMessage, false);
+      instance.messageFlags.set(displayErrorMessages, true);
+    }
+    */
+    if (instance.context.isValid()) {
+      const docID = Commuters.findDoc(FlowRouter.getParam('username'))._id;
+      const id = Commuters.update(docID, { $set: cleanData });
       instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
     } else {

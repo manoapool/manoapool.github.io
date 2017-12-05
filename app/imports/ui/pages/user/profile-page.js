@@ -56,19 +56,27 @@ Template.Profile_Page.events({
     event.preventDefault();
     const firstName = event.target.First.value;
     const lastName = event.target.Last.value;
-    const title = event.target.Title.value;
-    const location = event.target.Location.value;
-    const username = FlowRouter.getParam('username'); // schema requires username.
+    const status = event.target.Status.value;
     const picture = event.target.Picture.value;
-    const github = event.target.Github.value;
+    const address = event.target.Address.value;
+    const city = event.target.City.value;
+    const zipcode = event.target.Zipcode.value;
+    const email = event.target.Email.value;
+    const phone = event.target.Phone.value;
+    /*const title = event.target.Title.value;
+    const location = event.target.Location.value;*/
+    const username = FlowRouter.getParam('username'); // schema requires username.
+    /*const github = event.target.Github.value;
     const facebook = event.target.Facebook.value;
     const instagram = event.target.Instagram.value;
-    const bio = event.target.Bio.value;
-    const selectedInterests = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
-    const interests = _.map(selectedInterests, (option) => option.value);
+    const bio = event.target.Bio.value;*/
+    /*const selectedInterests = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
+    const interests = _.map(selectedInterests, (option) => option.value);*/
 
-    const updatedProfileData = { firstName, lastName, title, picture, github, facebook, instagram, bio, interests,
-      username, location };
+    /*const updatedProfileData = { firstName, lastName, title, picture, github, facebook, instagram, bio, interests,
+      username, location };*/
+    const updatedProfileData = { firstName, lastName, status, city, zipcode, email, phone,address, picture,
+      username};
 
     // Clear out any old validation errors.
     instance.context.reset();

@@ -13,8 +13,8 @@
       </div>
 
       <div class="fields">
-        {{> Text_Form_Control label="First" placeholder="Philip" value=profile.firstName errorMessage=(fieldError "firstName")}}
-        {{> Text_Form_Control label="Last" placeholder="Johnson" value=profile.lastName errorMessage=(fieldError "lastName")}}
+        {{> Text_Form_Control label="First" placeholder="Philip" value=profile.firstName errorMessage=(fieldError "firstName") required=true}}
+        {{> Text_Form_Control label="Last" placeholder="Johnson" value=profile.lastName errorMessage=(fieldError "lastName") required=true}}
       </div>
 
       <div class="field">
@@ -22,13 +22,16 @@
       </div>
 
       <div class="field">
-        {{> Text_Form_Control label="Picture" placeholder="http://foo.com/shot.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
+        {{> Text_Form_Control label="Picture" placeholder="http://foo.com/shot.jpg" value=profile.picture errorMessage=(fieldError "picture") required=true}}
+      </div>
+
+      <div class="field">
         {{> Text_Form_Control label="Address" placeholder="Address" value=profile.address errorMessage=(fieldError "address")}}
       </div>
 
       <div class="fields">
-        {{> Text_Form_Control label="City" placeholder="Honolulu" value=profile.city errorMessage=(fieldError "city")}}
-        {{> Text_Form_Control label="Zipcode" placeholder="96822" value=profile.zipcode errorMessage=(fieldError "zipcode")}}
+        {{> Text_Form_Control label="City" placeholder="Honolulu" value=profile.city errorMessage=(fieldError "city") required=true}}
+        {{> Text_Form_Control label="Zipcode" placeholder="96822" value=profile.zipcode errorMessage=(fieldError "zipcode") required=true}}
       </div>
 
       <div class="field">

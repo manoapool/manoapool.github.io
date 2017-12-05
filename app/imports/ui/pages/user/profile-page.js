@@ -2,19 +2,22 @@ import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
-import { Profiles } from '/imports/api/profile/ProfileCollection';
+/*import { Profiles } from '/imports/api/profile/ProfileCollection';*/
 import { Interests } from '/imports/api/interest/InterestCollection';
+import { Commuters } from '/imports/api/commuter/CommuterCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
 
 Template.Profile_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
-  this.subscribe(Profiles.getPublicationName());
+  /*this.subscribe(Profiles.getPublicationName());*/
+  this.subscribe(Commuters.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
-  this.context = Profiles.getSchema().namedContext('Profile_Page');
+  /*this.context = Profiles.getSchema().namedContext('Profile_Page');*/
+  this.context = Commuters.getSchema().namedContext('Profile_Page');
 });
 
 Template.Profile_Page.helpers({
@@ -28,10 +31,12 @@ Template.Profile_Page.helpers({
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
   },
   profile() {
-    return Profiles.findDoc(FlowRouter.getParam('username'));
+    /*return Profiles.findDoc(FlowRouter.getParam('username'));*/
+    return Commuters.findDoc(FlowRouter.getParam('username'));
   },
   interests() {
-    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    /*const profile = Profiles.findDoc(FlowRouter.getParam('username'));*/
+    const profile = Commuters.findDoc(FlowRouter.getParam('username'));
     const selectedInterests = profile.interests;
     return profile && _.map(Interests.findAll(),
             function makeInterestObject(interest) {
@@ -68,13 +73,16 @@ Template.Profile_Page.events({
     // Clear out any old validation errors.
     instance.context.reset();
     // Invoke clean so that updatedProfileData reflects what will be inserted.
-    const cleanData = Profiles.getSchema().clean(updatedProfileData);
+    /*const cleanData = Profiles.getSchema().clean(updatedProfileData);*/
+    const cleanData = Commuters.getSchema().clean(updatedProfileData);
     // Determine validity.
     instance.context.validate(cleanData);
 
     if (instance.context.isValid()) {
-      const docID = Profiles.findDoc(FlowRouter.getParam('username'))._id;
-      const id = Profiles.update(docID, { $set: cleanData });
+      /*const docID = Profiles.findDoc(FlowRouter.getParam('username'))._id;
+      const id = Profiles.update(docID, { $set: cleanData });*/
+      const docID = Commuters.findDoc(FlowRouter.getParam('username'))._id;
+      const id = Commuters.update(docID, { $set: cleanData });
       instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
     } else {

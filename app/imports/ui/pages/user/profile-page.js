@@ -93,7 +93,7 @@ Template.Profile_Page.events({
       const id = Commuters.update(docID, { $set: cleanData });
       instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
-      FlowRouter.go('/home')
+      /*FlowRouter.redirect('/home');*/
     } else {
       instance.messageFlags.set(displaySuccessMessage, false);
       instance.messageFlags.set(displayErrorMessages, true);

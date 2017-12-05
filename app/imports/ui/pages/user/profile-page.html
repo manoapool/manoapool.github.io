@@ -37,7 +37,7 @@
       {{> Text_Form_Control label="Phone" value=profile.phone placeholder="(808) 000-0000" errorMessage=(fieldError "phone")}}
 
 
-      <button class="ui fluid primary button" type="submit">Submit</button>
+      <button class="ui fluid primary button" type="submit" onclick="location.href='home'">Submit</button>
       {{#if displaySuccessMessage}}
       <div class="ui success message">
         <p>Profile data successfully updated.</p>

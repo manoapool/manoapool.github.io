@@ -22,6 +22,7 @@
       </div>
 
       <div class="field">
+        {{> Text_Form_Control label="Picture" placeholder="http://foo.com/shot.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
         {{> Text_Form_Control label="Address" placeholder="Address" value=profile.address errorMessage=(fieldError "address")}}
       </div>
 

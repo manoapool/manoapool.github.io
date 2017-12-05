@@ -57,6 +57,11 @@ Template.Profile_Page.events({
     const firstName = event.target.First.value;
     const lastName = event.target.Last.value;
     const status = event.target.Status.value;
+    const driver = function (status) {
+      if (status == "Driver") {
+        return true;
+      } else return false;
+    };
     const picture = event.target.Picture.value;
     const address = event.target.Address.value;
     const city = event.target.City.value;
@@ -75,7 +80,7 @@ Template.Profile_Page.events({
 
     /*const updatedProfileData = { firstName, lastName, title, picture, github, facebook, instagram, bio, interests,
       username, location };*/
-    const updatedProfileData = { firstName, lastName, status, city, zipcode, email, phone,address, picture,
+    const updatedProfileData = { firstName, lastName, status, driver, city, zipcode, email, phone,address, picture,
       username};
 
     // Clear out any old validation errors.

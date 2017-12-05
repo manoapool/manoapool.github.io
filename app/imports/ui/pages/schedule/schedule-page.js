@@ -35,7 +35,7 @@ Template.Schedule_Page.helpers({
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
   },
   profile() {
-    return Profiles.findDoc(FlowRouter.getParam('username'));
+    //return Profiles.findDoc(FlowRouter.getParam('username'));
   },
   interests() {
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
@@ -172,6 +172,7 @@ Template.Schedule_Page.events({
       username, location };
 
     // Get the values of the form
+    const timeSlot = _.filter(event.target.Time.selectionOptions, (option) => option.selected);
 
     // Clear out any old validation errors.
     instance.context.reset();

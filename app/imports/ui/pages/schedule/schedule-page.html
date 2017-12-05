@@ -25,8 +25,8 @@
       </div>
 
       <div class="fields">
-        {{> Text_Form_Control label="City" placeholder="Honolulu" value=profile.city errorMessage=(fieldError "city")}}
-        {{> Text_Form_Control label="Zipcode" placeholder="96822" value=profile.zipcode errorMessage=(fieldError "zipcode")}}
+        {{> Text_Form_Control label="City" placeholder="Honolulu" value=commuter.city errorMessage=(fieldError "city")}}
+        {{> Text_Form_Control label="Zipcode" placeholder="96822" value=commuter.zipcode errorMessage=(fieldError "zipcode")}}
       </div>
 
       <div class="fields">
@@ -37,7 +37,7 @@
 
 
 
-      {{> TextArea_Form_Control label="Comments" value=profile.comments placeholder="Type any comments to driver/rider here. (Example: 'Contact my phone number for faster responses. Let me know where you want to meet for the pickup.')" errorMessage=(fieldError "comments")}}
+      {{> TextArea_Form_Control label="Comments" value=commuter.comments placeholder="Type any comments to driver/rider here. (Example: 'Contact my phone number for faster responses. Let me know where you want to meet for the pickup.')" errorMessage=(fieldError "comments")}}
 
 
       <button class="ui fluid primary button" type="submit">Schedule Ride</button>

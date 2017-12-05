@@ -33,6 +33,7 @@ class CommuterCollection extends BaseCollection {
       timeOfDay: { type: String, optional: true },
       timeSlot: { type: String, optional: true },
       date: { type: String, optional: true },
+      comments: { type: String, optional: true },
     }, { tracker: Tracker }));
   }
 
@@ -53,6 +54,7 @@ class CommuterCollection extends BaseCollection {
    *                   timeOfDay: 'noon'
    *                   timeSlot: '7:30am'
    *                   date: 'November 9, 2017'
+   *                   comments: 'Meet at Starbucks'
    * @param { Object } description Object with required key username.
    * Remaining keys are optional.
    * Username must be unique for all users. It should be the UH email account.
@@ -60,16 +62,16 @@ class CommuterCollection extends BaseCollection {
    * if one or more interests are not defined.
    * @returns The newly created docID.
    */
-  define({ firstName = '', lastName = '', username, driver=false, city = '', zipcode = '', address = '', email = '', phone = '', picture = '', seats = 0, timeOfDay = '', timeSlot = '', date = '' }) {
+  define({ firstName = '', lastName = '', username, driver=false, city = '', zipcode = '', address = '', email = '', phone = '', picture = '', seats = 0, timeOfDay = '', timeSlot = '', date = '', comments = '' }) {
     // make sure required fields are OK.
-    const checkPattern = { firstName: String, lastName: String, username: String, driver: Boolean, city: String, zipcode: String, address: String, email: String, phone: String, picture: String, seats: Number, timeOfDay: String, timeSlot: String, date: String };
-    check({ firstName, lastName, username, driver, city, zipcode, address, email, phone, picture, seats, timeOfDay, timeSlot, date}, checkPattern);
+    const checkPattern = { firstName: String, lastName: String, username: String, driver: Boolean, city: String, zipcode: String, address: String, email: String, phone: String, picture: String, seats: Number, timeOfDay: String, timeSlot: String, date: String, comments: String };
+    check({ firstName, lastName, username, driver, city, zipcode, address, email, phone, picture, seats, timeOfDay, timeSlot, date, comments}, checkPattern);
 
     if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
     }
 
-    return this._collection.insert({ firstName, lastName, username, driver, city, zipcode, address, email, phone, picture, seats, timeOfDay, timeSlot, date });
+    return this._collection.insert({ firstName, lastName, username, driver, city, zipcode, address, email, phone, picture, seats, timeOfDay, timeSlot, date, comments });
   }
 
   /**
@@ -93,8 +95,9 @@ class CommuterCollection extends BaseCollection {
     const timeOfDay = doc.timeOfDay;
     const timeSlot = doc.timeSlot;
     const date = doc.date;
+    const comments = doc.comments;
     return { firstName, lastName, username, driver, city, zipcode, address, email, phone, picture, seats,
-      timeOfDay, timeSlot, date };
+      timeOfDay, timeSlot, date, comments };
   }
 }
 

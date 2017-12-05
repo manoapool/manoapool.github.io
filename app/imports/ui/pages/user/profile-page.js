@@ -2,7 +2,6 @@ import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
-/*import { Profiles } from '/imports/api/profile/ProfileCollection';*/
 import { Interests } from '/imports/api/interest/InterestCollection';
 import { Commuters } from '/imports/api/commuter/CommuterCollection';
 
@@ -11,12 +10,10 @@ const displayErrorMessages = 'displayErrorMessages';
 
 Template.Profile_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
-  /*this.subscribe(Profiles.getPublicationName());*/
   this.subscribe(Commuters.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
-  /*this.context = Profiles.getSchema().namedContext('Profile_Page');*/
   this.context = Commuters.getSchema().namedContext('Profile_Page');
 });
 
@@ -31,18 +28,16 @@ Template.Profile_Page.helpers({
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
   },
   profile() {
-    /*return Profiles.findDoc(FlowRouter.getParam('username'));*/
     return Commuters.findDoc(FlowRouter.getParam('username'));
   },
-  interests() {
-    /*const profile = Profiles.findDoc(FlowRouter.getParam('username'));*/
+  /*interests() {
     const profile = Commuters.findDoc(FlowRouter.getParam('username'));
     const selectedInterests = profile.interests;
     return profile && _.map(Interests.findAll(),
             function makeInterestObject(interest) {
               return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
             });
-  },
+  },*/
   status() {
     return [
         {label: "Driver", name: "Driver", checked: true},
@@ -56,13 +51,24 @@ Template.Profile_Page.events({
     event.preventDefault();
     const firstName = event.target.First.value;
     const lastName = event.target.Last.value;
-    const status = event.target.Status.value;
-    const driver = function (status) {
-      if (status == "Driver") {
+    const status = function () {
+      if (event.target.Status.value == "Driver") {
         return true;
-      } else return false;
+      } else {
+        return false;
+      }
     };
-    const picture = event.target.Picture.value;
+    const driver = status();
+    /*const picture = event.target.Picture.value;*/
+    const isDefaultPic = function () {
+      if (event.target.Picture.value == "") {
+        console.log(event.target.Picture.value);
+        return "/images/default-profile-pic.jpg";
+      } else {
+        return event.target.Picture.value;
+      }
+    };
+    const picture = isDefaultPic();
     const address = event.target.Address.value;
     const city = event.target.City.value;
     const zipcode = event.target.Zipcode.value;
@@ -80,26 +86,26 @@ Template.Profile_Page.events({
 
     /*const updatedProfileData = { firstName, lastName, title, picture, github, facebook, instagram, bio, interests,
       username, location };*/
-    const updatedProfileData = { firstName, lastName, status, driver, city, zipcode, email, phone,address, picture,
+    const updatedProfileData = { firstName, lastName, driver, city, zipcode, email, phone,address, picture,
       username};
 
     // Clear out any old validation errors.
     instance.context.reset();
     // Invoke clean so that updatedProfileData reflects what will be inserted.
-    /*const cleanData = Profiles.getSchema().clean(updatedProfileData);*/
     const cleanData = Commuters.getSchema().clean(updatedProfileData);
     // Determine validity.
+    console.log(cleanData);
     instance.context.validate(cleanData);
+    console.log(instance.context.isValid());
 
     if (instance.context.isValid()) {
-      /*const docID = Profiles.findDoc(FlowRouter.getParam('username'))._id;
-      const id = Profiles.update(docID, { $set: cleanData });*/
       const docID = Commuters.findDoc(FlowRouter.getParam('username'))._id;
       const id = Commuters.update(docID, { $set: cleanData });
       instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
       /*FlowRouter.redirect('/home');*/
     } else {
+      console.log("THIS IS ALLLLLLLL WROOOONNNGGG!!!!!!!");
       instance.messageFlags.set(displaySuccessMessage, false);
       instance.messageFlags.set(displayErrorMessages, true);
     }

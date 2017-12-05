@@ -12,13 +12,19 @@ const displayErrorMessages = 'displayErrorMessages';
 Template.Schedule_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
+  this.subscribe(Commuters.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
-  this.context = Profiles.getSchema().namedContext('Profile_Page');
+  // this.context = Profiles.getSchema().namedContext('Profile_Page');
+  this.context = Commuters.getSchema().namedContext('Schedule_Page');
+
 });
 
 Template.Schedule_Page.helpers({
+  commuter() {
+    return Commuters.findDoc(FlowRouter.getParam('username'));
+  },
   successClass() {
     return Template.instance().messageFlags.get(displaySuccessMessage) ? 'success' : '';
   },
@@ -148,6 +154,7 @@ Template.Schedule_Page.helpers({
 Template.Schedule_Page.events({
   'submit .profile-data-form'(event, instance) {
     event.preventDefault();
+
     const firstName = event.target.First.value;
     const lastName = event.target.Last.value;
     const title = event.target.Title.value;
@@ -163,6 +170,8 @@ Template.Schedule_Page.events({
 
     const updatedProfileData = { firstName, lastName, title, picture, github, facebook, instagram, bio, interests,
       username, location };
+
+    // Get the values of the form
 
     // Clear out any old validation errors.
     instance.context.reset();

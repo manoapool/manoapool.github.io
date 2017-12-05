@@ -4,11 +4,12 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
+import { Commuters } from '/imports/api/commuter/CommuterCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
 
-Template.Profile_Page.onCreated(function onCreated() {
+Template.Schedule_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.messageFlags = new ReactiveDict();
@@ -17,7 +18,7 @@ Template.Profile_Page.onCreated(function onCreated() {
   this.context = Profiles.getSchema().namedContext('Profile_Page');
 });
 
-Template.Profile_Page.helpers({
+Template.Schedule_Page.helpers({
   successClass() {
     return Template.instance().messageFlags.get(displaySuccessMessage) ? 'success' : '';
   },
@@ -38,10 +39,113 @@ Template.Profile_Page.helpers({
           return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
         });
   },
+  ridetimes() {
+    return [
+      { label: '6:00am', value: '6:00am', selected: true },
+      { label: '6:30am', value: '6:30am' },
+      { label: '7:00am', value: '7:00am' },
+      { label: '7:30am', value: '7:30am' },
+      { label: '8:00am', value: '8:00am' },
+      { label: '8:30am', value: '8:00am' },
+      { label: '9:00am', value: '9:00am' },
+      { label: '9:30am', value: '9:30am' },
+      { label: '10:00am', value: '10:00am' },
+      { label: '10:30am', value: '10:30am' },
+      { label: '11:00am', value: '11:00am' },
+      { label: '11:30am', value: '11:30am' },
+      { label: '12:00pm', value: '12:00pm' },
+      { label: '12:30pm', value: '12:30pm' },
+      { label: '1:00pm', value: '1:00pm' },
+      { label: '1:30pm', value: '1:30pm' },
+      { label: '2:00pm', value: '2:00pm' },
+      { label: '2:30pm', value: '2:30pm' },
+      { label: '3:00pm', value: '3:00pm' },
+      { label: '3:30pm', value: '3:30pm' },
+      { label: '4:00pm', value: '4:00pm' },
+      { label: '4:30pm', value: '4:30pm' },
+      { label: '5:00pm', value: '5:00pm' },
+      { label: '5:30pm', value: '5:30pm' },
+      { label: '6:00pm', value: '6:00pm' },
+      { label: '6:30pm', value: '6:30pm' },
+      { label: '7:00pm', value: '7:00pm' },
+      { label: '7:30pm', value: '7:30pm' },
+    ];
+  },
+  availableseats() {
+    return [
+      { label: '1', value: 1 },
+      { label: '2', value: 2 },
+      { label: '3', value: 3 },
+      { label: '4', value: 4 },
+      { label: '5', value: 5 },
+      { label: '6', value: 6 },
+      { label: '7', value: 7 },
+      { label: '8', value: 8 },
+
+    ];
+  },
+  months() {
+    return [
+      { label: 'January', selected: true },
+      { label: 'February' },
+      { label: 'March' },
+      { label: 'April' },
+      { label: 'May' },
+      { label: 'June' },
+      { label: 'July' },
+      { label: 'August' },
+      { label: 'September' },
+      { label: 'October' },
+      { label: 'November' },
+      { label: 'December' },
+    ];
+  },
+  days() {
+    return [
+      { label: '1', selected: true },
+      { label: '2'},
+      { label: '3'},
+      { label: '4'},
+      { label: '5'},
+      { label: '6'},
+      { label: '7'},
+      { label: '8'},
+      { label: '9'},
+      { label: '10'},
+      { label: '11'},
+      { label: '12'},
+      { label: '13'},
+      { label: '14'},
+      { label: '15'},
+      { label: '16'},
+      { label: '17'},
+      { label: '18'},
+      { label: '19'},
+      { label: '20'},
+      { label: '21'},
+      { label: '22'},
+      { label: '23'},
+      { label: '24'},
+      { label: '25'},
+      { label: '26'},
+      { label: '27'},
+      { label: '28'},
+      { label: '29'},
+      { label: '30'},
+      { label: '31'},
+    ];
+  },
+  years() {
+    return [
+      { label: '2017', selected: true },
+      { label: '2018' },
+    ];
+  },
+
 });
 
 
-Template.Profile_Page.events({
+Template.Schedule_Page.events({
   'submit .profile-data-form'(event, instance) {
     event.preventDefault();
     const firstName = event.target.First.value;

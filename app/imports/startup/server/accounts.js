@@ -1,5 +1,6 @@
 import { Accounts } from 'meteor/accounts-base';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
+import { Commuters } from '/imports/api/commuter/CommuterCollection';
 
 /* eslint-disable no-console */
 
@@ -7,8 +8,8 @@ import { Profiles } from '/imports/api/profile/ProfileCollection';
 Accounts.validateNewUser(function validate(user) {
   if (user) {
     const username = user.services.cas.id;
-    if (!Profiles.isDefined(username)) {
-      Profiles.define({ username });
+    if (!Commuters.isDefined(username)) {
+      Commuters.define({ username });
     }
   }
   // All UH users are valid for BowFolios.

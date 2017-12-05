@@ -2,22 +2,11 @@
 
   {{#if Template.subscriptionsReady}}
 
-  <div class="ui text container segment">
+  <div class="ui text container segment" style="border: none; box-shadow: none;">
     <div class="ui dividing header">
       Schedule My Carpool
     </div>
     <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
-
-      <div class="field">
-        <div class="profile-image" style="border: 1px solid black; max-width: 150px; height: 150px; overflow: hidden;">
-          <img src="/images/default-profile-pic.jpg" style="max-width: 150px; height: 150px;">
-        </div>
-        <i class="star icon"></i>
-        <i class="star icon"></i>
-        <i class="star icon"></i>
-        <i class="star icon"></i>
-        <i class="star icon"></i>
-      </div>
 
       <div class="fields">
         {{> Select_Form_Control label="Time" options=ridetimes multiple=false }}

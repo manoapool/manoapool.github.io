@@ -105,7 +105,6 @@ Template.Profile_Page.events({
       instance.messageFlags.set(displayErrorMessages, false);
       /*FlowRouter.redirect('/home');*/
     } else {
-      console.log("THIS IS ALLLLLLLL WROOOONNNGGG!!!!!!!");
       instance.messageFlags.set(displaySuccessMessage, false);
       instance.messageFlags.set(displayErrorMessages, true);
     }

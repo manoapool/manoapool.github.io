@@ -18,29 +18,57 @@ class AppointmentCollection extends BaseCollection {
    */
   constructor() {
     super('Appointment', new SimpleSchema({
-      name: { type: String },
-      description: { type: String, optional: true },
+      username: { type: String },
+      // Remainder are optional
+      firstName: { type: String, optional: true },
+      lastName: { type: String, optional: true },
+      picture: { type: SimpleSchema.RegEx.Url, optional: true },
+      email: { type: String, optional: true },
+      phone: { type: String, optional: true },
+      seats: { type: Number, optional: true },
+      timeOfDay: { type: String, optional: true },
+      timeSlot: { type: String, optional: true },
+      date: { type: String, optional: true },
+      comments: { type: String, optional: true },
+      accept: { type: Boolean, optional: true },
     }, { tracker: Tracker }));
   }
 
   /**
    * Defines a new Appointment.
    * @example
-   * Appointments.define({ name: 'Software Engineering',
-   *                    description: 'Methods for group development of large, high quality software systems' });
+   * Appointments.define({  username: 'johnson',
+                            firstName: 'Phillip',
+                            lastName: 'Johnson',
+                            picture: 'http://philipmjohnson.org/headshot.jpg',
+                            email: 'johnson@hawaii.edu',
+   *                        phone: '808-123-4567',
+                            seats: 3,
+                            timeOfDay: 'noon',
+   *                        timeSlot: '7:30am',
+   *                        date: 'November 9, 2017',
+   *                        comments: 'Meet at Starbucks',
+                            accept: true,
+                             });
    * @param { Object } description Object with keys name and description.
    * Name must be previously undefined. Description is optional.
    * Creates a "slug" for this name and stores it in the slug field.
    * @throws {Meteor.Error} If the appointment definition includes a defined name.
    * @returns The newly created docID.
    */
-  define({ name, description }) {
-    check(name, String);
-    check(description, String);
+  define({ firstName = '', lastName = '', username, email = '', phone = '', picture = '', seats = 0, timeOfDay = '', timeSlot = '', date = '', comments = '', accept = false }) {
+
+    /*check(name, String);
+    check(description, String);*/
+
+    // make sure required fields are OK.
+    const checkPattern = { firstName: String, lastName: String, username: String, email: String, phone: String, picture: String, seats: Number, timeOfDay: String, timeSlot: String, date: String, comments: String, accept: Boolean };
+    check({ firstName, lastName, username, email, phone, picture, seats, timeOfDay, timeSlot, date, comments, accept}, checkPattern);
+
     if (this.find({ name }).count() > 0) {
       throw new Meteor.Error(`${name} is previously defined in another Appointment`);
     }
-    return this._collection.insert({ name, description });
+    return this._collection.insert({ firstName, lastName, username, email, phone, picture, seats, timeOfDay, timeSlot, date, comments, accept });
   }
 
   /**
@@ -108,9 +136,19 @@ class AppointmentCollection extends BaseCollection {
    */
   dumpOne(docID) {
     const doc = this.findDoc(docID);
-    const name = doc.name;
-    const description = doc.description;
-    return { name, description };
+    const firstName = doc.firstName;
+    const lastName = doc.lastName;
+    const username = doc.username;
+    const email = doc.email;
+    const phone = doc.phone;
+    const picture = doc.picture;
+    const seats = doc.seats;
+    const timeOfDay = doc.timeOfDay;
+    const timeSlot = doc.timeSlot;
+    const date = doc.date;
+    const comments = doc.comments;
+    const accept = doc.accept;
+    return { firstName, lastName, username, email, phone, picture, seats, timeOfDay, timeSlot, date, comments, accept };
   }
 }
 

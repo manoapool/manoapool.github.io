@@ -18,6 +18,7 @@ class AppointmentCollection extends BaseCollection {
    */
   constructor() {
     super('Appointment', new SimpleSchema({
+      /*
       username: { type: String },
       // Remainder are optional
       firstName: { type: String, optional: true },
@@ -31,24 +32,30 @@ class AppointmentCollection extends BaseCollection {
       date: { type: String, optional: true },
       comments: { type: String, optional: true },
       accept: { type: Boolean, optional: true },
+      */
+      driver: { type: 'String' }, //This will be the driver
+      riders: { type: Array, optional: true },
+      'riders.$': { type: String },
+      seats: { type: Number, optional: true },
+      timeOfDay: { type: String, optional: true },
+      timeSlot: { type: String, optional: true },
+      date: { type: String, optional: true },
+      comments: { type: String, optional: true },
+      accept: { type: Boolean, optional: true },
     }, { tracker: Tracker }));
   }
 
   /**
    * Defines a new Appointment.
    * @example
-   * Appointments.define({  username: 'johnson',
-                            firstName: 'Phillip',
-                            lastName: 'Johnson',
-                            picture: 'http://philipmjohnson.org/headshot.jpg',
-                            email: 'johnson@hawaii.edu',
-   *                        phone: '808-123-4567',
+   * Appointments.define({  driver: 'johnson',
+                            riders: [ 'jeligio', 'huang2' ],
                             seats: 3,
-                            timeOfDay: 'noon',
-   *                        timeSlot: '7:30am',
-   *                        date: 'November 9, 2017',
-   *                        comments: 'Meet at Starbucks',
-                            accept: true,
+                            timeOfDay: 'morning',
+                            timeSlot: '8:30am',
+                            date: 'December 10, 2017',
+                            comments: 'Meet at Starbucks',
+                            accept: false
                              });
    * @param { Object } description Object with keys name and description.
    * Name must be previously undefined. Description is optional.
@@ -56,19 +63,21 @@ class AppointmentCollection extends BaseCollection {
    * @throws {Meteor.Error} If the appointment definition includes a defined name.
    * @returns The newly created docID.
    */
-  define({ firstName = '', lastName = '', username, email = '', phone = '', picture = '', seats = 0, timeOfDay = '', timeSlot = '', date = '', comments = '', accept = false }) {
+  define({ driver = '', seats = 0, timeOfDay = '', timeSlot = '' date = '', comments = '', accept = false }) {
 
     /*check(name, String);
     check(description, String);*/
 
     // make sure required fields are OK.
-    const checkPattern = { firstName: String, lastName: String, username: String, email: String, phone: String, picture: String, seats: Number, timeOfDay: String, timeSlot: String, date: String, comments: String, accept: Boolean };
-    check({ firstName, lastName, username, email, phone, picture, seats, timeOfDay, timeSlot, date, comments, accept}, checkPattern);
+    const checkPattern = { driver: String, seats: Number, timeOfDay: String, timeSlot: String, date: String, comments: String, accept: Boolean };
+    check({ driver, seats, timeOfDay, timeSlot, date, comments, accept}, checkPattern);
 
+    /*
     if (this.find({ name }).count() > 0) {
       throw new Meteor.Error(`${name} is previously defined in another Appointment`);
     }
-    return this._collection.insert({ firstName, lastName, username, email, phone, picture, seats, timeOfDay, timeSlot, date, comments, accept });
+    */
+    return this._collection.insert({ driver, seats, timeOfDay, timeSlot, date, comments, accept });
   }
 
   /**
@@ -115,7 +124,10 @@ class AppointmentCollection extends BaseCollection {
    * @throws { Meteor.Error } If name is not associated with an Appointment.
    */
   findID(name) {
-    return (this.findDoc(name)._id);
+    //return (this.findDoc(name)._id);
+
+    //This will be used to update rides, cancel rides etc.
+    return this._id;
   }
 
   /**
@@ -136,19 +148,15 @@ class AppointmentCollection extends BaseCollection {
    */
   dumpOne(docID) {
     const doc = this.findDoc(docID);
-    const firstName = doc.firstName;
-    const lastName = doc.lastName;
-    const username = doc.username;
-    const email = doc.email;
-    const phone = doc.phone;
-    const picture = doc.picture;
+    const driver = doc.driver;
+    const riders = doc.riders;
     const seats = doc.seats;
     const timeOfDay = doc.timeOfDay;
     const timeSlot = doc.timeSlot;
     const date = doc.date;
     const comments = doc.comments;
     const accept = doc.accept;
-    return { firstName, lastName, username, email, phone, picture, seats, timeOfDay, timeSlot, date, comments, accept };
+    return { driver, riders, seats, timeOfDay, timeSlot, date, comments, accept };
   }
 }
 

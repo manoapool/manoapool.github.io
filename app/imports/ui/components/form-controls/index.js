@@ -10,6 +10,7 @@ import './radio-field';
 import './radio-form-control.html';
 import './radio-form-control.js';
 import './select-form-control.html';
+import './select-form-control.js';
 import './select-form-control';
 import './social-network-form-control';
 import './text-form-control.html';

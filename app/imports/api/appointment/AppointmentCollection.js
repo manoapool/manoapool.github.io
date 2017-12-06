@@ -35,7 +35,9 @@ class AppointmentCollection extends BaseCollection {
       */
       driver: { type: 'String' }, //This will be the driver
       riders: { type: Array, optional: true },
-      'riders.$': { type: String },
+      'riders.$': { type: String }, //Will hold array of riders
+      pendingRiders: { type: Array, optional: true },
+      'pendingRiders.$': { type: String }, //Will hold array of riders who are not yet confirmed
       seats: { type: Number, optional: true },
       timeOfDay: { type: String, optional: true },
       timeSlot: { type: String, optional: true },
@@ -49,7 +51,8 @@ class AppointmentCollection extends BaseCollection {
    * Defines a new Appointment.
    * @example
    * Appointments.define({  driver: 'johnson',
-                            riders: [ 'jeligio', 'huang2' ],
+                            riders: [ 'jeligio' ],
+                            pendingRiders: [ 'huang2' ],
                             seats: 3,
                             timeOfDay: 'morning',
                             timeSlot: '8:30am',
@@ -63,7 +66,7 @@ class AppointmentCollection extends BaseCollection {
    * @throws {Meteor.Error} If the appointment definition includes a defined name.
    * @returns The newly created docID.
    */
-  define({ driver = '', seats = 0, timeOfDay = '', timeSlot = '' date = '', comments = '', accept = false }) {
+  define({ driver = '', riders = [], pendingRiders = [], seats = 0, timeOfDay = '', timeSlot = '', date = '', comments = '', accept = false }) {
 
     /*check(name, String);
     check(description, String);*/
@@ -77,7 +80,15 @@ class AppointmentCollection extends BaseCollection {
       throw new Meteor.Error(`${name} is previously defined in another Appointment`);
     }
     */
-    return this._collection.insert({ driver, seats, timeOfDay, timeSlot, date, comments, accept });
+
+    // Throw an error if there are duplicates in the passed drivers
+    if (riders.length !== _.uniq(riders).length) {
+      throw new Meteor.Error(`${riders} contains duplicates`);
+    }
+    if (pendingRiders.length !== _.uniq(pendingRiders).length) {
+      throw new Meteor.Error(`${pendingRiders} contains duplicates`);
+    }
+    return this._collection.insert({ driver, riders, pendingRiders, seats, timeOfDay, timeSlot, date, comments, accept });
   }
 
   /**
@@ -150,13 +161,14 @@ class AppointmentCollection extends BaseCollection {
     const doc = this.findDoc(docID);
     const driver = doc.driver;
     const riders = doc.riders;
+    const pendingRiders = doc.pendingRiders;
     const seats = doc.seats;
     const timeOfDay = doc.timeOfDay;
     const timeSlot = doc.timeSlot;
     const date = doc.date;
     const comments = doc.comments;
     const accept = doc.accept;
-    return { driver, riders, seats, timeOfDay, timeSlot, date, comments, accept };
+    return { driver, riders, pendingRiders, seats, timeOfDay, timeSlot, date, comments, accept };
   }
 }
 

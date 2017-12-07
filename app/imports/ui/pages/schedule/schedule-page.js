@@ -10,7 +10,6 @@ import { Appointments } from '/imports/api/appointment/AppointmentCollection';
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
 
-
 Template.Schedule_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
@@ -49,7 +48,7 @@ Template.Schedule_Page.helpers({
   },
   times() {
     return [
-      { label: 'Morning: 7:00am - 11:00am', value: 'morning' },
+      { label: 'Morning: 7:00am - 11:00am', value: 'morning', selected: true },
       { label: 'Noon: 11:30am - 3:00pm', value: 'noon' },
       { label: 'Evening: 3:30pm - 7:00pm', value: 'evening' },
     ];
@@ -88,7 +87,7 @@ Template.Schedule_Page.helpers({
   },
   availableseats() {
     return [
-      { label: '1', value: 1 },
+      { label: '1', value: 1, selected: true },
       { label: '2', value: 2 },
       { label: '3', value: 3 },
       { label: '4', value: 4 },
@@ -163,24 +162,6 @@ Template.Schedule_Page.helpers({
 Template.Schedule_Page.events({
   'submit .profile-data-form'(event, instance) {
     event.preventDefault();
-
-    /*
-    const firstName = event.target.First.value;
-    const lastName = event.target.Last.value;
-    const title = event.target.Title.value;
-    const location = event.target.Location.value;
-    const username = FlowRouter.getParam('username'); // schema requires username.
-    const picture = event.target.Picture.value;
-    const github = event.target.Github.value;
-    const facebook = event.target.Facebook.value;
-    const instagram = event.target.Instagram.value;
-    const bio = event.target.Bio.value;
-    const selectedInterests = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
-    const interests = _.map(selectedInterests, (option) => option.value);
-
-    const updatedProfileData = { firstName, lastName, title, picture, github, facebook, instagram, bio, interests,
-      username, location };
-    */
 
     //Don't allow riders to schedule a ride
     const driver = Commuters.findDoc(FlowRouter.getParam('username')).username;

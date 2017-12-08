@@ -5,6 +5,7 @@ import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
 import { Commuters } from '/imports/api/commuter/CommuterCollection';
+import { Appointments } from '/imports/api/appointment/AppointmentCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
@@ -45,7 +46,38 @@ Template.Home_Page.helpers({
     //const thename = Commuters.findDoc('henric').firstName;
     const thename = Commuters.findDoc(FlowRouter.getParam('username')).firstName;
     return thename;
-  }
+  },
+  findName(username) {
+    const userDoc = Commuters.findDoc(username);
+    return userDoc;
+  },
+  pendingRiders() {
+    // Returns array of objects that hold all riders username, the appointmentDoc
+    const allAppointments = Appointments.findAll();
+    const currentUser = Commuters.findDoc(FlowRouter.getParam('username'));
+    // Get all appointments with at least one pendingRider
+    const pendingAppointments = _.filter(allAppointments, function (appointment) {
+      return appointment.pendingRiders.length > 0;
+    });
+    // Only get appointments whose driver is the currentUser
+    const userPendingAppointments = _.filter(pendingAppointments, function (appointment) {
+      return appointment.driver === currentUser.username;
+    });
+    let appointments = [];
+    // Create objects containing each pendingRider and the appointmentDoc
+    _.each(userPendingAppointments, function (appointment) {
+      const listPendingRiders = appointment.pendingRiders;
+      _.each(listPendingRiders, function (rider) {
+        let obj = {
+          pendingRider: rider,
+          appointmentDoc: appointment,
+        };
+        appointments.push(obj);
+      });
+    });
+    console.log(appointments);
+    return appointments;
+  },
 });
 
 

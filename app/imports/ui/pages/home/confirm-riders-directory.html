@@ -1,0 +1,7 @@
+<template name="Confirm_Riders_Directory">
+  <div style="margin-top: 20px; overflow-x: visible;" class="ui container">
+    {{#each pendingRider in pendingRiders }}
+    {{> Confirm_Rider rider=(findRider pendingRider.pendingRider) appointment=pendingRider.appointmentDoc   }}
+    {{/each}}
+  </div>
+</template>

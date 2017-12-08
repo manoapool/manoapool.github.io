@@ -4,6 +4,7 @@ import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
 import { Commuters } from '/imports/api/commuter/CommuterCollection';
+import { Appointments } from '/imports/api/appointment/AppointmentCollection';
 
 const selectedInterestsKey = 'selectedInterests';
 const selectedTimeKey = 'selectedTime';
@@ -12,6 +13,7 @@ Template.Filter_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.subscribe(Commuters.getPublicationName());
+  this.subscribe(Appointments.getPublicationName());
 
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(selectedInterestsKey, undefined);
@@ -57,6 +59,45 @@ Template.Filter_Page.helpers({
       return afternoonDrivers;
     } else {
       return eveningDrivers;
+    }
+  },
+  findDriver(appointment) {
+    const id = appointment.driver;
+    return Commuters.findDoc(id);
+  },
+  displayField(field) {
+
+  },
+  appointments() {
+    /**
+     if(!Template.instance().timeDay.get(selectedTimeKey)) {
+      return Commuters.find({}, { sort: { lastName: 1 } });
+    }
+     // Filter by time of day
+     const allCommuters = Commuters.findAll();
+     const selectedTime = Template.instance().timeDay.get(selectedTimeKey);
+     return _.filter(allCommuters, function (commuter) { return commuter.timeOfDay === selectedTime; });
+     */
+    const allAppointments = Appointments.findAll();
+
+    // Filter by morning appointments
+    const morningAppointments = _.filter(allAppointments, function (appointment) { return appointment.timeOfDay === 'morning'});
+    // Filter by afternoon appointments
+    const afternoonAppointments = _.filter(allAppointments, function (appointment) { return appointment.timeOfDay === 'noon'});    // Filter by evening appointments
+    const eveningAppointments = _.filter(allAppointments, function (appointment) { return appointment.timeOfDay === 'evening'});
+    const selectedTime = Template.instance().timeDay.get(selectedTimeKey);
+
+    // Shows all drivers if the user hasn't selected anyone
+    if (!selectedTime) {
+      return allAppointments;
+    }
+    // For now it will show different things because the timeDay variable hasn't been defined yet in Commuter
+    if (selectedTime === 'morning') {
+      return morningAppointments;
+    } else if (selectedTime === 'noon') {
+      return afternoonAppointments;
+    } else {
+      return eveningAppointments;
     }
   },
   profiles() {

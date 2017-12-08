@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import { Meteor } from 'meteor/meteor';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
@@ -204,7 +205,7 @@ Template.Schedule_Page.events({
       instance.messageFlags.set(displaySuccessMessage, true);
       instance.messageFlags.set(displayErrorMessages, false);
       // Redirect to home page but first wait 3 seconds
-      setTimeout(function() {
+      Meteor.setTimeout(function() {
         const name = Commuters.findDoc(FlowRouter.getParam('username')).username;
         FlowRouter.go('Home_Page', { username: name });
       }, (3 * 1000));

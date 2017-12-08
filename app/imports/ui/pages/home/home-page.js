@@ -4,6 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
+import { Commuters } from '/imports/api/commuter/CommuterCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
@@ -11,6 +12,7 @@ const displayErrorMessages = 'displayErrorMessages';
 Template.Home_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
+  this.subscribe(Commuters.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
@@ -39,8 +41,11 @@ Template.Home_Page.helpers({
             });
   },
   displayUser() {
-    return Profiles.findDoc(FlowRouter.getParam('username')).username;
-  }
+    const docRef = Commuters.findDoc(FlowRouter.getParam('username'));
+    const first = docRef.firstName;
+    const last = docRef.lastName;
+    return (first + ' ' + last);
+  },
 });
 
 

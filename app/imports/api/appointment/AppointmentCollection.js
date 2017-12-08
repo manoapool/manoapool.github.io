@@ -135,10 +135,7 @@ class AppointmentCollection extends BaseCollection {
    * @throws { Meteor.Error } If name is not associated with an Appointment.
    */
   findID(name) {
-    //return (this.findDoc(name)._id);
-
-    //This will be used to update rides, cancel rides etc.
-    return this._id;
+    return (this.findDoc(name)._id);
   }
 
   /**

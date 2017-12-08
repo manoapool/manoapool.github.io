@@ -14,8 +14,14 @@
 
     <div class="ui centered dividing header">Available Rides</div>
 
+    {{#if displaySuccessMessage }}
+    <div class="ui success message">
+      <p>Cheehoo! Your driver's gotta confirm you first, though.</p>
+    </div>
+    {{/if}}
+
     <div class="ui container">
-        {{> Filter_Page_Directory commuters=commuters appointments=appointments  }}
+        {{> Filter_Page_Directory appointments=appointments  }}
 
     </div>
   </div>

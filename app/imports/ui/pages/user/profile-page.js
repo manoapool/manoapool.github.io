@@ -7,6 +7,7 @@ import { Commuters } from '/imports/api/commuter/CommuterCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
+isProfileCreated = false;
 
 Template.Profile_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
@@ -44,7 +45,6 @@ Template.Profile_Page.helpers({
       {label: "Rider", name: "Rider", checked: false}];
   },
 });
-
 
 Template.Profile_Page.events({
   'submit .profile-data-form'(event, instance) {
@@ -101,6 +101,7 @@ Template.Profile_Page.events({
     if (instance.context.isValid()) {
       const docID = Commuters.findDoc(FlowRouter.getParam('username'))._id;
       const id = Commuters.update(docID, { $set: cleanData });
+      isProfileCreated = true;
       instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
       /*FlowRouter.redirect('/home');*/

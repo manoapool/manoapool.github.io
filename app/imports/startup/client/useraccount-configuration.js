@@ -3,6 +3,8 @@ import { Accounts } from 'meteor/accounts-base';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
 
+let numLogins = 0;
+
 /**
  * Define a callback to be run when after a user logs in to redirect them to their home page.
  * This is not straightforward because this callback is invoked even on a page refresh, and we don't want to do
@@ -13,11 +15,18 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 Accounts.onLogin(function onLogin() {
   const id = Meteor.userId();
   const onLandingPage = FlowRouter.current().path && (FlowRouter.current().path === '/');
+  let isFirstLogin = false;
+  numLogins++;
+  if (numLogins === 1) {
+    isFirstLogin = true;
+  }
   const initialLogin = (id && onLandingPage);
-
-  if (initialLogin) {
+  if (initialLogin && (isFirstLogin || !isProfileCreated)) {
     const username = Meteor.user().profile.name;
     FlowRouter.go(`/${username}/profile`);
+  } else if (initialLogin && !isFirstLogin) {
+    const username = Meteor.user().profile.name;
+    FlowRouter.go(`/${username}/home`);
   }
 });
 

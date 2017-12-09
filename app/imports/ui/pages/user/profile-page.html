@@ -8,6 +8,8 @@
     </div>
     <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
+      {{> Upload_Picture }}
+
       <div class="fields">
         {{> Text_Form_Control label="First" placeholder="Philip" value=profile.firstName errorMessage=(fieldError "firstName") required=true}}
         {{> Text_Form_Control label="Last" placeholder="Johnson" value=profile.lastName errorMessage=(fieldError "lastName") required=true}}

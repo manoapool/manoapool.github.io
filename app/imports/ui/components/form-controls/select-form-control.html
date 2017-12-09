@@ -23,7 +23,9 @@
   }}
 
   <div class="{{#if required}}required{{/if}} field">
-    <label>{{label}}</label>
+    <label style="display: inline;">{{label}}</label>
+    <i class="blue help circle icon inquiry"></i>
+    {{#if showMessage}} {{message label}} {{/if}}
     <select multiple="{{multiple}}" class="ui dropdown" name="{{#if name}}{{name}}{{else}}{{label}}{{/if}}">
       <option value="">(Select {{#if multiple}}One or More{{else}}One{{/if}})</option>
       {{#each option in options}}

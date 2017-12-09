@@ -41,6 +41,18 @@ Template.Home_Page.helpers({
               return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
             });
   },
+  confirmedAppointments() {
+    const allAppointments = Appointments.findAll();
+    // Return appointments with at least one rider
+    const confirmed = _.filter(allAppointments, function (appointment) {
+      return appointment.riders.length > 0;
+    });
+    return confirmed;
+  },
+  findDriver(appointment) {
+    const id = appointment.driver;
+    return Commuters.findDoc(id);
+  },
   displayUser() {
     //return Profiles.findDoc(FlowRouter.getParam('username')).username;
     //const thename = Commuters.findDoc('henric').firstName;

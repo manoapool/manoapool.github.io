@@ -18,8 +18,13 @@
         </button>
         <div class="ui two column grid">
           <div class="column">
-            <div class="ui header">
+            <div class="ui inverted header">
               Confirmed Appointments:
+            </div>
+            <div style="margin-top: 20px" class="ui cards">
+              {{#each appointment in confirmedAppointments }}
+              {{> Directory_Appointment appointment=appointment driver=(findDriver appointment)  }}
+              {{/each}}
             </div>
           </div>
           <div class="column">

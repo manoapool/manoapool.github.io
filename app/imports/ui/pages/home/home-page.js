@@ -95,6 +95,15 @@ Template.Home_Page.helpers({
   currentUser() {
     return Commuters.findDoc(FlowRouter.getParam('username'));
   },
+  showRiders(appointment) {
+    const listRiders = appointment.riders;
+    let riderDocs = [];
+    _.each(listRiders, function (rider) {
+      const riderDoc = Commuters.findDoc(rider);
+      riderDocs.push(riderDoc);
+    });
+    return riderDocs;
+  },
   pendingRiders() {
     // Returns array of objects that hold all riders username, the appointmentDoc
     const allAppointments = Appointments.findAll();

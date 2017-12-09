@@ -24,6 +24,13 @@
             <div style="margin-top: 20px" class="ui cards">
               {{#each appointment in confirmedAppointments }}
               {{> Directory_Appointment appointment=appointment driver=(findDriver appointment)  }}
+              <div class="ui bottom attached segment">
+                <p>Who's riding:</p>
+                {{#each rider in (showRiders appointment)}}
+                  {{rider.firstName}} {{rider.lastName}}
+                  Email: {{rider.email}} Phone: {{rider.phone}}s
+                {{/each}}
+              </div>
               {{/each}}
             </div>
           </div>

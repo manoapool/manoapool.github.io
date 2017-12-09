@@ -117,5 +117,27 @@ Template.Home_Page.events({
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },
+  'click .confirm'(event, instance) {
+    event.preventDefault();
+    // Confirm Drivers
+    const appointmentRef = event.target.parentElement.id;
+    const appointmentDoc = Appointments.findDoc(appointmentRef);
+    const pendingRiderRef = event.target.parentElement.children[0].id;  // id of the pendingRider
+    const pendingRider = Commuters.findDoc(pendingRiderRef);
+    // Remove the pendingRider from pendingDrivers
+    let listPendingRiders = appointmentDoc.pendingRiders;
+    const pendingRiders = _.filter(listPendingRiders, function (name) {
+      return name !== pendingRider.username;
+    });
+
+    // Put pendingRider into riders
+    const listRiders = appointmentDoc.riders;
+    listRiders.push(pendingRider.username);
+    const riders = listRiders;
+    const newData = { riders, pendingRiders };
+
+    // Set new data
+    Appointments.update(appointmentRef, { $set: newData });
+  },
 });
 

@@ -16,11 +16,23 @@
         <button onclick="location.href='filter'" class="massive inverted olive ui button" style="border-radius: 50px; margin-left: 50px">
           Find a RIDE!
         </button>
+        <div class="ui two column grid">
+          <div class="column">
+            <div class="ui header">
+              Confirmed Appointments:
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui inverted header">
+              Notifications:
+            </div>
+            {{> Confirm_Riders_Directory pendingRiders=pendingRiders }}
+          </div>
+        </div>
+
       </div>
       </div>
     </div>
-    {{> Confirm_Riders_Directory pendingRiders=pendingRiders }}
-
   </div>
 
   {{/if}}

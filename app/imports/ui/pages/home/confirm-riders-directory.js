@@ -12,7 +12,6 @@ Template.Confirm_Riders_Directory.onCreated(function onCreated() {
 Template.Confirm_Riders_Directory.helpers({
   findRider(name) {
     const riderDoc = Commuters.findDoc(name);
-    console.log(riderDoc);
     return riderDoc;
   },
 });

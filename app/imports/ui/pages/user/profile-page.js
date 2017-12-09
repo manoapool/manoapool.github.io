@@ -40,9 +40,20 @@ Template.Profile_Page.helpers({
             });
   },*/
   status() {
-    return [
-        {label: "Driver", name: "Driver", checked: true},
-      {label: "Rider", name: "Rider", checked: false}];
+    const isChecked = Commuters.findDoc(FlowRouter.getParam('username')).driver;
+    if (isChecked === false) {
+      return [
+        {label: "Driver", name: "Driver", checked: false},
+        {label: "Rider", name: "Rider", checked: true}];
+    } else if (isChecked === true) {
+      return [
+        { label: "Driver", name: "Driver", checked: true },
+        { label: "Rider", name: "Rider", checked: false }];
+    } else {
+      return [
+        {label: "Driver", name: "Driver", checked: false},
+        {label: "Rider", name: "Rider", checked: false}];
+    }
   },
 });
 
@@ -94,17 +105,19 @@ Template.Profile_Page.events({
     // Invoke clean so that updatedProfileData reflects what will be inserted.
     const cleanData = Commuters.getSchema().clean(updatedProfileData);
     // Determine validity.
-    console.log(cleanData);
     instance.context.validate(cleanData);
-    console.log(instance.context.isValid());
 
     if (instance.context.isValid()) {
       const docID = Commuters.findDoc(FlowRouter.getParam('username'))._id;
       const id = Commuters.update(docID, { $set: cleanData });
+<<<<<<< HEAD
       isProfileCreated = true;
+=======
+      const name = Commuters.findDoc(FlowRouter.getParam('username')).username;
+>>>>>>> d7fd827809d4be2e6df3caacbc370db5d2d5fdb6
       instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
-      /*FlowRouter.redirect('/home');*/
+      FlowRouter.go('Home_Page', { username: name });
     } else {
       instance.messageFlags.set(displaySuccessMessage, false);
       instance.messageFlags.set(displayErrorMessages, true);

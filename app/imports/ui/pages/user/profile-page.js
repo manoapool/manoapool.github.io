@@ -110,11 +110,8 @@ Template.Profile_Page.events({
     if (instance.context.isValid()) {
       const docID = Commuters.findDoc(FlowRouter.getParam('username'))._id;
       const id = Commuters.update(docID, { $set: cleanData });
-<<<<<<< HEAD
       isProfileCreated = true;
-=======
       const name = Commuters.findDoc(FlowRouter.getParam('username')).username;
->>>>>>> d7fd827809d4be2e6df3caacbc370db5d2d5fdb6
       instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
       FlowRouter.go('Home_Page', { username: name });

@@ -31,7 +31,16 @@
             <div class="ui inverted header">
               Notifications:
             </div>
+            {{#if isDriver}}
             {{> Confirm_Riders_Directory pendingRiders=pendingRiders }}
+            {{ else }}
+            <div class="ui inverted header">
+              Unconfirmed Rides
+            </div>
+            {{#each appointment in unconfirmedAppointments }}
+            {{> Directory_Appointment appointment=appointment driver=(findDriver appointment)  }}
+            {{/each}}
+            {{/if}}
           </div>
         </div>
 

@@ -41,13 +41,42 @@ Template.Home_Page.helpers({
               return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
             });
   },
+  isDriver() {
+    const currentUser = Commuters.findDoc(FlowRouter.getParam('username'));
+    return currentUser.driver;
+  },
+  unconfirmedAppointments() {
+    const allAppointments = Appointments.findAll();
+    const currentUser = Commuters.findDoc(FlowRouter.getParam('username'));
+
+    // Return all appointments where you are a pendingRider in
+    const userUnconfirmed = _.filter(allAppointments, function (appointment) {
+      return _.contains(appointment.pendingRiders, currentUser.username);
+    });
+    console.log(userUnconfirmed);
+    return userUnconfirmed;
+  },
   confirmedAppointments() {
     const allAppointments = Appointments.findAll();
-    // Return appointments with at least one rider
-    const confirmed = _.filter(allAppointments, function (appointment) {
-      return appointment.riders.length > 0;
+    const currentUser = Commuters.findDoc(FlowRouter.getParam('username'));
+
+    // If currentUser is a driver return all the appointments where he/she is the driver and has more than one rider
+    if (currentUser.driver) {
+      // Return appointments with at least one rider
+      const confirmed = _.filter(allAppointments, function (appointment) {
+        return appointment.riders.length > 0;
+      });
+      const userConfirmed = _.filter(confirmed, function (appointment) {
+        return appointment.driver === currentUser.username;
+      });
+      return userConfirmed;
+    }
+    // If you're a rider then display the ones that you are a rider in
+    const userConfirmed = _.filter(allAppointments, function (appointment) {
+      return _.contains(appointment.riders, currentUser.username);
     });
-    return confirmed;
+    console.log(userConfirmed);
+    return userConfirmed;
   },
   findDriver(appointment) {
     const id = appointment.driver;
@@ -62,6 +91,9 @@ Template.Home_Page.helpers({
   findName(username) {
     const userDoc = Commuters.findDoc(username);
     return userDoc;
+  },
+  currentUser() {
+    return Commuters.findDoc(FlowRouter.getParam('username'));
   },
   pendingRiders() {
     // Returns array of objects that hold all riders username, the appointmentDoc

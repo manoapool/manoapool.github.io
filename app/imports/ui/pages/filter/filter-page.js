@@ -198,7 +198,7 @@ Template.Filter_Page.events({
       Appointments.update(appointmentRef.id, { $inc: { seats: -1 } });
       console.log("Seats after " + selectedAppointment.seats);
       instance.messageFlags.set(displaySuccessMessage, true);
-      Meteor.setTimeout(function() {
+      Meteor.setTimeout(function () {
         const name = Commuters.findDoc(FlowRouter.getParam('username')).username;
         FlowRouter.go('Home_Page', { username: name });
       }, (3 * 1000));

@@ -113,7 +113,10 @@ Template.Profile_Page.events({
       const name = Commuters.findDoc(FlowRouter.getParam('username')).username;
       instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
-      FlowRouter.go('Home_Page', { username: name });
+      Meteor.setTimeout(function () {
+        const name = Commuters.findDoc(FlowRouter.getParam('username')).username;
+        FlowRouter.go('Home_Page', { username: name });
+      }, (3 * 1000));
     } else {
       instance.messageFlags.set(displaySuccessMessage, false);
       instance.messageFlags.set(displayErrorMessages, true);

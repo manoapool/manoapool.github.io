@@ -39,9 +39,20 @@ Template.Profile_Page.helpers({
             });
   },*/
   status() {
-    return [
-        {label: "Driver", name: "Driver", checked: true},
-      {label: "Rider", name: "Rider", checked: false}];
+    const isChecked = Commuters.findDoc(FlowRouter.getParam('username')).driver;
+    if (isChecked === false) {
+      return [
+        {label: "Driver", name: "Driver", checked: false},
+        {label: "Rider", name: "Rider", checked: true}];
+    } else if (isChecked === true) {
+      return [
+        { label: "Driver", name: "Driver", checked: true },
+        { label: "Rider", name: "Rider", checked: false }];
+    } else {
+      return [
+        {label: "Driver", name: "Driver", checked: false},
+        {label: "Rider", name: "Rider", checked: false}];
+    }
   },
 });
 

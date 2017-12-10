@@ -79,7 +79,8 @@
 }
 
 .ui.eight.wide.column.slide1-2{
-  padding-right: 200px
+  padding-right: 200px;
+  margin-top: 120px;
 }
 
 .ui.landing-section-header{
@@ -137,8 +138,8 @@
   height: inherit;
   position: absolute;
   top:0;
-  background-color: rgba(88, 88, 88,.2);
-  color:rgba(244, 244, 244,.9);
+  background-color: transparent;
+  color: olive;
   z-index: 99;
   transition: .45s;
   cursor: pointer;
@@ -179,13 +180,13 @@ label span{
   position: relative;
   border-radius: 100%;
   display: inline-block;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: black;
   transition: .4s;
 }
 
 #nav_slide .dots:hover {
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: white;
   transition: .25s
 }
 
@@ -203,7 +204,7 @@ label span{
 #i3:checked  ~  #nav_slide #dot3,
 #i4:checked  ~  #nav_slide #dot4,
 #i5:checked  ~  #nav_slide #dot5
-{ background-color: rgba(255,255,255,.9);}
+{ background-color: olive;}
 
 @keyframes scroll{
   0%{	opacity:.4;}

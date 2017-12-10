@@ -5,12 +5,9 @@
     <form class="ui form  image-data-form {{ successClass }} {{ errorClass }}">
       {{#if Template.subscriptionsReady}}
         <img class="ui image" style="border:1px solid black;" src="{{getRecentImage.url}}">
-        {{getRecentImage.name}}
-        <a href="{{getRecentImage.url}}">Full image</a>
       {{/if}}
 
-      {{> Text_Form_Control label="Name" name="name" errorMessage=(fieldError "name")}}
-      {{> Cloudinary_Upload_Widget label="Image" errorMessage=(fieldError "url")}}
+      {{> Cloudinary_Upload_Widget errorMessage=(fieldError "url")}}
       <button class="ui primary button" type="submit">Confirm</button>
     </form>
 

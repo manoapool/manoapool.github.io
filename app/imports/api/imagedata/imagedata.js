@@ -18,10 +18,10 @@ export const ImageDataSchema = new SimpleSchema({
     label: 'URL',
     type: String,
   },
-  thumbnail: {
+  /*thumbnail: {
     label: 'Thumbnail',
     type: String,
-  },
+  },*/
 }, { tracker: Tracker });
 
 ImageData.attachSchema(ImageDataSchema);

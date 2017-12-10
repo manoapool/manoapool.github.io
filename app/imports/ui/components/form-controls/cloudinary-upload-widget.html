@@ -6,12 +6,11 @@
   like a "prefix" parameter to make the name field values unique.
   }}
   <div class="{{#if required}}required{{/if}} field">
-    <label>{{label}}</label>
-    <div class="field">
+    <div class="fields">
         <button class="ui button" id="cloudinary-upload-widget">
           Upload image file
         </button>
-        <input type="text"   name="cloudinaryFileName" placeholder="" disabled="true">
+        <input type="text" style="border:none;" name="cloudinaryFileName" placeholder="" disabled="true">
         <input type="hidden" name="cloudinaryUrl" disabled="true">
 <!--        <input type="hidden" name="cloudinaryThumbnail" disabled="true">-->
     </div>

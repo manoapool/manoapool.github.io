@@ -31,10 +31,8 @@ Template.Upload_Picture.events({
   'submit .image-data-form'(event, instance) {
     event.preventDefault();
     // Get field values.
-    const name = event.target.name.value;
     const url = event.target.cloudinaryUrl.value;
-    const thumbnail = event.target.cloudinaryThumbnail.value;
-    const newImageData = { name, url, thumbnail };
+    const newImageData = { /*name, */url/*, thumbnail*/ };
     // Clear out any old validation errors.
     instance.context.reset();
     // Invoke clean so that newStudentData reflects what will be inserted.

@@ -28,11 +28,11 @@ Template.Cloudinary_Upload_Widget.events({
           // Otherwise get the form elements
           // console.log('Cloudinary results: ', result);
           const fileName = result[0].original_filename;
-          const thumbnail = result[0].thumbnail_url;
+          /*const thumbnail = result[0].thumbnail_url;*/
           const url = result[0].url;
           $("input[name='cloudinaryFileName']").val(fileName);
           $("input[name='cloudinaryUrl']").val(url);
-          $("input[name='cloudinaryThumbnail']").val(thumbnail);
+        /*  $("input[name='cloudinaryThumbnail']").val(thumbnail);*/
         });
   },
 });

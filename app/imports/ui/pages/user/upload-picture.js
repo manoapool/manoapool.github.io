@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
-import { ImageData, ImageDataSchema } from '../../api/imagedata/imagedata.js';
+import { ImageData, ImageDataSchema } from '/imports/api/imagedata/imagedata.js';
 
 /* eslint-disable no-param-reassign */
 

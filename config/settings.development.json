@@ -10,9 +10,7 @@
       "popupWidth": 810,
       "popupHeight": 610
     },
-    "cloudinary": {
-      "cloud_name": "shooots", "upload_preset": "imumgdmf"
-    },
-    "initialDatabaseFileName": "database/initial-collection-data.json"
+    "initialDatabaseFileName": "database/initial-collection-data.json",
+    "cloudinary": {"cloud_name": "shooots", "upload_preset": "imumgdmf"}
   }
 }

@@ -25,6 +25,10 @@ Template.Upload_Picture.helpers({
     const myImages = ImageData.find().fetch();
     console.log("Getting the recent image");
     return myImages[ImageData.find().count() - 1];
+  },
+  isEmpty() {
+    const myImages = ImageData.find().fetch();
+    return ImageData.find().count() == 0;
   }
 });
 
@@ -37,10 +41,19 @@ Template.Upload_Picture.events({
     console.log(username);
     console.log("Getting the recent image2");
 
+    const isDefaultPic = function () {
+      if (ImageData.find().count() == 0) {
+        console.log(ImageData.find().count());
+        return "/images/default-profile-pic.jpg";
+      } else {
+        console.log("URL: " + myImages[ImageData.find().count() - 1].url);
+        return myImages[ImageData.find().count() - 1].url;
+      }
+    };
 
     if (event.target.cloudinaryUrl.value == "") {
-      console.log("URL: " + myImages[ImageData.find().count() - 1].url);
-      const url = myImages[ImageData.find().count() - 1].url;
+      /*const url = myImages[ImageData.find().count() - 1].url;*/
+      const url = isDefaultPic();
       console.log("UrlSinceEmpty: " + url);
 
       const newImageData = { /*name, */url/*, thumbnail*/ };

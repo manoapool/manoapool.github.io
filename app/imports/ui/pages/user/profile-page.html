@@ -6,9 +6,11 @@
     <div class="ui dividing header">
       Update Profile
     </div>
-    <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
-      {{> Upload_Picture }}
+    {{> Upload_Picture }}
+
+
+    <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
       <div class="fields">
         {{> Text_Form_Control label="First" placeholder="Philip" value=profile.firstName errorMessage=(fieldError "firstName") required=true}}

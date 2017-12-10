@@ -7,17 +7,13 @@
   }}
   <div class="{{#if required}}required{{/if}} field">
     <label>{{label}}</label>
-    <div class="fields">
-      <div class="twelve wide field">
-        <input type="text"   name="cloudinaryFileName" placeholder="Please upload image">
-        <input type="hidden" name="cloudinaryUrl" disabled="true">
-        <input type="hidden" name="cloudinaryThumbnail" disabled="true">
-      </div>
-      <div class="four wide field">
+    <div class="field">
         <button class="ui button" id="cloudinary-upload-widget">
           Upload image file
         </button>
-      </div>
+        <input type="text"   name="cloudinaryFileName" placeholder="" disabled="true">
+        <input type="hidden" name="cloudinaryUrl" disabled="true">
+<!--        <input type="hidden" name="cloudinaryThumbnail" disabled="true">-->
     </div>
     {{> Form_Error_Message errorMessage=errorMessage}}
   </div>

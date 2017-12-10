@@ -20,6 +20,11 @@ Template.Upload_Picture.helpers({
   images() {
     return ImageData.find();
   },
+  getRecentImage() {
+    const myImages = ImageData.find().fetch();
+    console.log("Getting the recent image");
+    return myImages[ImageData.find().count() - 1];
+  }
 });
 
 Template.Upload_Picture.events({

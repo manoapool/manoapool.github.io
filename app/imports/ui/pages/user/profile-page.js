@@ -4,7 +4,6 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 import { Interests } from '/imports/api/interest/InterestCollection';
 import { Commuters } from '/imports/api/commuter/CommuterCollection';
-import { ImageData } from '/imports/api/imagedata';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';

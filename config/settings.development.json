@@ -11,6 +11,6 @@
       "popupHeight": 610
     },
     "initialDatabaseFileName": "database/initial-collection-data.json",
-    "cloudinary": {"cloud_name": "shooots", "upload_preset": "imumgdmf"}
+    "cloudinary": {"cloud_name": "shooots", "upload_preset": "rtzj9wgo"}
   }
 }

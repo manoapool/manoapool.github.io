@@ -6,7 +6,6 @@ import { $ } from 'meteor/jquery';
 
 Template.Cloudinary_Upload_Widget.events({
   'click #cloudinary-upload-widget': function click(event) {
-    console.log("button works");
     event.preventDefault();
     cloudinary.openUploadWidget(
         {
@@ -16,8 +15,8 @@ Template.Cloudinary_Upload_Widget.events({
           cropping: 'server',
           cropping_aspect_ratio: 1,
           max_file_size: '500000',
-          max_image_width: '500',
-          max_image_height: '500',
+          max_image_width: '300',
+          max_image_height: '300',
           min_image_width: '300',
           min_image_height: '300',
         },

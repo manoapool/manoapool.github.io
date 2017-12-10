@@ -14,9 +14,14 @@ export const ImageDataSchema = new SimpleSchema({
     label: 'Name',
     type: String,
   },*/
+  username: {
+    label: 'Username',
+    type: String,
+  },
   url: {
     label: 'URL',
     type: String,
+    optional: true,
   },
   /*thumbnail: {
     label: 'Thumbnail',

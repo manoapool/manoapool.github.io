@@ -4,6 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 import { Interests } from '/imports/api/interest/InterestCollection';
 import { Commuters } from '/imports/api/commuter/CommuterCollection';
+import { ImageData, ImageDataSchema } from '/imports/api/imagedata/imagedata.js';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
@@ -71,15 +72,29 @@ Template.Profile_Page.events({
     };
     const driver = status();
     /*const picture = event.target.Picture.value;*/
-    const isDefaultPic = function () {
+    /*const isDefaultPic = function () {
       if (event.target.Picture.value == "") {
         console.log(event.target.Picture.value);
         return "/images/default-profile-pic.jpg";
       } else {
         return event.target.Picture.value;
       }
+    };*/
+    /*const picture = isDefaultPic();*/
+
+    const myImages = ImageData.find().fetch();
+
+    const isDefaultPic = function () {
+      if (ImageData.find().count() == 0) {
+        console.log(ImageData.find().count());
+        return "/images/default-profile-pic.jpg";
+      } else {
+        return myImages[ImageData.find().count() - 1].url;
+      }
     };
+
     const picture = isDefaultPic();
+    console.log("Picture: " + picture);
     const address = event.target.Address.value;
     const city = event.target.City.value;
     const zipcode = event.target.Zipcode.value;

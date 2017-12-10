@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
+import { Commuters } from '/imports/api/commuter/CommuterCollection';
 import { ImageData, ImageDataSchema } from '/imports/api/imagedata/imagedata.js';
 
 /* eslint-disable no-param-reassign */
@@ -31,20 +32,49 @@ Template.Upload_Picture.events({
   'submit .image-data-form'(event, instance) {
     event.preventDefault();
     // Get field values.
-    const url = event.target.cloudinaryUrl.value;
-    const newImageData = { /*name, */url/*, thumbnail*/ };
-    // Clear out any old validation errors.
-    instance.context.reset();
-    // Invoke clean so that newStudentData reflects what will be inserted.
-    const cleanData = ImageDataSchema.clean(newImageData);
-    // Determine validity.
-    instance.context.validate(cleanData);
-    if (instance.context.isValid()) {
-      ImageData.insert(cleanData);
-      instance.messageFlags.set(displayErrorMessages, false);
-      instance.find('form').reset();
+    const username = Commuters.findDoc(FlowRouter.getParam('username')).username;
+    const myImages = ImageData.find().fetch();
+    console.log(username);
+    console.log("Getting the recent image2");
+
+
+    if (event.target.cloudinaryUrl.value == "") {
+      console.log("URL: " + myImages[ImageData.find().count() - 1].url);
+      const url = myImages[ImageData.find().count() - 1].url;
+      console.log("UrlSinceEmpty: " + url);
+
+      const newImageData = { /*name, */url/*, thumbnail*/ };
+      // Clear out any old validation errors.
+      instance.context.reset();
+      // Invoke clean so that newStudentData reflects what will be inserted.
+      const cleanData = ImageDataSchema.clean(newImageData);
+      // Determine validity.
+      instance.context.validate(cleanData);
+      if (instance.context.isValid()) {
+        ImageData.insert(cleanData);
+        instance.messageFlags.set(displayErrorMessages, false);
+        instance.find('form').reset();
+      } else {
+        instance.messageFlags.set(displayErrorMessages, true);
+      }
     } else {
-      instance.messageFlags.set(displayErrorMessages, true);
+      const url = event.target.cloudinaryUrl.value;
+      console.log("Username: " + Commuters.findDoc(FlowRouter.getParam('username')).username);
+      const newImageData = { /*name, */url/*, thumbnail*/ };
+      // Clear out any old validation errors.
+      instance.context.reset();
+      // Invoke clean so that newStudentData reflects what will be inserted.
+      const cleanData = ImageDataSchema.clean(newImageData);
+      // Determine validity.
+      instance.context.validate(cleanData);
+      if (instance.context.isValid()) {
+        ImageData.insert(cleanData);
+        instance.messageFlags.set(displayErrorMessages, false);
+        instance.find('form').reset();
+      } else {
+        instance.messageFlags.set(displayErrorMessages, true);
+      }
     }
+
   },
 });

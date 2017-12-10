@@ -7,7 +7,7 @@
         <img class="ui image" style="border:1px solid black;" src="{{getRecentImage.url}}">
       {{/if}}
 
-      {{> Cloudinary_Upload_Widget errorMessage=(fieldError "url")}}
+      {{> Cloudinary_Upload_Widget label="Picture" errorMessage=(fieldError "url")}}
       <button class="ui primary button" type="submit">Confirm</button>
     </form>
 

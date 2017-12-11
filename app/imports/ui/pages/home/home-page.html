@@ -16,33 +16,27 @@
         <button onclick="location.href='filter'" class="massive inverted olive ui button" style="border-radius: 50px; margin-left: 50px">
           Find a RIDE!
         </button>
-        <div class="ui two column grid">
+        <div class="ui two column grid" style="margin-left:50px; margin-right:20px; margin-top: 50px;">
           <div class="column">
             <div class="ui inverted header">
-              Confirmed Appointments:
+              <u>Confirmed Appointments</u>
             </div>
             <div style="margin-top: 20px" class="ui cards">
               {{#each appointment in confirmedAppointments }}
-              {{> Directory_Appointment appointment=appointment driver=(findDriver appointment)  }}
-              <div class="ui bottom attached segment">
-                <p>Who's riding:</p>
-                {{#each rider in (showRiders appointment)}}
-                  {{rider.firstName}} {{rider.lastName}}
-                  Email: {{rider.email}} Phone: {{rider.phone}}s
-                {{/each}}
-              </div>
+              {{> Directory_Confirmed_Appointment appointment=appointment driver=(findDriver appointment)  }}
               {{/each}}
             </div>
           </div>
-          <div class="column">
-            <div class="ui inverted header">
-              Notifications:
-            </div>
+          <div class="column" style="padding: 5px;">
+
             {{#if isDriver}}
+            <div class="ui inverted header">
+              <u>Notifications</u>
+            </div>
             {{> Confirm_Riders_Directory pendingRiders=pendingRiders }}
             {{ else }}
             <div class="ui inverted header">
-              Unconfirmed Rides
+              <u>Unconfirmed Rides</u>
             </div>
             {{#each appointment in unconfirmedAppointments }}
             {{> Directory_Appointment appointment=appointment driver=(findDriver appointment)  }}

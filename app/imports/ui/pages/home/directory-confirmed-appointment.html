@@ -1,0 +1,35 @@
+<template name="Directory_Confirmed_Appointment">
+  <div class="card" id="{{ appointment._id }}" style="width: 300px;">
+    <div class="content">
+      <div class="header" style="margin-bottom: 5px;">
+        {{ driver.firstName }} {{ driver.lastName }}
+      </div>
+      <div class="meta">
+        Departing At: {{appointment.timeSlot}}, {{appointment.date}}.
+      </div>
+      <div class="meta">
+        Seats Available: {{ appointment.seats}}
+      </div>
+      <div class="meta">
+        Comments: {{ appointment.comments}}
+      </div>
+    </div>
+    <div class="ui bottom attached segment">
+      <div class="extra content">
+        <h2 class="ui tiny header" style="padding-bottom: 5px;">Who's Riding</h2>
+      </div>
+      {{#each rider in (showRiders appointment)}}
+      <img class="right floated small ui image" src="{{ driver.picture }}" style="max-width: 50px; height: 50px;">
+      <div class="meta">
+        {{rider.firstName}} {{rider.lastName}}
+      </div>
+      <div class="meta">
+        Email: {{rider.email}}
+      </div>
+      <div class="meta">
+        Phone: {{rider.phone}}
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</template>

@@ -64,7 +64,7 @@ Template.Upload_Picture.events({
       const url = isDefaultPic();
       console.log("UrlSinceEmpty: " + url);
 
-      const newImageData = { /* name, */ url /* , thumbnail */ };
+      const newImageData = { /* name, */ username, url /* , thumbnail */ };
       // Clear out any old validation errors.
       instance.context.reset();
       // Invoke clean so that newStudentData reflects what will be inserted.

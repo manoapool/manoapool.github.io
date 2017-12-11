@@ -5,11 +5,9 @@
     <link href='https://fonts.googleapis.com/css?family=Baloo' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Lemonada' rel='stylesheet'>
 
-    <div class="ui grid" style=" background: url('http://1.bp.blogspot.com/-1Pdt9nzhAws/WZnACrFD7iI/AAAAAAAADis/ICZ8R-Ub6dYkqplo3pjftmdbQyArWI_agCK4BGAYYCw/s1600/summershouldgetaspeedingticket.jpg')no-repeat center center fixed; padding-bottom: 100px; padding-right: 0px; width: 6000px;">
+    <div class="ui grid" style=" width: 6000px; height: 750px">
       <div class="four wide column" >
-        <h1 style="color: white; font-size: 50px; font-family: 'Baloo', Georgia, serif">
-          Shooots!</h1>
-        <div class="home-container" style="margin-right: 500px; margin-left: 30px">
+        <div class="home-container" style="margin-right: 0px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px">
 
           <input type="radio" id="i1" name="images" checked />
           <input type="radio" id="i2" name="images" />
@@ -17,38 +15,36 @@
           <input type="radio" id="i4" name="images" />
           <input type="radio" id="i5" name="images" />
 
-          <div class="slide_img" id="one">
-            <div class="ui grid slide">
-              <div class="ui eight wide column slide1">
-                <img class="ui centered rounded fluid image slide1" src="/images/landing-page-1.jpg" style="margin-top: 60px">
+          <div class="slide_img" id="one" style="background-color: white">
+            <div class="ui top fixed borderless pointing inverted labeled icon menu" style="background: transparent">
+              <div class="ui container header" style="background: transparent" >
+                <div class="item" style="padding-bottom: 0px"><h1>Shooots</h1></div>
+                <div class="right aligned black item" style="color: blue">{{> Cas_Login }}</div>
               </div>
-              <div class="ui eight wide column slide1-2">
-                <h1 class="ui landing-section-header">Commuting to school a hassel? </h1>
-                <h4 class="landing-section-header1" style="padding: 0px 20px 0px 30px">Find fellow students nearby that are headed to school right now</h4>
-              </div>
+            </div>
+            <div class="ui grid slide" style="padding-bottom: 800px; margin-bottom: 0px; background: url('/images/landing-page-1.jpg') no-repeat; background-size: cover;" >
+
             </div>
 
             <label class="prev" for="i5"><span>&#x2039;</span></label>
             <label class="next" for="i2"><span>&#x203a;</span></label>
           </div>
 
-          <div class="slide_img" id="two">
-            <div class="ui grid slide">
-              <div class="ui eight wide column slide1">
-                <img class="ui centered rounded fluid image slide1" src="/images/landing-page-2.jpg" style="margin-top: 60px">
-              </div>
-              <div class="ui eight wide column">
-                <h1 style="margin-top: 170px; padding-right: 200px" class="ui landing-section-header">Find a ride</h1>
-                <h1 style="padding-right: 200px" class="landing-section-header">Or</h1>
-                <h1 style="padding-right: 200px" class="landing-section-header">Give a ride</h1>
 
+          <div class="slide_img" id="two">
+            <div class="ui top fixed borderless pointing inverted labeled icon menu" style="background: transparent">
+              <div class="ui container header" style="background: transparent" >
+                <div class="item" style="padding-bottom: 0px"><h1>Shooots</h1></div>
               </div>
+            </div>
+            <div class="ui grid slide" style="padding-bottom: 800px; margin-bottom: 0px; background: url('/images/landing-page-2.jpg') no-repeat; background-size: cover;" >
+
             </div>
 
             <label class="prev" for="i1"><span>&#x2039;</span></label>
             <label class="next" for="i3"><span>&#x203a;</span></label>
-
           </div>
+
 
           <div class="slide_img" id="three">
             <div class="ui grid slide">
@@ -65,30 +61,31 @@
             <label class="next" for="i4"><span>&#x203a;</span></label>
           </div>
 
-          <div class="slide_img" id="four">
-            <div class="ui grid slide">
-              <div class="ui eight wide column slide1">
-                <img class="ui huge centered rounded fluid image slide1" src="/images/landing-page-4.jpg" style="margin-top: 60px">
+          <div class="slide_img" id="four" style="background-color: white">
+            <div class="ui top fixed borderless pointing inverted labeled icon menu" style="background: transparent">
+              <div class="ui container header" style="background: transparent" >
+                <div class="item" style="padding-bottom: 0px"><h1>Shooots</h1></div>
               </div>
-              <div class="ui eight wide column slide1-2">
-                <h1 class="ui landing-section-header">Rate drivers and riders </h1>
-                <h4 class="landing-section-header1" style="padding: 0px 20px 0px 30px">Highest rated will be named "Driver of the month" or "Rider of the month"</h4>
-              </div>
+            </div>
+            <div class="ui grid slide" style="padding-bottom: 800px; margin-bottom: 0px; background: url('/images/landing-page-4.jpeg') no-repeat; background-size: cover;" >
+
             </div>
 
             <label class="prev" for="i3"><span>&#x2039;</span></label>
             <label class="next" for="i5"><span>&#x203a;</span></label>
           </div>
-          <div class="slide_img" id="five">
-            <div class="ui grid slide">
-              <div class="ui eight wide column slide1">
-                <img class="ui huge centered rounded fluid image slide1" src="/images/landing-page-5.jpg" style="margin-top: 60px">
-              </div>
-              <div class="ui eight wide column slide1-2">
-                <h1 class="ui landing-section-header">Schedule when your availability </h1>
-                <h4 class="landing-section-header1" style="padding: 0px 20px 0px 30px">Input date/time when you're headed to school</h4>
+
+
+          <div class="slide_img" id="five" >
+            <div class="ui top fixed borderless pointing inverted labeled icon menu" style="background: transparent">
+              <div class="ui container header" style="background: transparent" >
+                <div class="item" style="padding-bottom: 0px"><h1 style="color: black">Shooots</h1></div>
               </div>
             </div>
+            <div class="ui grid slide" style="padding-bottom: 800px; margin-bottom: 0px; background: url('/images/landing-page-5.jpeg') no-repeat; background-size: cover;" >
+
+            </div>
+
             <label class="prev" for="i4"><span>&#x2039;</span></label>
             <label class="next" for="i1"><span>&#x203a;</span></label>
           </div>
@@ -103,11 +100,6 @@
 
         </div>
 
-        <div class="ui grid" style="margin-right: 20px">
-          <div class="ui center aligned sixteen wide column" style="margin-top: 7px; margin-right: 170px">
-            {{> Cas_Login size="large"}}
-          </div>
-        </div>
       </div>
     </div>
   </template>

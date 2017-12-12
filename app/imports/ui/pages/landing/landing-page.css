@@ -210,7 +210,7 @@ label span{
   height: 600px;
 }
 
-.ui.ten.wide.column.slide1-2{
+.ui.ten.wide.column.slide1{
   margin-left: 250px;
   padding-top: 10px;
   margin-top: 200px;
@@ -219,10 +219,8 @@ label span{
   border-radius: 50px;
 }
 
-
-
 .ui.landing-section-header{
-  font-family: 'Baloo', Georgia, serif;
+  font-family: 'Mitr', Georgia, serif;
   margin-right: 30px;
   font-size: 60px;
   color: floralwhite;
@@ -235,5 +233,26 @@ label span{
   font-size: 20px;
   color: floralwhite;
   text-shadow: 2px 2px olive;
+}
+.ui.five.wide.column.slide2 {
+  margin-left: 150px;
+  margin-top: 200px;
+  margin-bottom: 100px;
+  padding-bottom: 250px;
+  border-radius: 50px;
+
+}
+.ui.landing-section-header2 {
+  font-size: 50px;
+  padding-right: 50px;
+  text-shadow: 2px 2px white;
+  color: black;
+  padding-left: 20px;
+  text-align: center;
+  font-family: 'Mitr',Georgia, serif;;
+
+}
+.landing-section-header2 {
+}
 }
 

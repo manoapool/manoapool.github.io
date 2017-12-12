@@ -245,14 +245,66 @@ label span{
 .ui.landing-section-header2 {
   font-size: 50px;
   padding-right: 50px;
-  text-shadow: 2px 2px white;
-  color: black;
+  text-shadow: 3px 3px black;
+  color: white;
   padding-left: 20px;
   text-align: center;
   font-family: 'Mitr',Georgia, serif;;
 
 }
-.landing-section-header2 {
+
+#two{
+  background: linear-gradient(rgba(20,20,20, 0.5), rgba(20,20,20, 0.5)), url('/images/landing-page-2.jpg');
+  no-repeat;
+  background-size: cover;
+  margin-right: 7000px;
+  height: 740px;
 }
+
+.ui.seven.wide.column.slide1{
+  padding-top: 160px;
+  margin-left: 160px;
+  margin-top: 100px;
+}
+.landing-section-header3 {
+  padding-left: 100px;
+  font-family: 'Delius', Georgia, serif;
+  color: white;
+  font-size: 20px;
+  color: floralwhite;
+  text-shadow: 3px 3px black;
+
+}
+.landing-section-header4 {
+  padding-left: 40px;
+  font-family: 'Delius', Georgia, serif;
+  color: white;
+  font-size: 20px;
+  color: floralwhite;
+  text-shadow: 3px 3px black;
+  text-align: left;
+}
+
+.ui.landing-section-header4 {
+  font-size: 50px;
+  padding-right: 50px;
+  text-shadow: 3px 3px black;
+  color: white;
+  padding-left: 20px;
+  text-align: left;
+  font-family: 'Mitr',Georgia, serif;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.ui.five.wide.column.slide4{
+  padding-top: 40px;
+  margin-left: 90px;
+  margin-top: 170px;
+}
+#four{
+  background: linear-gradient(rgba(20,20,20, 0.5), rgba(20,20,20, 0.5)), url('/images/landing-page-4.jpeg') no-repeat;
+  background-size: cover;
+  margin-right: 7000px;
+  height: 740px
 }
 

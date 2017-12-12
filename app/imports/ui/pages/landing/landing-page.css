@@ -280,7 +280,7 @@ label span{
   font-family: 'Delius', Georgia, serif;
   color: white;
   font-size: 20px;
-  color: floralwhite;
+  color: white;
   text-shadow: 3px 3px black;
   text-align: left;
 }
@@ -307,4 +307,34 @@ label span{
   margin-right: 7000px;
   height: 740px
 }
+#five{
+  background: linear-gradient(rgba(20,20,20, 0.5), rgba(20,20,20, 0.5)), url('/images/landing-page-5.jpeg') no-repeat;
+  background-size: cover;
+  margin-right: 7000px;
+  height: 740px;
+}
 
+.ui.eight.wide.column.slide5 {
+  padding-top: 20px;
+  margin-left: 90px;
+  margin-top: 200px;
+}
+
+.ui.landing-section-header5 {
+  font-size: 57px;
+  padding-right: 50px;
+  text-shadow: 3px 3px black;
+  color: white;
+  padding-left: 20px;
+  text-align: left;
+  font-family: 'Mitr',Georgia, serif;
+  margin-left: 20px;
+}
+.landing-section-header5{
+  text-align: left;
+  padding-left: 40px;
+  font-family: 'Delius', Georgia, serif;
+  font-size: 20px;
+  text-shadow: 3px 3px black;
+  color: white;
+}

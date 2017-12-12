@@ -220,4 +220,10 @@ label span{
   font-family: 'Baloo', Georgia, serif;;
 }
 
+.ui.grid{
+  width: 6000px;
+  height: 600px;
+}
+
+
 

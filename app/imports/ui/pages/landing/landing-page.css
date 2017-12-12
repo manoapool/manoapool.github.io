@@ -1,78 +1,3 @@
-
-
-.landing-section-1-welcome {
-  font-family: 'Baloo', Georgia, serif;
-  font-weight: 900;
-  font-size: 72px;
-  color: white;
-}
-
-.landing-section-1-tagline {
-  color: white;
-  font-family: 'Lemonada', Georgia, serif;
-}
-
-.landing-section-header {
-  font-family: 'Baloo', Georgia, serif;
-  font-weight: 600;
-  font-size: 25px;
-  position: relative;
-  clear: both;
-  text-align: center;
-  display: block;
-  color: white;
-}
-
-.ui.container{
-  margin: 0;
-  padding: 0;
-}
-
-.ui.grid.slide1{
-  height: 0px;
-  width: 1350px;
-}
-
-.ui.eight.wide.column.slide1{
-  margin-bottom: 100px;
-  padding-top: 0px;
-}
-.ui.centered.rounded.fluid.image.slide1{
-  padding-left: 10px;
-}
-
-.ui.container{
-  margin: 0;
-  padding: 0;
-}
-
-.ui.eight.wide.column.slide1-2{
-  padding-right: 200px;
-  margin-top: 120px;
-}
-
-.ui.sixteen.wide.column.slide1-3 {
-  margin-left: 170px;
-}
-
-.ui.grid.slide{
-  height: 500px;
-  width: 1350px;
-}
-
-.ui.eight.wide.column.slide3{
-  margin: 100px 0px 0px 100px;
-  width: 300px;
-}
-
-.ui.eight.wide.column.slide4{
-  margin: 40px 0px 0px 100px;
-  width: 300px;
-}
-
-
-
-
 #i1, #i2, #i3, #i4, #i5{ display: none;}
 
 .home-container{
@@ -195,21 +120,22 @@ label span{
   .me{ display: none;}
 }
 
-.ui.huge.centered.rounded.fluid.image.slide1{
-  border-radius: 60px;
-}
-
-.ui.centered.landing-section-header{
-  font-size: 100px;
-  margin-left: 50px;
-  font-family: 'Baloo', Georgia, serif;;
-}
-
 .ui.grid{
   width: 6000px;
   height: 600px;
 }
 
+.ui.grid.slide{
+  height: 500px;
+  width: 1350px;
+}
+
+#one{
+  background: linear-gradient(rgba(20,20,20, 0.5), rgba(20,20,20, 0.5)), url('/images/landing-page-1.jpg') no-repeat;
+  background-size: cover;
+  margin-right: 7000px;
+  height: 740px;
+}
 .ui.ten.wide.column.slide1{
   margin-left: 250px;
   padding-top: 10px;
@@ -223,24 +149,26 @@ label span{
   font-family: 'Mitr', Georgia, serif;
   margin-right: 30px;
   font-size: 60px;
-  color: floralwhite;
-  text-shadow: 2px 2px olive;
+  color: white;
+  text-shadow: 2px 2px black;
+  text-align: center;
 }
 .landing-section-header1 {
   font-family: 'Delius', Georgia, serif;
   color: white;
   margin-left: 130px;
   font-size: 20px;
-  color: floralwhite;
-  text-shadow: 2px 2px olive;
+  color: white;
+  text-shadow: 2px 2px black;
 }
-.ui.five.wide.column.slide2 {
-  margin-left: 150px;
-  margin-top: 200px;
-  margin-bottom: 100px;
-  padding-bottom: 250px;
-  border-radius: 50px;
 
+
+#two{
+  background: linear-gradient(rgba(20,20,20, 0.5), rgba(20,20,20, 0.5)), url('/images/landing-page-2.jpg');
+  no-repeat;
+  background-size: cover;
+  margin-right: 7000px;
+  height: 740px;
 }
 .ui.landing-section-header2 {
   font-size: 50px;
@@ -250,18 +178,24 @@ label span{
   padding-left: 20px;
   text-align: center;
   font-family: 'Mitr',Georgia, serif;;
+}
+.ui.five.wide.column.slide2 {
+  margin-left: 150px;
+  margin-top: 200px;
+  margin-bottom: 100px;
+  padding-bottom: 250px;
+  border-radius: 50px;
 
 }
 
-#two{
-  background: linear-gradient(rgba(20,20,20, 0.5), rgba(20,20,20, 0.5)), url('/images/landing-page-2.jpg');
-  no-repeat;
+#three{
+  background: linear-gradient(rgba(20,20,20, 0.5), rgba(20,20,20, 0.5)), url('/images/landing-page-3.jpeg') no-repeat;
   background-size: cover;
   margin-right: 7000px;
-  height: 740px;
-}
+  height: 740px
 
-.ui.seven.wide.column.slide1{
+}
+.ui.seven.wide.column.slide3{
   padding-top: 160px;
   margin-left: 160px;
   margin-top: 100px;
@@ -273,8 +207,25 @@ label span{
   font-size: 20px;
   color: floralwhite;
   text-shadow: 3px 3px black;
-
 }
+.ui.landing-section-header3 {
+  font-size: 50px;
+  padding-right: 50px;
+  text-shadow: 3px 3px black;
+  color: white;
+  padding-left: 20px;
+  text-align: center;
+  font-family: 'Mitr',Georgia, serif;;
+}
+
+
+#four{
+  background: linear-gradient(rgba(20,20,20, 0.5), rgba(20,20,20, 0.5)), url('/images/landing-page-4.jpeg') no-repeat;
+  background-size: cover;
+  margin-right: 7000px;
+  height: 740px
+}
+
 .landing-section-header4 {
   padding-left: 40px;
   font-family: 'Delius', Georgia, serif;
@@ -301,12 +252,8 @@ label span{
   margin-left: 90px;
   margin-top: 170px;
 }
-#four{
-  background: linear-gradient(rgba(20,20,20, 0.5), rgba(20,20,20, 0.5)), url('/images/landing-page-4.jpeg') no-repeat;
-  background-size: cover;
-  margin-right: 7000px;
-  height: 740px
-}
+
+
 #five{
   background: linear-gradient(rgba(20,20,20, 0.5), rgba(20,20,20, 0.5)), url('/images/landing-page-5.jpeg') no-repeat;
   background-size: cover;
@@ -338,3 +285,4 @@ label span{
   text-shadow: 3px 3px black;
   color: white;
 }
+

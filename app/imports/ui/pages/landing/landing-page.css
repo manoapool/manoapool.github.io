@@ -13,26 +13,14 @@
 }
 
 .landing-section-header {
-  font-family: 'Bree Serif', Georgia, serif;
+  font-family: 'Baloo', Georgia, serif;
   font-weight: 600;
-  font-size: 36px;
+  font-size: 25px;
   position: relative;
   clear: both;
   text-align: center;
   display: block;
   color: white;
-}
-
-.landing-section-header1 {
-  font-family: 'Delius', Georgia, serif;
-  font-weight: 100;
-  font-size: 18px;
-  position: relative;
-  clear: both;
-  text-align: center;
-  display: block;
-  color: white;
-
 }
 
 .ui.container{
@@ -63,9 +51,6 @@
   margin-top: 120px;
 }
 
-.ui.landing-section-header{
-  margin-top: 20px;
-}
 .ui.sixteen.wide.column.slide1-3 {
   margin-left: 170px;
 }
@@ -225,5 +210,30 @@ label span{
   height: 600px;
 }
 
+.ui.ten.wide.column.slide1-2{
+  margin-left: 250px;
+  padding-top: 10px;
+  margin-top: 200px;
+  margin-bottom: 100px;
+  padding-bottom: 230px;
+  border-radius: 50px;
+}
 
+
+
+.ui.landing-section-header{
+  font-family: 'Baloo', Georgia, serif;
+  margin-right: 30px;
+  font-size: 60px;
+  color: floralwhite;
+  text-shadow: 2px 2px olive;
+}
+.landing-section-header1 {
+  font-family: 'Delius', Georgia, serif;
+  color: white;
+  margin-left: 130px;
+  font-size: 20px;
+  color: floralwhite;
+  text-shadow: 2px 2px olive;
+}
 

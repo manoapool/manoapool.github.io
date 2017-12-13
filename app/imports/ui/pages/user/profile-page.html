@@ -4,7 +4,11 @@
 
   <div class="ui text container segment" style="border: none; box-shadow: none;">
     <div class="ui dividing header">
-      Update Profile
+      {{#if isCreated}}
+        Update Profile
+      {{else}}
+        Create Profile
+      {{/if}}
     </div>
 
     {{> Upload_Picture }}
@@ -27,7 +31,7 @@
       </div>
 
       <div class="fields">
-        {{> Text_Form_Control label="City" placeholder="Honolulu" value=profile.city errorMessage=(fieldError "city")}}
+        {{> Select_Form_Control label="City" options=cities value=profile.city errorMessage=(fieldError "city")}}
         {{> Text_Form_Control label="Zipcode" placeholder="96822" value=profile.zipcode errorMessage=(fieldError "zipcode")}}
       </div>
 

@@ -29,6 +29,15 @@ Template.Profile_Page.helpers({
   errorClass() {
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
   },
+  isCreated() {
+    const currentUser = Commuters.findDoc(FlowRouter.getParam('username'));
+    const first = currentUser.firstName;
+    const last = currentUser.lastName;
+    if (first === undefined && last === undefined) {
+      return false;
+    }
+    return true;
+  },
   profile() {
     return Commuters.findDoc(FlowRouter.getParam('username'));
   }, /* interests() {
@@ -53,6 +62,22 @@ Template.Profile_Page.helpers({
     return [
       { label: 'Driver', name: 'Driver', checked: false },
       { label: 'Rider', name: 'Rider', checked: false }];
+  },
+  cities() {
+    return [
+      { label: 'Select a city', value: 'select a city', selected: true },
+      { label: 'Honolulu', value: 'honolulu' },
+      { label: 'Kailua', value: 'kailua' },
+      { label: 'Kaneohe', value: 'kaneohe' },
+      { label: 'Kapolei', value: 'kapolei' },
+      { label: 'Waipahu', value: 'waipahu' },
+      { label: 'Mililani', value: 'mililani' },
+      { label: 'Pearl City', value: 'pearl city' },
+      { label: 'Aiea', value: 'aiea' },
+      { label: 'Ewa Beach', value: 'ewa beach' },
+      { label: 'Waianae', value: 'waianae' },
+      { label: 'Wahiawa', value: 'wahiawa' },
+    ];
   },
 });
 
@@ -125,7 +150,10 @@ Template.Profile_Page.events({
       const name = Commuters.findDoc(FlowRouter.getParam('username')).username;
       instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
-      FlowRouter.go('Home_Page', { username: name });
+      Meteor.setTimeout(function () {
+        const name = Commuters.findDoc(FlowRouter.getParam('username')).username;
+        FlowRouter.go('Home_Page', { username: name });
+      }, (3 * 1000));
     } else {
       instance.messageFlags.set(displaySuccessMessage, false);
       instance.messageFlags.set(displayErrorMessages, true);

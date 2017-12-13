@@ -8,9 +8,9 @@
     <div class="sixteen wide column" style="margin-bottom: 20px;">
       <!--<div class="ui dividing header">-->
         {{#if isCreated}}
-          <h1 class="profile-header" style="font-size: 50px">Update Profile</h1>
+          <h1 class="profile-header" style="font-size: 40px">Update Profile</h1>
         {{else}}
-          <h1 class="profile-header" style="font-size: 50px">Create Profile</h1>
+          <h1 class="profile-header" style="font-size: 40px">Create Profile</h1>
         {{/if}}
      <!-- </div>-->
     </div>
@@ -18,12 +18,12 @@
     <div class="ui grid" id="profile">
 
     <div class="left floated left aligned eight wide column" id="image-upload">
-      <h3 class="picture-header" style="text-align: center;">Profile Picture</h3>
+      <h3 class="picture-header" style="text-align: center; font-size: 25px;">Profile Picture</h3>
       {{> Upload_Picture }}
     </div>
 
     <div class="right floated left aligned eight wide column" id="profile-form">
-      <h3 class="picture-header" style="text-align: center;">Personal Information</h3>
+      <h3 class="picture-header" style="text-align: center; font-size: 25px;">Personal Information</h3>
       <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
         <div class="fields">

@@ -3,9 +3,9 @@
     <form class="ui form  image-data-form {{ successClass }} {{ errorClass }}">
       {{#if Template.subscriptionsReady}}
         {{#if isEmpty}}
-          <img class="ui image" style="border:1px solid black; width: 300px; height: 300px;" src="/images/default-profile-pic.jpg">
+          <img class="ui bordered centered image" style="margin-bottom: 6px; width: 350px; height: 350px;" src="/images/default-profile-pic.jpg">
         {{ else }}
-          <img class="ui image" style="border:1px solid black;" src="{{getRecentImage.url}}">
+          <img class="ui bordered centered image" style="margin-bottom: 6px; width: 350px; height: 350px;" src="{{getRecentImage.url}}">
         {{/if}}
       {{/if}}
 

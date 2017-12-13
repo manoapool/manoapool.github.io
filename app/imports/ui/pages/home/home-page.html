@@ -3,52 +3,47 @@
   <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
 
 {{#if Template.subscriptionsReady}}
-  <div class="ui container">
-    <h1 style="color: black; font-family: 'Josefin Sans', Georgia, serif">Welcome,  <u>person</u>!</h1>
-    <div class="ui centered grid">
-      <div class="four wide column">
-        <button class="massive blue ui button" style="border-radius: 50px">
+  <div class="ui grid" style=" background: url('http://1.bp.blogspot.com/-1Pdt9nzhAws/WZnACrFD7iI/AAAAAAAADis/ICZ8R-Ub6dYkqplo3pjftmdbQyArWI_agCK4BGAYYCw/s1600/summershouldgetaspeedingticket.jpg')no-repeat center center fixed; padding-bottom: 400px; padding-right: 0px; width: 6000px;">
+  <div class="four wide column" >
+    <h1 style="color: white; font-size: 50px; font-family: 'Josefin Sans', Georgia, serif">
+      Welcome, {{ displayUser }}!</h1>
+    <div class="four column row" style="padding-top: 100px">
+      <div class="six wide column">
+        <button onclick="location.href='schedule'" class="massive inverted olive ui button" style="border-radius: 50px; margin-left: 400px">
           Give a RIDE!
         </button>
-      </div>
-      <div class="four wide column">
-        <button class="massive blue ui button" style="border-radius: 50px">
+
+        <button onclick="location.href='filter'" class="massive inverted olive ui button" style="border-radius: 50px; margin-left: 50px">
           Find a RIDE!
         </button>
-      </div>
-    </div>
-    <div class="ui grid" style="margin-top: 60px">
-      <div class="centered six wide column">
-      <h2 style="font-size: 50px; font-family: 'Joesfin Sans', Georgia, serif">Schdeuled Car Pools</h2>
-      <div class="ui cards">
-        <div class="card">
-          <div class="content">
-            <div class="header">Elliot Fu</div>
-            <div class="meta">Milliani</div>
-            <div class="meta">November 12, 2017 </div>
-            <div class="meta">8:00 am</div>
-            <div class="description">
-              <h4>Riders: Dequavious Johnson, Patty Krabby</h4>
+        <div class="ui two column grid" style="margin-top: 50px;">
+          <div class="column">
+            <div class="ui centered inverted header" style="padding-right: 150px;">
+              <u>Confirmed Appointments</u>
             </div>
+            <div style="margin-top: 20px" class="ui cards">
+              {{#each appointment in confirmedAppointments }}
+              {{> Directory_Confirmed_Appointment appointment=appointment driver=(findDriver appointment)  }}
+              {{/each}}
+            </div>
+          </div>
+          <div class="column" style="padding: 5px;">
+            {{#if isDriver}}
+            <div class="ui inverted header" style="padding-left: 40px;">
+              <u>Notifications</u>
+            </div>
+            {{> Confirm_Riders_Directory pendingRiders=pendingRiders }}
+            {{ else }}
+            <div class="ui inverted header">
+              <u>Unconfirmed Rides</u>
+            </div>
+            {{#each appointment in unconfirmedAppointments }}
+            {{> Directory_Unconfirmed_Appointment appointment=appointment driver=(findDriver appointment)  }}
+            {{/each}}
+            {{/if}}
           </div>
         </div>
       </div>
-      </div>
-      <div class="centered six wide column">
-        <h2 style="font-size: 50px; padding-right: 0px; font-family: 'Joesfin Sans', Georgia, serif">Car Pool History</h2>
-        <div class="ui cards">
-          <div class="card">
-            <div class="content">
-              <div class="header">Elliot Fu</div>
-              <div class="meta">Milliani</div>
-              <div class="meta">November 12, 2017 </div>
-              <div class="meta">8:00 am</div>
-              <div class="description">
-                <h4>Riders: Dequavious Johnson, Patty Krabby</h4>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>

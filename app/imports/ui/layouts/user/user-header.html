@@ -1,12 +1,17 @@
 <template name="User_Header">
-  <div class="ui top fixed borderless inverted blue menu">
-    <div class="ui container">
-      <div class="item"><h1>Shooots</h1></div>
-      <a class="{{isActiveRoute "Home_Page"}} item" href="{{pathFor "Home_Page" username=routeUserName}}">Home</a>
-      <a class="{{isActiveRoute "Profile_Page"}} item" href="{{pathFor "Profile_Page" username=routeUserName}}">Profile</a>
-      <a class="{{isActiveRoute "Filter_Page"}} item" href="{{pathFor "Filter_Page" username=routeUserName}}">Filter</a>
-      <a class="{{isActiveRoute "Ratings_Page"}} item" href="{{pathFor "Ratings_Page" username=routeUserName}}">Ratings</a>
-      <div class="right aligned item">{{> Cas_Login }}</div>
+  <link href='https://fonts.googleapis.com/css?family=Baloo' rel='stylesheet'>
+  <div class="ui top fixed borderless pointing inverted labeled icon menu">
+    <div class="ui container header" >
+      <div class="item" style="padding-bottom: 0px"><h1>Shooots</h1></div>
+      <a style="padding-bottom: 0px" class="{{isActiveRoute "Home_Page"}} item" href="{{pathFor "Home_Page" username=routeUserName}}">
+      <i class="home icon" ></i></a>
+      <a style="padding-bottom: 0px" class="{{isActiveRoute "Profile_Page"}} item" href="{{pathFor "Profile_Page" username=routeUserName}}">
+      <i class="user outline icon" style="padding-bottom: 0px"></i></a>
+      <a style="padding-bottom: 0px" class="{{isActiveRoute "Filter_Page"}} item" href="{{pathFor "Filter_Page" username=routeUserName}}">
+      <i class="filter icon" style="padding-bottom: 0px"></i></a>
+      <a style="padding-bottom: 0px" class="{{isActiveRoute "Ratings_Page"}} item" href="{{pathFor "Ratings_Page" username=routeUserName}}">
+      <i class="star half empty icon" style="padding-bottom: 0px"></i></a>
+      <div class="right aligned black item">{{> Cas_Login }}</div>
     </div>
   </div>
 </template>

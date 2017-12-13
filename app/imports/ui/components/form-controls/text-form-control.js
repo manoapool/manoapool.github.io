@@ -14,10 +14,10 @@ Template.Text_Form_Control.helpers({
 });
 
 Template.Text_Form_Control.events({
-  'mouseenter .inquiry' (event, instance) {
+  'mouseenter .inquiry'(event, instance) {
     instance.messageVisible.set(true);
   },
-  'mouseleave .inquiry' (event, instance) {
+  'mouseleave .inquiry'(event, instance) {
     instance.messageVisible.set(false);
   },
 });

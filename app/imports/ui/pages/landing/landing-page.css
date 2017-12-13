@@ -1,178 +1,328 @@
-.landing-section-1 {
-  padding: 10px 10px 50px 10px;
-  color: #024731;
-  background-color: #8eb9ff;
-
+#i1, #i2, #i3, #i4, #i5 {
+  display: none;
 }
 
-
-.landing-section-2 {
+.home-container {
+  position: relative;
+  width: 1280px;
+  user-select: none;
+  background-color: black;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   padding-bottom: 0px;
-  list-style: none;
-  text-decoration: none;
+  height: 740px
+}
+
+.home-container .slide_img {
+  position: absolute;
+  width: 100%;;
+  height: 100%;
+}
+
+.home-container .slide_img img {
+  width: inherit;
+  height: inherit;
+}
+
+.prev, .next {
+  width: 12%;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  background-color: transparent;
+  color: transparent;
+  z-index: 99;
+  transition: .45s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.next {
+  right: 0;
+}
+
+.prev {
+  left: 0;
+}
+
+label span {
+  position: absolute;
+  font-size: 100pt;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev:hover, .next:hover {
+  transition: .3s;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.home-container #nav_slide {
+  width: 100%;
+  bottom: 12%;
+  height: 11px;
+  position: absolute;
+  text-align: center;
+  z-index: 99;
+  cursor: default;
+}
+
+#nav_slide{
+  padding-right: 520px;
+  padding-left: 520px;
+  padding-top: 100px;
+}
+
+#nav_slide .dots {
+  top: -5px;
+  width: 18px;
+  height: 18px;
+  margin: 0 4px;
+  position: relative;
+  border-radius: 100%;
+  display: inline-block;
+  background-color: white;
+  transition: .4s;
+}
+
+#nav_slide .dots:hover {
+  cursor: pointer;
+  background-color: white;
+  transition: .25s
+}
+
+.slide_img {
+  z-index: -1;
+}
+
+#i1:checked ~ #one,
+#i2:checked ~ #two,
+#i3:checked ~ #three,
+#i4:checked ~ #four,
+#i5:checked ~ #five {
+  z-index: 9;
+  animation: scroll 1s ease-in-out;
+}
+
+#i1:checked ~ #nav_slide #dot1,
+#i2:checked ~ #nav_slide #dot2,
+#i3:checked ~ #nav_slide #dot3,
+#i4:checked ~ #nav_slide #dot4,
+#i5:checked ~ #nav_slide #dot5 {
+  background-color: #484849;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 685px) {
+  .container {
+    border: none;
+    width: 100%;
+    height: 0;
+    padding-bottom: 55%;
+  }
+
+  label span {
+    font-size: 50pt;
+  }
+
+  .prev, .next {
+    width: 15%;
+  }
+
+  #nav_slide .dots {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media screen  and(min-width: 970px) {
+  .me {
+    display: none;
+  }
+}
+
+.ui.grid.landing {
+  width: 6000px;
+  height: 600px;
+}
+
+.ui.grid.slide {
+  height: 500px;
+  width: 1350px;
+  padding-bottom: 0px;
   margin-bottom: 0px;
 }
 
-.landing-section-3 {
-  padding: 20px 10px 0px 10px;
-  background-color: #8eb9ff;
-  color: #E5F9E7;
+#one {
+  background: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)), url('/images/landing-page-1.jpg') no-repeat;
+  background-size: cover;
+  margin-right: 7000px;
+  height: 740px;
 }
 
-.slider{
-  overflow: hidden;
-  height: 350px;
-  padding-bottom: 450px;
-  padding-top: 70px;
+.ui.ten.wide.column.slide1 {
+  margin-left: 250px;
+  padding-top: 10px;
+  margin-top: 200px;
+  margin-bottom: 100px;
+  padding-bottom: 230px;
+  border-radius: 50px;
 }
 
-.slider figure div{
-  width: 20%;
-  float: left;
-}
-
-.slider figure img{
-  width: 100%;
-}
-.slider figure{
-  position: relative;
-  width: 500%;
-  margin: 0;
-  left: 0;
-  animation: 20s slide infinite;
-}
-
-@keyframes slide{
-  0% {
-    left: 0;
-  }
-
-  10% {
-    left: 0;
-  }
-
-  15% {
-    left: -100%;
-  }
-
-  35% {
-    left: -100%;
-
-  }
-
-  40% {
-    left: -200%;
-
-  }
-
-  60% {
-    left: -200%;
-  }
-
-  65% {
-    left: -300%;
-  }
-
-  75% {
-    left: -300%;
-  }
-
-  80%{
-    left: -400%;
-  }
-
-  90%{
-    left: -400%
-  }
-
-  100% {
-    left: 0;
-
-  }
-
-}
-
-
-
-
-.landing-section-1-welcome {
-  font-family: 'Baloo', Georgia, serif;
-  font-weight: 900;
-  font-size: 72px;
+.ui.landing-section-header {
+  font-family: 'Mitr', Georgia, serif;
+  margin-right: 30px;
+  font-size: 60px;
   color: white;
-}
-
-.landing-section-1-tagline {
-  color: white;
-  font-family: 'Lemonada', Georgia, serif;
-}
-
-.landing-section-header {
-  font-family: 'Bree Serif', Georgia, serif;
-  font-weight: 600;
-  font-size: 36px;
-  position: relative;
-  clear: both;
+  text-shadow: 2px 2px black;
   text-align: center;
-  display: block;
 }
 
 .landing-section-header1 {
   font-family: 'Delius', Georgia, serif;
-  font-weight: 100;
-  font-size: 18px;
-  position: relative;
-  clear: both;
+  color: white;
+  margin-left: 130px;
+  font-size: 20px;
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+#two {
+  background: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)), url('/images/landing-page-2.jpg');
+  no-repeat;
+  background-size: cover;
+  margin-right: 7000px;
+  height: 740px;
+}
+
+.ui.landing-section-header2 {
+  font-size: 50px;
+  padding-right: 50px;
+  text-shadow: 3px 3px black;
+  color: white;
+  padding-left: 20px;
   text-align: center;
-  display: block;
+  font-family: 'Mitr', Georgia, serif;;
+}
+
+.ui.five.wide.column.slide2 {
+  margin-left: 150px;
+  margin-top: 200px;
+  margin-bottom: 100px;
+  padding-bottom: 250px;
+  border-radius: 50px;
 
 }
 
-.ui.container{
-  margin: 0;
-  padding: 0;
+#three {
+  background: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)), url('/images/landing-page-3.jpeg') no-repeat;
+  background-size: cover;
+  margin-right: 7000px;
+  height: 740px
+
 }
 
-.ui.grid.slide1{
-  height: 500px;
-  width: 1350px;
+.ui.seven.wide.column.slide3 {
+  padding-top: 160px;
+  margin-left: 160px;
+  margin-top: 100px;
 }
 
-.ui.eight.wide.column.slide1{
-  margin-bottom: 1350px;
-  padding-top: 0px;
-}
-.ui.centered.rounded.fluid.image.slide1{
-  padding-left: 10px;
-}
-
-.ui.container{
-  margin: 0;
-  padding: 0;
+.landing-section-header3 {
+  padding-left: 100px;
+  font-family: 'Delius', Georgia, serif;
+  color: white;
+  font-size: 20px;
+  color: floralwhite;
+  text-shadow: 3px 3px black;
 }
 
-.ui.eight.wide.column.slide1-2{
-  padding-right: 200px
+.ui.landing-section-header3 {
+  font-size: 50px;
+  padding-right: 50px;
+  text-shadow: 3px 3px black;
+  color: white;
+  padding-left: 20px;
+  text-align: center;
+  font-family: 'Mitr', Georgia, serif;;
 }
 
-.ui.landing-section-header{
-  margin-top: 50px;
-}
-.ui.sixteen.wide.column.slide1-3 {
-  margin-left: 170px;
-}
-
-.ui.grid.slide{
-  height: 500px;
-  width: 1350px;
+#four {
+  background: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)), url('/images/landing-page-4.jpeg') no-repeat;
+  background-size: cover;
+  margin-right: 7000px;
+  height: 740px
 }
 
-.ui.eight.wide.column.slide3{
-  margin: 100px 0px 0px 100px;
-  width: 300px;
+.landing-section-header4 {
+  padding-left: 40px;
+  font-family: 'Delius', Georgia, serif;
+  color: white;
+  font-size: 20px;
+  color: white;
+  text-shadow: 3px 3px black;
+  text-align: left;
 }
 
-.ui.eight.wide.column.slide4{
-  margin: 40px 0px 0px 100px;
-  width: 300px;
+.ui.landing-section-header4 {
+  font-size: 50px;
+  padding-right: 50px;
+  text-shadow: 3px 3px black;
+  color: white;
+  padding-left: 20px;
+  text-align: left;
+  font-family: 'Mitr', Georgia, serif;
+  margin-left: 20px;
+  margin-top: 20px;
 }
+
+.ui.five.wide.column.slide4 {
+  padding-top: 40px;
+  margin-left: 90px;
+  margin-top: 170px;
+}
+
+#five {
+  background: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)), url('/images/landing-page-5.jpeg') no-repeat;
+  background-size: cover;
+  margin-right: 7000px;
+  height: 740px;
+}
+
+.ui.eight.wide.column.slide5 {
+  padding-top: 20px;
+  margin-left: 90px;
+  margin-top: 200px;
+}
+
+.ui.landing-section-header5 {
+  font-size: 57px;
+  padding-right: 50px;
+  text-shadow: 3px 3px black;
+  color: white;
+  padding-left: 20px;
+  text-align: left;
+  font-family: 'Mitr', Georgia, serif;
+  margin-left: 20px;
+}
+
+.landing-section-header5 {
+  text-align: left;
+  padding-left: 40px;
+  font-family: 'Delius', Georgia, serif;
+  font-size: 20px;
+  text-shadow: 3px 3px black;
+  color: white;
+}
+

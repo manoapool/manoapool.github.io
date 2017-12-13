@@ -65,12 +65,11 @@ class CommuterCollection extends BaseCollection {
   define({ firstName = '', lastName = '', username, driver=false, city = '', zipcode = '', address = '', email = '', phone = '', picture = '', seats = 0, timeOfDay = '', timeSlot = '', date = '', comments = '' }) {
     // make sure required fields are OK.
     const checkPattern = { firstName: String, lastName: String, username: String, driver: Boolean, city: String, zipcode: String, address: String, email: String, phone: String, picture: String, seats: Number, timeOfDay: String, timeSlot: String, date: String, comments: String };
-    check({ firstName, lastName, username, driver, city, zipcode, address, email, phone, picture, seats, timeOfDay, timeSlot, date, comments}, checkPattern);
+    check({ firstName, lastName, username, driver, city, zipcode, address, email, phone, picture, seats, timeOfDay, timeSlot, date, comments }, checkPattern);
 
     if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
     }
-
     return this._collection.insert({ firstName, lastName, username, driver, city, zipcode, address, email, phone, picture, seats, timeOfDay, timeSlot, date, comments });
   }
 

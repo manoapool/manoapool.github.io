@@ -6,7 +6,10 @@
     <div class="ui dividing header">
       Update Profile
     </div>
-    <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
+
+    {{> Upload_Picture }}
+
+    <form style="margin-top: 50px;" class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
       <div class="fields">
         {{> Text_Form_Control label="First" placeholder="Philip" value=profile.firstName errorMessage=(fieldError "firstName") required=true}}
@@ -17,9 +20,7 @@
         {{> Radio_Form_Control label="Status" name="Status" radios=status required=true}}
       </div>
 
-      <div class="field">
-        {{> Text_Form_Control label="Picture" placeholder="http://foo.com/shot.jpg" value=profile.picture errorMessage=(fieldError "picture") }}
-      </div>
+      <!--this is where picture text field used to be-->
 
       <div class="field">
         {{> Text_Form_Control label="Address" placeholder="Address" value=profile.address errorMessage=(fieldError "address")}}

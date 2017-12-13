@@ -10,10 +10,6 @@ export const ImageData = new Mongo.Collection('ImageData');
  * Create the schema for ImageData
  */
 export const ImageDataSchema = new SimpleSchema({
- /* name: {
-    label: 'Name',
-    type: String,
-  }, */
   username: {
     label: 'Username',
     type: String,
@@ -23,10 +19,6 @@ export const ImageDataSchema = new SimpleSchema({
     type: String,
     optional: true,
   },
-  /*thumbnail: {
-    label: 'Thumbnail',
-    type: String,
-  },*/
 }, { tracker: Tracker });
 
 ImageData.attachSchema(ImageDataSchema);

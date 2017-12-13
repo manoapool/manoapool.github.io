@@ -24,13 +24,25 @@ Template.Upload_Picture.helpers({
     return ImageData.find();
   },
   getRecentImage() {
-    const myImages = ImageData.find().fetch();
+    const username = Commuters.findDoc(FlowRouter.getParam('username')).username;
+    const allImages = ImageData.find().fetch();
+    const myImages = _.filter(allImages, function (image) {
+      return image.username === username;
+    });
     console.log('Getting the recent image');
-    return myImages[ImageData.find().count() - 1];
+    const myCurrentImage = _.last(myImages);
+    return myCurrentImage;
   },
   isEmpty() {
-    const myImages = ImageData.find();
-    return myImages.count() === 0;
+    const username = Commuters.findDoc(FlowRouter.getParam('username')).username;
+    const allImages = ImageData.find().fetch();
+    const myImages = _.filter(allImages, function (image) {
+      return image.username === username;
+    });
+    const size = _.size(myImages);
+    console.log(size);
+    // return myImages.count() === 0;
+    return size === 0;
   },
 });
 
@@ -40,13 +52,10 @@ Template.Upload_Picture.events({
     // Get field values.
     const username = Commuters.findDoc(FlowRouter.getParam('username')).username;
     const allImages = ImageData.find().fetch();
-    const myImages = _.filter(allImages, function (imagee) {
-      return imagee.username === username;
+    const myImages = _.filter(allImages, function (image) {
+      return image.username === username;
     });
     console.log(myImages);
-    // const myImagesUrl = _.where(myImages, { username: username });
-    console.log(ImageData.find().fetch());
-    // const images = _.filter(myImages);
     console.log(username);
     console.log('Getting the recent image2');
 
@@ -64,7 +73,7 @@ Template.Upload_Picture.events({
       const url = isDefaultPic();
       console.log("UrlSinceEmpty: " + url);
 
-      const newImageData = { /* name, */ username, url /* , thumbnail */ };
+      const newImageData = { username, url };
       // Clear out any old validation errors.
       instance.context.reset();
       // Invoke clean so that newStudentData reflects what will be inserted.

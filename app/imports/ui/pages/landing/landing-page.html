@@ -1,115 +1,98 @@
 <template name="Landing_Page">
-  <link href='https://fonts.googleapis.com/css?family=Bree Serif' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Delius' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Baloo' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Lemonada' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Mitr' rel='stylesheet'>
 
-
-  <div class="landing-section-1">
-    <div class="ui grid">
-
-      <div class="row">
-
-      </div>
-      <div class="row">
-        <div class="ui center aligned sixteen wide column">
-          <h1 class="landing-section-1-welcome">Shooots</h1>
-          <h3 class="landing-section-1-tagline">The solution to your commute to school</h3>
-
+  <div class="ui grid landing">
+    <div class="four wide column">
+      <div class="home-container">
+        <div class="ui top fixed borderless pointing inverted labeled icon menu" style="background: transparent">
+          <div class="ui container header" style="background: transparent">
+            <div class="item"><h1>Shooots</h1></div>
+            <div class="right aligned white item" style="color: blue">{{> Cas_Login }}</div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="landing-section-2">
-    <div class="ui container">
-      <div class="slider">
-        <figure>
-          <div class="slide">
-            <div class="ui container slide1">
-              <div class="ui grid slide1">
-                <div class="ui eight wide column slide1">
-                  <img class="ui centered rounded fluid image slide1"
-                       src="/images/landing-page(3).jpeg">
-                </div>
-                <div class="ui eight wide column slide1-2">
-                  <h1 class="ui landing-section-header">Commuting to school a hassle?</h1>
-                  <h4 class="landing-section-header1" style="padding: 0px 20px 0px 30px">Find fellow students nearby
-                    that are headed to school right now</h4>
-                  <div class="ui grid">
-                    <div class="ui sixteen wide column slide1-3">
-                      {{> Cas_Login size="large" }}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="ui grid slide">
-              <div class="ui eight wide column">
-                <img class="ui centered rounded fluid image slide1" src="/images/landing-page(1).png">
-              </div>
-              <div class="ui eight wide column">
-                <h1 style="margin-top:100px; padding-right: 200px" class="ui landing-section-header">Give a ride</h1>
-                <h1 style="padding-right: 200px" class="landing-section-header">Or</h1>
-                <h1 style="padding-right: 200px" class="landing-section-header">Find a ride</h1>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="ui grid slide">
-              <div class="ui eight wide column" style="margin-top: 40px">
-                <img class="ui centered rounded fluid image slide1" src="/images/Profile.png">
-              </div>
-              <div class="ui eight wide column">
-                <div class="ui eight wide column slide3">
-                  <h1 style="margin-top: 20px" class="ui landing-section-header">Create a profile.</h1>
-                  <h3 class="landing-section-header1">Filter through drivers in your location</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="ui grid slide">
-              <div class="ui eight wide column slide1">
-                <img class="ui centered rounded fluid image slide1" src="/images/landing-page(4).jpg">
-              </div>
-              <div class="ui eight wide column">
-                <div class="ui eight wide column" style="margin: 40px 0px 0px 100px; width: 300px">
-                  <h1 style="margin-top: 20px" class="ui landing-section-header">Rate drivers and riders</h1>
-                  <h2 class="landing-section-header1" style="font-size: 20px">Highest rated will be named "Driver of the
-                    month" or "Rider of the month".</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="ui grid slide">
-              <div class="ui eight wide column slide1">
-                <img class="ui centered rounded fluid image slide1" src="/images/landing-page(5).jpeg">
-              </div>
-              <div class="ui eight wide column">
-                <div class="ui eight wide column">
-                  <div class="ui eight wide column slide4">
-                    <h1 style="margin-top: 20px" class="ui landing-section-header">Schedule your availability </h1>
-                    <h2 class="landing-section-header1" style="font-size: 20px">Input dates/times when you're headed to
-                      school.</h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </figure>
-      </div>
-    </div>
-  </div>
-  <div class="landing-section-3">
-    <div class="ui grid">
-      <div class="ui center aligned sixteen wide column">
-        {{> Cas_Login size="large"}}
-      </div>
-    </div>
-  </div>
+        <input type="radio" id="i1" name="images" checked/>
+        <input type="radio" id="i2" name="images"/>
+        <input type="radio" id="i3" name="images"/>
+        <input type="radio" id="i4" name="images"/>
+        <input type="radio" id="i5" name="images"/>
 
+        <div class="slide_img" id="one" style="">
+          <div class="ui grid slide">
+            <div class="ui ten wide column slide1">
+              <h1 class="ui landing-section-header">Commuting to school a hassle?</h1>
+              <h4 class="landing-section-header1">Find fellow students nearby
+                that are headed to school right now</h4>
+            </div>
+          </div>
+
+          <label class="prev" for="i5" style="padding-right: 100px"><span>&#x2039;</span></label>
+          <label class="next" for="i2"><span>&#x203a;</span></label>
+        </div>
+
+
+        <div class="slide_img" id="two">
+          <div class="ui grid slide">
+            <div class="ui five wide column slide2">
+              <h1 class="ui landing-section-header2">Find a ride </h1>
+              <h1 class="ui landing-section-header2">or </h1>
+              <h1 class="ui landing-section-header2">Give a ride </h1>
+            </div>
+          </div>
+
+          <label class="prev" for="i1" style="padding-right: 100px"><span>&#x2039;</span></label>
+          <label class="next" for="i3"><span>&#x203a;</span></label>
+        </div>
+
+
+        <div class="slide_img" id="three" style="">
+          <div class="ui grid slide">
+            <div class="ui seven wide column slide3">
+              <h1 class="ui landing-section-header3">Create a profile </h1>
+              <h3 class="landing-section-header3">Filter through drivers in your location</h3>
+            </div>
+          </div>
+          <label class="prev" for="i2" style="padding-right: 100px"><span>&#x2039;</span></label>
+          <label class="next" for="i4"><span>&#x203a;</span></label>
+        </div>
+
+        <div class="slide_img" id="four">
+          <div class="ui grid slide">
+            <div class="ui five wide column slide4">
+              <h1 class="ui landing-section-header4">Rate drivers and riders </h1>
+              <h3 class="landing-section-header4">Filter through drivers in your location</h3>
+            </div>
+          </div>
+
+          <label class="prev" for="i3" style="padding-right: 100px"><span>&#x2039;</span></label>
+          <label class="next" for="i5"><span>&#x203a;</span></label>
+        </div>
+
+
+        <div class="slide_img" id="five">
+          <div class="ui grid slide">
+            <div class="ui eight wide column slide5">
+              <h1 class="ui landing-section-header5">Schedule your availability</h1>
+              <h3 class="landing-section-header5">Input dates/times when you're headed to
+                school</h3>
+            </div>
+          </div>
+
+          <label class="prev" for="i4" style="padding-right: 100px"><span>&#x2039;</span></label>
+          <label class="next" for="i1"><span>&#x203a;</span></label>
+        </div>
+        <div id="nav_slide">
+          <label for="i1" class="dots" id="dot1"></label>
+          <label for="i2" class="dots" id="dot2"></label>
+          <label for="i3" class="dots" id="dot3"></label>
+          <label for="i4" class="dots" id="dot4"></label>
+          <label for="i5" class="dots" id="dot5"></label>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
 </template>

@@ -56,22 +56,23 @@ Template.Upload_Picture.events({
       return image.username === username;
     });
     console.log(myImages);
-    console.log(username);
     console.log('Getting the recent image2');
-
-    const isDefaultPic = function () {
-      /* if (ImageData.find().count() === 0) {
-        console.log(ImageData.find().count());
+    const size = _.size(myImages);
+    const myCurrentImage = _.last(myImages);
+    const currentUrl = function () {
+      if (size === 0) {
+        console.log(size);
         return '/images/default-profile-pic.jpg';
-      } */
-      console.log("URL: " + myImages[ImageData.find().count() - 1].url);
-      return myImages[ImageData.find().count() - 1].url;
+      }
+      console.log(myCurrentImage.url);
+      return myCurrentImage.url;
+      // console.log("URL: " + myImages[ImageData.find().count() - 1].url);
+      // return myImages[ImageData.find().count() - 1].url;
     };
 
     if (event.target.cloudinaryUrl.value === '') {
       /* const url = myImages[ImageData.find().count() - 1].url; */
-      const url = isDefaultPic();
-      console.log("UrlSinceEmpty: " + url);
+      const url = currentUrl();
 
       const newImageData = { username, url };
       // Clear out any old validation errors.
@@ -89,7 +90,6 @@ Template.Upload_Picture.events({
       }
     } else {
       const url = event.target.cloudinaryUrl.value;
-      console.log("Username: " + Commuters.findDoc(FlowRouter.getParam('username')).username);
       const newImageData = { username, url };
       // Clear out any old validation errors.
       instance.context.reset();

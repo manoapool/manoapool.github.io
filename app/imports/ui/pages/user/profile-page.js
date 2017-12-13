@@ -30,9 +30,10 @@ Template.Profile_Page.helpers({
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
   },
   isCreated() {
-    const first = Commuters.findDoc(FlowRouter.getParam('username')).firstName;
-    const last = Commuters.findDoc(FlowRouter.getParam('username')).lastName;
-    if (first === '' && last === '') {
+    const currentUser = Commuters.findDoc(FlowRouter.getParam('username'));
+    const first = currentUser.firstName;
+    const last = currentUser.lastName;
+    if (first === undefined && last === undefined) {
       return false;
     }
     return true;
@@ -64,7 +65,8 @@ Template.Profile_Page.helpers({
   },
   cities() {
     return [
-      { label: 'Honolulu', value: 'honolulu', selected: true },
+      { label: 'Select a city', value: 'select a city', selected: true },
+      { label: 'Honolulu', value: 'honolulu' },
       { label: 'Kailua', value: 'kailua' },
       { label: 'Kaneohe', value: 'kaneohe' },
       { label: 'Kapolei', value: 'kapolei' },

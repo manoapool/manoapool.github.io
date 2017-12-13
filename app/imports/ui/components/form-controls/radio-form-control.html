@@ -26,10 +26,9 @@
     </div>
   }}
   <div class="{{#if required}}required{{/if}} field">
-    <label>{{label}}
-      <i class="blue help circle icon inquiries"></i>
-      {{#if showMessage}} {{message label}} {{/if}}
-    </label>
+    <label style="display: inline;">{{label}}</label>
+    <i class="blue help circle icon inquiry"></i>
+    {{#if showMessage}} {{message label}} {{/if}}
     <div class="fields">
       {{#each radio in radios}}
         {{> Radio_Field name=name label=radio.label checked=radio.checked}}

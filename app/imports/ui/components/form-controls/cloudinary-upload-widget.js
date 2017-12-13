@@ -8,8 +8,10 @@ Template.Cloudinary_Upload_Widget.events({
   'click #cloudinary-upload-widget': function click(event) {
     event.preventDefault();
     cloudinary.openUploadWidget(
-      { cloud_name: Meteor.settings.public.cloudinary.cloud_name,
-        upload_preset: Meteor.settings.public.cloudinary.upload_preset,
+      { /* cloud_name: Meteor.settings.public.cloudinary.cloud_name, */
+        /* upload_preset: Meteor.settings.public.cloudinary.upload_preset, */
+        cloud_name: 'shooots',
+        upload_preset: 'rtzj9wgo',
         sources: ['local', 'url', 'camera'],
         cropping: 'server',
         cropping_aspect_ratio: 1,

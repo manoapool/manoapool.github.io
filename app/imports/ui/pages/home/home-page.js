@@ -153,5 +153,19 @@ Template.Home_Page.events({
     console.log(appointmentRef);
     Appointments.removeIt(appointmentRef);
   },
+  'click .cancel'(event) {
+    event.preventDefault();
+    const appointmentRef = event.target.parentElement.parentElement.id;
+    const riderName = FlowRouter.getParam('username');
+    const appointmentDoc = Appointments.findDoc(appointmentRef);
+    // Remove rider from appointment's pendingRiders
+    const listPending = appointmentDoc.pendingRiders;
+    const pendingRiders = _.filter(listPending, function (name) {
+      return name !== riderName;
+    });
+    const newData = { pendingRiders };
+    Appointments.update(appointmentRef, { $inc: { seats: 1 } });
+    Appointments.update(appointmentRef, { $set: newData });
+  },
 });
 

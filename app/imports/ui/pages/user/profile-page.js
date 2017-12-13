@@ -62,6 +62,21 @@ Template.Profile_Page.helpers({
       { label: 'Driver', name: 'Driver', checked: false },
       { label: 'Rider', name: 'Rider', checked: false }];
   },
+  cities() {
+    return [
+      { label: 'Honolulu', value: 'honolulu', selected: true },
+      { label: 'Kailua', value: 'kailua' },
+      { label: 'Kaneohe', value: 'kaneohe' },
+      { label: 'Kapolei', value: 'kapolei' },
+      { label: 'Waipahu', value: 'waipahu' },
+      { label: 'Mililani', value: 'mililani' },
+      { label: 'Pearl City', value: 'pearl city' },
+      { label: 'Aiea', value: 'aiea' },
+      { label: 'Ewa Beach', value: 'ewa beach' },
+      { label: 'Waianae', value: 'waianae' },
+      { label: 'Wahiawa', value: 'wahiawa' },
+    ];
+  },
 });
 
 Template.Profile_Page.events({

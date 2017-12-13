@@ -3,8 +3,8 @@
 }
 
 .home-container {
-  position: relative;
-  width: 1280px;
+  /*position: relative;*/
+  /*width: 1280px;*/
   user-select: none;
   background-color: black;
   margin-right: 0px;
@@ -12,7 +12,7 @@
   margin-top: 0px;
   margin-bottom: 0px;
   padding-bottom: 0px;
-  height: 740px
+  /*height: 740px*/
 }
 
 .home-container .slide_img {
@@ -152,10 +152,10 @@ label span {
   }
 }
 
-.ui.grid.landing {
+/*.ui.grid.landing {
   width: 6000px;
   height: 600px;
-}
+}*/
 
 .ui.grid.slide {
   height: 500px;
@@ -168,7 +168,7 @@ label span {
   background: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)), url('/images/landing-page-1.jpg') no-repeat;
   background-size: cover;
   margin-right: 7000px;
-  height: 740px;
+  /*height: 740px;*/
 }
 
 .ui.ten.wide.column.slide1 {
@@ -203,7 +203,7 @@ label span {
   no-repeat;
   background-size: cover;
   margin-right: 7000px;
-  height: 740px;
+  /*height: 740px;*/
 }
 
 .ui.landing-section-header2 {
@@ -229,8 +229,7 @@ label span {
   background: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)), url('/images/landing-page-3.jpeg') no-repeat;
   background-size: cover;
   margin-right: 7000px;
-  height: 740px
-
+  /*height: 740px;*/
 }
 
 .ui.seven.wide.column.slide3 {
@@ -262,7 +261,7 @@ label span {
   background: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)), url('/images/landing-page-4.jpeg') no-repeat;
   background-size: cover;
   margin-right: 7000px;
-  height: 740px
+  /*height: 740px;*/
 }
 
 .landing-section-header4 {
@@ -297,7 +296,7 @@ label span {
   background: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)), url('/images/landing-page-5.jpeg') no-repeat;
   background-size: cover;
   margin-right: 7000px;
-  height: 740px;
+  /*height: 740px;*/
 }
 
 .ui.eight.wide.column.slide5 {

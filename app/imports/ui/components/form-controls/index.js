@@ -16,3 +16,5 @@ import './social-network-form-control';
 import './text-form-control.html';
 import './text-form-control.js';
 import './textarea-form-control.html';
+import './cloudinary-upload-widget.html';
+import './cloudinary-upload-widget.js';

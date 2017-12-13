@@ -19,6 +19,7 @@ ejson@1.0.14
 check@1.2.5
 standard-minifier-js@2.1.2
 shell-server@0.2.4
+mdg:validation-error
 reactive-dict@1.1.9
 dynamic-import@0.1.3
 

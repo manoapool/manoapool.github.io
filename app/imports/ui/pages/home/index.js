@@ -5,3 +5,4 @@ import './confirm-riders-directory.html';
 import './confirm-riders-directory.js';
 import './directory-confirmed-appointment.html';
 import './directory-confirmed-appointment.js';
+import './directory-unconfirmed-appointment.html';

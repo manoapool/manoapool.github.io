@@ -14,6 +14,7 @@ Template.Home_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.subscribe(Commuters.getPublicationName());
+  this.subscribe(Appointments.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
@@ -47,11 +48,11 @@ Template.Home_Page.helpers({
   },
   unconfirmedAppointments() {
     const allAppointments = Appointments.findAll();
-    const currentUser = Commuters.findDoc(FlowRouter.getParam('username'));
-
+    const currentUser = FlowRouter.getParam('username');
+    console.log(allAppointments);
     // Return all appointments where you are a pendingRider in
     const userUnconfirmed = _.filter(allAppointments, function (appointment) {
-      return _.contains(appointment.pendingRiders, currentUser.username);
+      return _.contains(appointment.pendingRiders, currentUser);
     });
     console.log(userUnconfirmed);
     return userUnconfirmed;
@@ -83,8 +84,6 @@ Template.Home_Page.helpers({
     return Commuters.findDoc(id);
   },
   displayUser() {
-    //return Profiles.findDoc(FlowRouter.getParam('username')).username;
-    //const thename = Commuters.findDoc('henric').firstName;
     const thename = Commuters.findDoc(FlowRouter.getParam('username')).firstName;
     return thename;
   },
@@ -126,50 +125,15 @@ Template.Home_Page.helpers({
 
 
 Template.Home_Page.events({
-  'submit .profile-data-form'(event, instance) {
-    event.preventDefault();
-    const firstName = event.target.First.value;
-    const lastName = event.target.Last.value;
-    const title = event.target.Title.value;
-    const location = event.target.Location.value;
-    const username = FlowRouter.getParam('username'); // schema requires username.
-    const picture = event.target.Picture.value;
-    const github = event.target.Github.value;
-    const facebook = event.target.Facebook.value;
-    const instagram = event.target.Instagram.value;
-    const bio = event.target.Bio.value;
-    const selectedInterests = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
-    const interests = _.map(selectedInterests, (option) => option.value);
-
-    const updatedProfileData = { firstName, lastName, title, picture, github, facebook, instagram, bio, interests,
-      username, location };
-
-    // Clear out any old validation errors.
-    instance.context.reset();
-    // Invoke clean so that updatedProfileData reflects what will be inserted.
-    const cleanData = Profiles.getSchema().clean(updatedProfileData);
-    // Determine validity.
-    instance.context.validate(cleanData);
-
-    if (instance.context.isValid()) {
-      const docID = Profiles.findDoc(FlowRouter.getParam('username'))._id;
-      const id = Profiles.update(docID, { $set: cleanData });
-      instance.messageFlags.set(displaySuccessMessage, id);
-      instance.messageFlags.set(displayErrorMessages, false);
-    } else {
-      instance.messageFlags.set(displaySuccessMessage, false);
-      instance.messageFlags.set(displayErrorMessages, true);
-    }
-  },
-  'click .confirm'(event, instance) {
+  'click .confirm'(event) {
     event.preventDefault();
     // Confirm Drivers
     const appointmentRef = event.target.parentElement.id;
     const appointmentDoc = Appointments.findDoc(appointmentRef);
-    const pendingRiderRef = event.target.parentElement.children[0].id;  // id of the pendingRider
+    const pendingRiderRef = event.target.parentElement.children[1].id;  // id of the pendingRider
     const pendingRider = Commuters.findDoc(pendingRiderRef);
     // Remove the pendingRider from pendingDrivers
-    let listPendingRiders = appointmentDoc.pendingRiders;
+    const listPendingRiders = appointmentDoc.pendingRiders;
     const pendingRiders = _.filter(listPendingRiders, function (name) {
       return name !== pendingRider.username;
     });
@@ -182,6 +146,12 @@ Template.Home_Page.events({
 
     // Set new data
     Appointments.update(appointmentRef, { $set: newData });
+  },
+  'click .completed'(event) {
+    event.preventDefault();
+    const appointmentRef = event.target.parentElement.parentElement.parentElement.parentElement.id;
+    console.log(appointmentRef);
+    Appointments.removeIt(appointmentRef);
   },
 });
 

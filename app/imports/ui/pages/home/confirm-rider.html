@@ -1,12 +1,13 @@
 <template name="Confirm_Rider">
 
-  <div class="ui message" id="{{ appointment._id }}" style="width: 500px; height: 150; background-color: rgba(255,255,255, 0.5)">
+  <div class="ui message" id="{{ appointment._id }}" style="border-radius: 0; width: 450px; height: 150; background-color: rgba(255,255,255, 0.5);">
+    <img class="left floated small ui image" src="{{ rider.picture }}" style="max-width: 50px; height: 50px;">
     <div class="ui inverted header" id="{{ rider.username }}">
       <u>{{rider.firstName}} {{rider.lastName}}</u> wants to join your <i>{{appointment.date}}, {{appointment.timeSlot}}</i> carpool.
     </div>
-    <div class="ui green button confirm">
-      CONFIRM
-    </div>
+    <button class="ui green button confirm" style="margin-top: 5px">
+      Confirm
+    </button>
 
   </div>
 

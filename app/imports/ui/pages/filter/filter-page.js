@@ -89,7 +89,6 @@ Template.Filter_Page.helpers({
      return _.filter(allCommuters, function (commuter) { return commuter.timeOfDay === selectedTime; });
      */
     const allAppointments = Appointments.findAll();
-
     // Filter by morning appointments
     const morningAppointments = _.filter(allAppointments, function (appointment) { return appointment.timeOfDay === 'morning'; });
     // Filter by afternoon appointments

@@ -1,7 +1,5 @@
 <template name="Upload_Picture">
 
-  <div style="margin-top: 20px" class="ui container">
-
     <form class="ui form  image-data-form {{ successClass }} {{ errorClass }}">
       {{#if Template.subscriptionsReady}}
         {{#if isEmpty}}
@@ -12,8 +10,7 @@
       {{/if}}
 
       {{> Cloudinary_Upload_Widget label="Picture" errorMessage=(fieldError "url")}}
-      <button class="ui primary button" type="submit">Confirm</button>
+      <button class="ui fluid primary button" type="submit">Confirm</button>
     </form>
 
-  </div>
 </template>

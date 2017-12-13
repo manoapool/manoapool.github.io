@@ -1,59 +1,72 @@
 <template name="Profile_Page">
+  <link rel="stylesheet" href="profile-page.css">
+  <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
 
-  {{#if Template.subscriptionsReady}}
+  <div class="ui grid container" id="main">
+    {{#if Template.subscriptionsReady}}
 
-  <div class="ui text container segment" style="border: none; box-shadow: none;">
-    <div class="ui dividing header">
-      {{#if isCreated}}
-        Update Profile
-      {{else}}
-        Create Profile
-      {{/if}}
+    <div class="sixteen wide column" style="margin-bottom: 20px;">
+      <!--<div class="ui dividing header">-->
+        {{#if isCreated}}
+          <h1 class="profile-header" style="font-size: 50px">Update Profile</h1>
+        {{else}}
+          <h1 class="profile-header" style="font-size: 50px">Create Profile</h1>
+        {{/if}}
+     <!-- </div>-->
     </div>
 
-    {{> Upload_Picture }}
+    <div class="ui grid" id="profile">
 
-    <form style="margin-top: 50px;" class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
+    <div class="left floated left aligned eight wide column" id="image-upload">
+      <h3 class="picture-header" style="text-align: center;">Profile Picture</h3>
+      {{> Upload_Picture }}
+    </div>
 
-      <div class="fields">
-        {{> Text_Form_Control label="First" placeholder="Philip" value=profile.firstName errorMessage=(fieldError "firstName") required=true}}
-        {{> Text_Form_Control label="Last" placeholder="Johnson" value=profile.lastName errorMessage=(fieldError "lastName") required=true}}
-      </div>
+    <div class="right floated left aligned eight wide column" id="profile-form">
+      <h3 class="picture-header" style="text-align: center;">Personal Information</h3>
+      <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
-      <div class="field">
-        {{> Radio_Form_Control label="Status" name="Status" radios=status required=true}}
-      </div>
+        <div class="fields">
+          {{> Text_Form_Control label="First" placeholder="Philip" value=profile.firstName errorMessage=(fieldError "firstName") required=true}}
+          {{> Text_Form_Control label="Last" placeholder="Johnson" value=profile.lastName errorMessage=(fieldError "lastName") required=true}}
+        </div>
 
-      <!--this is where picture text field used to be-->
+        <div class="field">
+          {{> Radio_Form_Control label="Status" name="Status" radios=status required=true}}
+        </div>
 
-      <div class="field">
-        {{> Text_Form_Control label="Address" placeholder="Address" value=profile.address errorMessage=(fieldError "address")}}
-      </div>
+        <!--this is where picture text field used to be-->
 
-      <div class="fields">
-        {{> Select_Form_Control label="City" options=cities value=profile.city errorMessage=(fieldError "city")}}
-        {{> Text_Form_Control label="Zipcode" placeholder="96822" value=profile.zipcode errorMessage=(fieldError "zipcode")}}
-      </div>
+        <div class="field">
+          {{> Text_Form_Control label="Address" placeholder="Address" value=profile.address errorMessage=(fieldError "address")}}
+        </div>
 
-      <div class="field">
-        {{> Text_Form_Control label="Email" placeholder="username@hawaii.edu" value=profile.email errorMessage=(fieldError "email")}}
-      </div>
+        <div class="fields">
+          {{> Select_Form_Control label="City" options=cities value=profile.city errorMessage=(fieldError "city")}}
+          {{> Text_Form_Control label="Zipcode" placeholder="96822" value=profile.zipcode errorMessage=(fieldError "zipcode")}}
+        </div>
 
-      <div class="field">
-        {{> Text_Form_Control label="Phone" value=profile.phone placeholder="(808) 000-0000" errorMessage=(fieldError "phone")}}
-      </div>
+        <div class="field">
+          {{> Text_Form_Control label="Email" placeholder="username@hawaii.edu" value=profile.email errorMessage=(fieldError "email")}}
+        </div>
 
-      <button class="ui fluid primary button" type="submit"> <!--onclick="location.href='home'"--> Submit</button>
-      {{#if displaySuccessMessage}}
-      <div class="ui success message">
-        <p>Profile data successfully updated.</p>
-      </div>
-      {{/if}}
+        <div class="field">
+          {{> Text_Form_Control label="Phone" value=profile.phone placeholder="(808) 000-0000" errorMessage=(fieldError "phone")}}
+        </div>
 
-    </form>
+        <button class="ui fluid primary button" type="submit"> <!--onclick="location.href='home'"--> Submit</button>
+        {{#if displaySuccessMessage}}
+          <div class="ui success message">
+            <p>Profile data successfully updated.</p>
+          </div>
+        {{/if}}
 
-  </div>
+      </form>
+    </div>
+
+    </div>
+
 
   {{/if}}
-
+  </div>
 </template>

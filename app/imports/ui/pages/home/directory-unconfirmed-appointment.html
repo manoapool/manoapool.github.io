@@ -1,0 +1,26 @@
+<template name="Directory_Unconfirmed_Appointment">
+  <div class="ui card" id="{{ appointment._id }}" style="background-color: rgba(255,255,255, 0.5);">
+    <div class="content">
+      <img class="right floated small ui image" src="{{ driver.picture }}" style="max-width: 100px; height: 100px;">
+      <div class="header">
+        {{ driver.firstName }} {{ driver.lastName }}
+      </div>
+
+      <div class="meta">
+        {{ driver.city}}, {{ driver.zipcode}}
+      </div>
+      <div class="meta">
+        Departing At: {{appointment.timeSlot}}, {{appointment.date}}.
+      </div>
+      <div class="meta">
+        Seats Available: {{ appointment.seats}}
+      </div>
+      <div class="meta">
+        Comments: {{ appointment.comments}}
+      </div>
+    </div>
+    <div class="extra content">
+      <button class="tiny ui red button cancel">Cancel</button>
+    </div>
+  </div>
+</template>

@@ -29,6 +29,14 @@ Template.Profile_Page.helpers({
   errorClass() {
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
   },
+  isCreated() {
+    const first = Commuters.findDoc(FlowRouter.getParam('username')).firstName;
+    const last = Commuters.findDoc(FlowRouter.getParam('username')).lastName;
+    if (first === '' && last === '') {
+      return false;
+    }
+    return true;
+  },
   profile() {
     return Commuters.findDoc(FlowRouter.getParam('username'));
   }, /* interests() {

@@ -4,7 +4,11 @@
 
   <div class="ui text container segment" style="border: none; box-shadow: none;">
     <div class="ui dividing header">
-      Update Profile
+      {{#if isProfileCreated}}
+        Update Profile
+      {{else}}
+        Create Profile
+      {{/if}}
     </div>
 
     {{> Upload_Picture }}

@@ -32,13 +32,15 @@ class CommuterCollection extends BaseCollection {
       seats: { type: Number, optional: true },
       timeOfDay: { type: String, optional: true },
       timeSlot: { type: String, optional: true },
+      date: { type: String, optional: true },
+      comments: { type: String, optional: true },
     }, { tracker: Tracker }));
   }
 
   /**
    * Defines a new Commuter.
    * @example
-   * Profiles.define({ firstName: 'Philip',
+   * Commuters.define({ firstName: 'Philip',
    *                   lastName: 'Johnson',
    *                   username: 'johnson',
    *                   driver: false
@@ -51,6 +53,8 @@ class CommuterCollection extends BaseCollection {
    *                   seats: 4
    *                   timeOfDay: 'noon'
    *                   timeSlot: '7:30am'
+   *                   date: 'November 9, 2017'
+   *                   comments: 'Meet at Starbucks'
    * @param { Object } description Object with required key username.
    * Remaining keys are optional.
    * Username must be unique for all users. It should be the UH email account.
@@ -58,16 +62,16 @@ class CommuterCollection extends BaseCollection {
    * if one or more interests are not defined.
    * @returns The newly created docID.
    */
-  define({ firstName = '', lastName = '', username, driver=true, city = '', zipcode = '', address = '', email = '', phone = '', picture = '', seats = 0, timeOfDay = '', timeSlot = '' }) {
+  define({ firstName = '', lastName = '', username, driver=false, city = '', zipcode = '', address = '', email = '', phone = '', picture = '', seats = 0, timeOfDay = '', timeSlot = '', date = '', comments = '' }) {
     // make sure required fields are OK.
-    const checkPattern = { firstName: String, lastName: String, username: String, driver: Boolean, city: String, zipcode: String, address: String, email: String, phone: String, picture: String, seats: Number, timeOfDay: String, timeSlot: String };
-    check({ firstName, lastName, username, driver, city, zipcode, address, email, phone, picture, seats, timeOfDay, timeSlot}, checkPattern);
+    const checkPattern = { firstName: String, lastName: String, username: String, driver: Boolean, city: String, zipcode: String, address: String, email: String, phone: String, picture: String, seats: Number, timeOfDay: String, timeSlot: String, date: String, comments: String };
+    check({ firstName, lastName, username, driver, city, zipcode, address, email, phone, picture, seats, timeOfDay, timeSlot, date, comments}, checkPattern);
 
     if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
     }
 
-    return this._collection.insert({ firstName, lastName, username, driver, city, zipcode, address, email, phone, picture, seats, timeOfDay, timeSlot });
+    return this._collection.insert({ firstName, lastName, username, driver, city, zipcode, address, email, phone, picture, seats, timeOfDay, timeSlot, date, comments });
   }
 
   /**
@@ -90,7 +94,10 @@ class CommuterCollection extends BaseCollection {
     const seats = doc.seats;
     const timeOfDay = doc.timeOfDay;
     const timeSlot = doc.timeSlot;
-    return { firstName, lastName, username, driver, city, zipcode, address, email, phone, picture, seats, timeOfDay, timeSlot };
+    const date = doc.date;
+    const comments = doc.comments;
+    return { firstName, lastName, username, driver, city, zipcode, address, email, phone, picture, seats,
+      timeOfDay, timeSlot, date, comments };
   }
 }
 

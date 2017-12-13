@@ -1,0 +1,16 @@
+<template name="Confirm_Rider">
+
+  <div class="ui visible message" id="{{ appointment._id }}">
+    <div class="header" id="{{ rider.username }}">
+      {{rider.firstName}} {{rider.lastName}} wants to join your {{appointment.date}}, {{appointment.timeSlot}} carpool.
+    </div>
+    <div class="ui green button confirm">
+      CONFIRM
+    </div>
+    <div class="ui red button deny">
+      DENY
+    </div>
+
+  </div>
+
+</template>

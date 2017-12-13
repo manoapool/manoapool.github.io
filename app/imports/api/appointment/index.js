@@ -1,0 +1,1 @@
+import './AppointmentCollection.js';

@@ -1,11 +1,15 @@
 <template name="Schedule_Page">
+  <link rel="stylesheet" href="schedule-page.css">
+  <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
 
+  <div class="ui container" id="main">
   {{#if Template.subscriptionsReady}}
+<h1 class="schedule-header">Schedule a Carpool</h1>
 
-  <div class="ui text container segment" style="border: none; box-shadow: none;">
-    <div class="ui dividing header">
+  <div class="ui text raised secondary segment">
+    <!--<div class="ui dividing header">
       Schedule a Carpool
-    </div>
+    </div>-->
     <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
       <div class="field">
@@ -39,5 +43,5 @@
   </div>
 
   {{/if}}
-
+  </div>
 </template>

@@ -65,7 +65,7 @@ Template.Profile_Page.helpers({
   },
   cities() {
     return [
-      { label: 'Select a city', value: 'select a city', selected: true },
+      { label: '', value: '', selected: true },
       { label: 'Honolulu', value: 'honolulu' },
       { label: 'Kailua', value: 'kailua' },
       { label: 'Kaneohe', value: 'kaneohe' },
@@ -104,7 +104,7 @@ Template.Profile_Page.events({
     }; */
     /* const picture = isDefaultPic(); */
 
-    const myImages = ImageData.find().fetch();
+    /* const myImages = ImageData.find().fetch();
 
     const isDefaultPic = function () {
       if (ImageData.find().count() === 0) {
@@ -112,9 +112,27 @@ Template.Profile_Page.events({
         return '/images/default-profile-pic.jpg';
       }
       return myImages[ImageData.find().count() - 1].url;
+    }; */
+    const username = FlowRouter.getParam('username'); // schema requires username.
+    console.log(username);
+    const allImages = ImageData.find().fetch();
+    const myImages = _.filter(allImages, function (image) {
+      return image.username === username;
+    });
+    console.log(myImages);
+    console.log('Getting the recent image2');
+    const size = _.size(myImages);
+    const myCurrentImage = _.last(myImages);
+    const currentPicture = function () {
+      if (size === 0) {
+        console.log(size);
+        return '/images/default-profile-pic.jpg';
+      }
+      console.log(myCurrentImage.url);
+      return myCurrentImage.url;
     };
 
-    const picture = isDefaultPic();
+    const picture = currentPicture();
     console.log('Picture: ' + picture);
     const address = event.target.Address.value;
     const city = event.target.City.value;
@@ -123,7 +141,6 @@ Template.Profile_Page.events({
     const phone = event.target.Phone.value;
     /* const title = event.target.Title.value;
     const location = event.target.Location.value; */
-    const username = FlowRouter.getParam('username'); // schema requires username.
     /* const github = event.target.Github.value;
     const facebook = event.target.Facebook.value;
     const instagram = event.target.Instagram.value;

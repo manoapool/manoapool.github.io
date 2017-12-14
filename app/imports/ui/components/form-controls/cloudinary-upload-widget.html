@@ -8,7 +8,9 @@
   <div class="{{#if required}}required{{/if}} field">
     <div class="fields">
         <button class="ui fluid button" id="cloudinary-upload-widget">
-          Upload image file
+          Upload image file {{#if updated}}
+          <i class="blue checkmark icon"></i>
+        {{/if}}
         </button>
         <input type="hidden" style="border:none;" name="cloudinaryFileName" placeholder="" disabled="true">
         <input type="hidden" name="cloudinaryUrl" disabled="true">

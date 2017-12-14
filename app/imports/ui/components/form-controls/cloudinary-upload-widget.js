@@ -4,6 +4,15 @@ import { $ } from 'meteor/jquery';
 
 /* global cloudinary */
 
+Template.Cloudinary_Upload_Widget.helpers({
+  updated() {
+    if (updated) {
+      return true;
+    }
+    return false;
+  },
+});
+
 Template.Cloudinary_Upload_Widget.events({
   'click #cloudinary-upload-widget': function click(event) {
     event.preventDefault();
@@ -30,6 +39,8 @@ Template.Cloudinary_Upload_Widget.events({
           // console.log('Cloudinary results: ', result);
           const fileName = result[0].original_filename;
           const url = result[0].url;
+          updated = true;
+          console.log(updated);
           $("input[name='cloudinaryFileName']").val(fileName);
           $("input[name='cloudinaryUrl']").val(url);
         });

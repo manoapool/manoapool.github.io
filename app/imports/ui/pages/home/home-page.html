@@ -3,22 +3,22 @@
   <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
 
 {{#if Template.subscriptionsReady}}
-  <div class="ui grid" style=" background: url('http://1.bp.blogspot.com/-1Pdt9nzhAws/WZnACrFD7iI/AAAAAAAADis/ICZ8R-Ub6dYkqplo3pjftmdbQyArWI_agCK4BGAYYCw/s1600/summershouldgetaspeedingticket.jpg')no-repeat center center fixed; padding-bottom: 400px; padding-right: 0px; width: 6000px;">
-  <div class="four wide column" >
-    <h1 style="color: white; font-size: 50px; font-family: 'Josefin Sans', Georgia, serif">
+  <div class="ui grid" style=" background: url('http://1.bp.blogspot.com/-1Pdt9nzhAws/WZnACrFD7iI/AAAAAAAADis/ICZ8R-Ub6dYkqplo3pjftmdbQyArWI_agCK4BGAYYCw/s1600/summershouldgetaspeedingticket.jpg')no-repeat center center fixed; background-size: cover; padding-bottom: 100px">
+    <h1 style="color: white; font-size: 30px;padding-left: 50px;padding-top: 20px; font-family: 'Josefin Sans', Georgia, serif">
       Welcome, {{ displayUser }}!</h1>
-    <div class="four column row" style="padding-top: 100px">
-      <div class="six wide column">
-        <button onclick="location.href='schedule'" class="massive inverted olive ui button" style="border-radius: 50px; margin-left: 400px">
+    <div class="ui container" style="margin: auto; width: 70%; padding-top: 100px; padding-left: 60px">
+      <div class="ui grid" style="margin: auto">
+      <div class="eighteen wide column" style="background-size: cover; margin: auto">
+        <button onclick="location.href='schedule'" class="massive inverted olive ui button" style="border-radius: 50px; margin:auto">
           Give a RIDE!
         </button>
 
-        <button onclick="location.href='filter'" class="massive inverted olive ui button" style="border-radius: 50px; margin-left: 50px">
+        <button onclick="location.href='filter'" class="massive inverted olive ui button" style="border-radius: 50px; margin-left: 100px">
           Find a RIDE!
         </button>
-        <div class="ui two column grid" style="margin-top: 50px;">
+        <div class="ui two column grid" style="margin: auto; padding-top: 60px; padding-right: 170px">
           <div class="column">
-            <div class="ui centered inverted header" style="padding-right: 150px;">
+            <div class="ui centered inverted header" style="padding-right: 90px;">
               <u>Confirmed Appointments</u>
             </div>
             <div style="margin-top: 20px" class="ui cards">
@@ -27,9 +27,9 @@
               {{/each}}
             </div>
           </div>
-          <div class="column" style="padding: 5px;">
+          <div class="column">
             {{#if isDriver}}
-            <div class="ui inverted header" style="padding-left: 40px;">
+            <div class="ui inverted header" style="padding-right: 100px;">
               <u>Notifications</u>
             </div>
             {{> Confirm_Riders_Directory pendingRiders=pendingRiders }}
@@ -45,7 +45,7 @@
         </div>
       </div>
       </div>
-    </div>
+  </div>
   </div>
 
   {{/if}}

@@ -27,8 +27,8 @@
       <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
         <div class="fields">
-          {{> Text_Form_Control label="First" placeholder="Philip" value=profile.firstName errorMessage=(fieldError "firstName") required=true}}
-          {{> Text_Form_Control label="Last" placeholder="Johnson" value=profile.lastName errorMessage=(fieldError "lastName") required=true}}
+          {{> Text_Form_Control label="First" placeholder="First Name" value=profile.firstName errorMessage=(fieldError "firstName") required=true}}
+          {{> Text_Form_Control label="Last" placeholder="Last Name" value=profile.lastName errorMessage=(fieldError "lastName") required=true}}
         </div>
 
         <div class="field">

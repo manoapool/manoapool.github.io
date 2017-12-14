@@ -182,7 +182,7 @@ Template.Filter_Page.events({
     if (currentUser.driver || duplicate) {
       if( currentUser.driver) {
         console.log('you are a driver');
-        alert('you are a fucking driver, dummy');
+        alert('You are currently a driver. Unable to book appointment.');
       }
       if( duplicate ) {
         console.log('You have already booked this appointment!');

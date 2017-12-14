@@ -66,12 +66,9 @@ Template.Upload_Picture.events({
       }
       console.log(myCurrentImage.url);
       return myCurrentImage.url;
-      // console.log("URL: " + myImages[ImageData.find().count() - 1].url);
-      // return myImages[ImageData.find().count() - 1].url;
     };
 
     if (event.target.cloudinaryUrl.value === '') {
-      /* const url = myImages[ImageData.find().count() - 1].url; */
       const url = currentUrl();
 
       const newImageData = { username, url };

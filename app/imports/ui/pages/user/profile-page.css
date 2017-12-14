@@ -1,5 +1,5 @@
 #main {
-  padding-top: 20px;
+  padding-top: 40px;
   margin-bottom: 50px;
 }
 
@@ -10,10 +10,6 @@
 
 #image-upload {
   border-right: 1px solid black;
-}
-
-#profile-form {
-
 }
 
 .profile-header {

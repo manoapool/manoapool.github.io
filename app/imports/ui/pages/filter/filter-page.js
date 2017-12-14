@@ -90,7 +90,10 @@ Template.Filter_Page.helpers({
      */
     const allAppointments = Appointments.findAll();
     // Filter by morning appointments
-    const morningAppointments = _.filter(allAppointments, function (appointment) { return appointment.timeOfDay === 'morning'; });
+    const validAppointments = _.filter(allAppointments, function (appointment) {
+      return appointment.seats > 0;
+    });
+    const morningAppointments = _.filter(validAppointments, function (appointment) { return appointment.timeOfDay === 'morning'; });
     // Filter by afternoon appointments
     const afternoonAppointments = _.filter(allAppointments, function (appointment) { return appointment.timeOfDay === 'noon'; });    // Filter by evening appointments
     const eveningAppointments = _.filter(allAppointments, function (appointment) { return appointment.timeOfDay === 'evening'; });
@@ -98,7 +101,7 @@ Template.Filter_Page.helpers({
 
     // Shows all drivers if the user hasn't selected anyone
     if (!selectedTime) {
-      return allAppointments;
+      return validAppointments;
     }
     // For now it will show different things because the timeDay variable hasn't been defined yet in Commuter
     if (selectedTime === 'morning') {

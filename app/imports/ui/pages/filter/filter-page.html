@@ -1,18 +1,22 @@
 <template name="Filter_Page">
+  <link href='https://fonts.googleapis.com/css?family=Mitr' rel='stylesheet'>
   {{#if Template.subscriptionsReady}}
   <div style="margin-top: 10px" class="ui container">
 
-      <div class="ui container">
-        <h1 class="ui header">Find a Ride</h1>
+      <div class="ui container" style="border: solid 2px black; padding: 10px; border-radius: 5px;box-shadow: 1px 3px #47494c;
+">
+        <h1 class="ui header" style="font-family: 'Mitr', Georgia, serif">Find a Ride</h1>
         <form class="ui equal width form filter-data-form">
           <div class="field">
             {{> Select_Form_Control label="Time" options=ridetimes multiple=false }}
           </div>
-          <button class="ui teal button" type="submit">shooots</button>
+          <button class="ui teal button" type="submit" style="font-family: 'Mitr', Georgia, serif;
+">shooots</button>
         </form>
       </div>
 
-    <div class="ui centered dividing header">Available Rides</div>
+    <div class="ui centered dividing header" style="font-family: 'Mitr', Georgia, serif;
+">Available Rides</div>
 
     {{#if displaySuccessMessage }}
     <div class="ui success message">
@@ -20,7 +24,7 @@
     </div>
     {{/if}}
 
-    <div class="ui container">
+    <div class="ui text raised secondary segment" style="border-radius: 5px; padding-bottom: 5px; border: solid 1px black">
         {{> Filter_Page_Directory appointments=appointments  }}
 
     </div>

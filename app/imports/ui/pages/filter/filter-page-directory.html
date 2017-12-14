@@ -1,5 +1,5 @@
 <template name="Filter_Page_Directory">
-  <div style="margin-top: 20px" class="ui cards">
+  <div style="margin-top: 20px; padding-bottom: 63px" class="ui cards">
     {{#each appointment in appointments }}
     {{> Directory_Appointment appointment=appointment driver=(findDriver appointment)  }}
     {{/each}}

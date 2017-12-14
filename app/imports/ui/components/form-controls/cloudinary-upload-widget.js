@@ -1,20 +1,24 @@
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
 import { $ } from 'meteor/jquery';
+import { ReactiveVar } from 'meteor/reactive-var';
 
 /* global cloudinary */
 
+Template.Cloudinary_Upload_Widget.onCreated(function onCreated() {
+  this.messageVisible = new ReactiveVar(false);
+});
+
 Template.Cloudinary_Upload_Widget.helpers({
-  updated() {
-    if (updated) {
-      return true;
-    }
-    return false;
+  showMessage() {
+    return Template.instance().messageVisible.get();
   },
 });
 
 Template.Cloudinary_Upload_Widget.events({
-  'click #cloudinary-upload-widget': function click(event) {
+  'click #cloudinary-upload-widget': function click(event, instance) {
+    instance.messageVisible.set(true);
+
     event.preventDefault();
     cloudinary.openUploadWidget(
       { /* cloud_name: Meteor.settings.public.cloudinary.cloud_name, */
@@ -39,8 +43,6 @@ Template.Cloudinary_Upload_Widget.events({
           // console.log('Cloudinary results: ', result);
           const fileName = result[0].original_filename;
           const url = result[0].url;
-          updated = true;
-          console.log(updated);
           $("input[name='cloudinaryFileName']").val(fileName);
           $("input[name='cloudinaryUrl']").val(url);
         });

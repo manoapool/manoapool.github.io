@@ -28,15 +28,17 @@
         <h2 class="ui tiny header" style="padding-bottom: 5px;">Who's Riding</h2>
       </div>
       {{#each rider in (showRiders appointment)}}
-      <img class="right floated small ui image" src="{{ driver.picture }}" style="max-width: 75px; height: 75px; ">
-      <div class="meta">
-        {{rider.firstName}} {{rider.lastName}}
-      </div>
-      <div class="meta">
-        Email: {{rider.email}}
-      </div>
-      <div class="meta">
-        Phone: {{rider.phone}}
+      <div class="ui container">
+        <img class="right floated small ui image" src="{{ driver.picture }}" style="max-width: 75px; height: 75px; ">
+        <div class="meta">
+          {{rider.firstName}} {{rider.lastName}}
+        </div>
+        <div class="meta">
+          Email: {{rider.email}}
+        </div>
+        <div class="meta">
+          Phone: {{rider.phone}}
+        </div>
       </div>
       {{/each}}
     </div>

@@ -7,10 +7,15 @@
   }}
   <div class="{{#if required}}required{{/if}} field">
     <div class="fields">
-        <button class="ui button" id="cloudinary-upload-widget">
+        <button class="ui fluid button" id="cloudinary-upload-widget">
           Upload image file
+          {{#if showMessage}}
+            <i class="blue checkmark icon"></i>
+            <p>Click the 'Confirm' button to update your profile picture</p>
+          {{/if}}
         </button>
-        <input type="text" style="border:none;" name="cloudinaryFileName" placeholder="" disabled="true">
+
+        <input type="hidden" style="border:none;" name="cloudinaryFileName" placeholder="" disabled="true">
         <input type="hidden" name="cloudinaryUrl" disabled="true">
 <!--        <input type="hidden" name="cloudinaryThumbnail" disabled="true">-->
     </div>

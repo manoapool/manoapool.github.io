@@ -1,0 +1,21 @@
+#main {
+  padding-top: 20px;
+  margin-bottom: 50px;
+}
+
+#profile {
+  border-radius: 20px;
+  width: 100%;
+}
+
+#image-upload {
+  border-right: 1px solid black;
+}
+
+#profile-form {
+
+}
+
+.profile-header {
+  font-family: 'Josefin Sans', sans-serif;
+}

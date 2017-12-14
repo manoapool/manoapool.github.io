@@ -4,10 +4,14 @@
 
 {{#if Template.subscriptionsReady}}
   <div class="ui grid" style=" background: url('http://1.bp.blogspot.com/-1Pdt9nzhAws/WZnACrFD7iI/AAAAAAAADis/ICZ8R-Ub6dYkqplo3pjftmdbQyArWI_agCK4BGAYYCw/s1600/summershouldgetaspeedingticket.jpg')no-repeat center center fixed; background-size: cover; padding-bottom: 100px">
-    <h1 style="color: white; font-size: 30px;padding-left: 50px;padding-top: 20px; font-family: 'Josefin Sans', Georgia, serif">
+    <div class="ui container">
+    <h1 style="color: white; font-size: 40px;padding-left: 50px;padding-top: 20px; font-family: 'Josefin Sans', Georgia, serif">
       Welcome, {{ displayUser }}!</h1>
+    </div>
     <div class="ui container" style="margin: auto; width: 70%; padding-top: 100px; padding-left: 60px">
       <div class="ui grid" style="margin: auto">
+        <div class="ui container" style="padding-left: 220px">
+          <div class="ui grid">
       <div class="eighteen wide column" style="background-size: cover; margin: auto">
         <button onclick="location.href='schedule'" class="massive inverted olive ui button" style="border-radius: 50px; margin:auto">
           Give a RIDE!
@@ -16,6 +20,9 @@
         <button onclick="location.href='filter'" class="massive inverted olive ui button" style="border-radius: 50px; margin-left: 100px">
           Find a RIDE!
         </button>
+      </div>
+          </div>
+          <div class="ui container">
         <div class="ui two column grid" style="margin: auto; padding-top: 60px; padding-right: 170px">
           <div class="column">
             <div class="ui centered inverted header" style="padding-right: 90px;">
@@ -45,6 +52,7 @@
         </div>
       </div>
       </div>
+  </div>
   </div>
   </div>
 
